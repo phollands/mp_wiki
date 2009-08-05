@@ -1,4 +1,4 @@
-#Home page for the project.
+#summary Proposed home page for the project.
 
 = UAV Dev Board Home =
 
