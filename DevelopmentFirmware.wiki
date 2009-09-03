@@ -39,5 +39,9 @@ Each Output channel can be configured as one of the following:
   * *2nd Aileron* (separately reversible from the main aileron output)
   * *Camera Roll*, *Camera Pitch*, and *Camera Yaw* controls for stabilizing an on-board camera
 
-
 Each of the 3 hardware switches on the board can also be configured to reverse any of the output channels.
+
+
+== Connecting the Extra Input and Output Channels ==
+
+The board includes built-in conections for 4 Radio Input and 3 Servo Output channels.  To use the 5th Input channel, and the 4th, 5th, an 6th Output channels, see the ConnectingExtraChannels page.
