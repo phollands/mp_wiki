@@ -1,0 +1,3 @@
+The Roll Pitch Yaw firmware is not meant for flying.  It's a test program that drives three servos proportionally to the current roll, pitch, and yaw of the UAV Dev Board.  It also sends serial data about it's orientation out the TX pin, which can be useful for visualizations on a computer.
+
+The latest update of this firmware can be found in the [http://code.google.com/p/gentlenav/downloads/list Downloads] section of this site.
