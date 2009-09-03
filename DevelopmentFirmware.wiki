@@ -1,5 +1,3 @@
-#summary Info on unreleased firmware
-
 = Development Firmware =
 
 We're currently working on a new version of the firmware that combines the features of MatrixNav and AileronAssist into one code base, adds some important new features, and allows much more configuration than previous firmwares.
