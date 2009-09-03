@@ -1,0 +1,45 @@
+#summary Info on unreleased firmware
+
+= Development Firmware =
+
+We're currently working on a new version of the firmware that combines the features of MatrixNav and AileronAssist into one code base, adds some important new features, and allows much more configuration than previous firmwares.
+
+
+== Supported Air Frames ==
+
+The new firmware will be able to be used to control a wide variety of airframes:
+  * *Standard Airplane*: Stabilize and navigate using elevator and ailerons.  This is similar to AileronAssist.
+  * *Standard Airplane Without Ailerons*: Stabilize and navigate using elevator and rudder.  This is similar to MatrixNav.
+  * *Delta Wing*: Similar to the *Standard Airplane*, but all control is performed through the 2 "elevon" control surfaces.
+  * *V-Tail*: Similar to the *Standard Airplane*, but rudder and elevator channels are mixed for a V-Tail configuration.
+  * *V-Tail Without Ailerons*: Similar to *Standard Airplane Without Ailerons*, but rudder and elevator are mixed for a V-Tail configuration.
+  * *Helicopter*: _Experimental support for stabilizing a CCPM helicopter like the TREX 450SE.  Don't use this yet without first emailing the dev list for support. :)_
+
+
+== Camera Stabilization ==
+
+The upcoming version of the firmware will also offer simple 3-axis camera stabilization.  Pete is working on a more sophisticated algorithm for this.
+
+
+== More Radio Inputs and Servo Outputs ==
+
+The firmware in development currently supports up to 5 Radio Inputs, and up to 6 Servo Outputs.  For each of the input and output channels, you can easily configure what function it serves.
+
+Each Input channel can be configured as one of the following:
+  * *Throttle*
+  * *Aileron*
+  * *Elevator*
+  * *Rudder*
+  * *Mode Switch*: Control the state of the firmware between manual, auto (you can still add your control on top of the stabilization), and return-to-launch (you can still add your control on top of the stabilization and navigation)
+  * *Camera Roll*, *Camera Pitch*, and *Camera Yaw* controls for aiming an on-board camera
+
+Each Output channel can be configured as one of the following:
+  * *Throttle*
+  * *Aileron*
+  * *Elevator*
+  * *Rudder*
+  * *2nd Aileron* (separately reversible from the main aileron output)
+  * *Camera Roll*, *Camera Pitch*, and *Camera Yaw* controls for stabilizing an on-board camera
+
+
+Each of the 3 hardware switches on the board can also be configured to reverse any of the output channels.
