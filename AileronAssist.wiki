@@ -1,0 +1,3 @@
+Aileron Assist is the latest released firmware for stabilizing a plane's pitch and roll, and navigating back to the launch location on command.
+
+See the featured downloads on the [http://code.google.com/p/gentlenav/ Project Home] page.
