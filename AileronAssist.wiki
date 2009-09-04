@@ -1,3 +1,5 @@
-Aileron Assist is the latest released firmware for stabilizing a plane's pitch and roll, and navigating back to the launch location on command.
+Aileron Assist controls a plane's elevator, ailerons, and throttle to stabilize a plane's pitch and roll, maintain altitude, and to navigate back to the launch location on command.
 
-See the featured downloads on the [http://code.google.com/p/gentlenav/ Project Home] page.
+To use Aileron Assist, you connect your RC receiver's elevator, aileron, and throttle channels, and an available switch channel (often FLAP/AUX or GEAR) to the board's inputs, and connect the boards outputs to the elevator and aileron servos, and to the speed controller for throttle control.  This firmware also requires plugging a GPS receiver into the GPS socket on the board.
+
+Detailed documentation can be found [http://gentlenav.googlecode.com/files/AileronAssistRv6.pdf here] or in the featured downloads on the [http://code.google.com/p/gentlenav/ Project Home] page.
