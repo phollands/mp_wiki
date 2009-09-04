@@ -1,3 +1,5 @@
-Matrix Nav is the latest released firmware for stabilizing a plane's pitch, and navigating back to the launch location on command.
+Matrix Nav controls a plane's elevator and rudder to stabilize its pitch, and navigate back to the launch location on command. 
 
-See the featured downloads on the [http://code.google.com/p/gentlenav/ Project Home] page.
+To use Matrix Nav, you connect your RC receiver's elevator and rudder channels, and an available switch channel (often FLAP/AUX or GEAR) to 3 of the board's inputs, and connect 2 of the boards outputs to the elevator and rudder servos.  This firmware also requires plugging a GPS receiver into the GPS socket on the board.
+
+Detailed documentation can be found [http://gentlenav.googlecode.com/files/MatrixNavRv7.pdf here] or in the featured downloads on the [http://code.google.com/p/gentlenav/ Project Home] page.
