@@ -28,3 +28,7 @@ http://www.pololu.com/picture/0J652.250.jpg
 
 
 Now to use these cables, connect the new Input 5 to a channel you want to use on your receiver.  And attach the other two female ends to 2 unused channels on your receiver.  (You can connect one of them to the BATT connection on the receiver, if that is unused in your setup.)  Note that these two channels are only being used for power, and the values from the receiver on these channels is being ignored.  Now you can connect servos to the other ends of these cables, and they will be driven as output channels 4, 5, and 6.
+
+Here's a diagram put together by Peter Hollands:
+
+http://lh4.ggpht.com/_FuqmgzUKqZs/SqvWRKCYnCI/AAAAAAAAAac/iRT22B9njv0/image002.gif
