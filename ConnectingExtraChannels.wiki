@@ -7,8 +7,6 @@ Here's how to connect the 5th Input channel, and the 4th, 5th, and 6th Output ch
 
 = Details =
 
-_First, note that this is still development code, and you should do a lot of testing and probably email the list before you actually fly with this code._
-
 The new Input runs on pin RE8.  The new outputs on RE0, RE2, and RE4.  This pins are made available along the bottom-left edge of the board  To use these pins as a radio input and servo outputs, here's what I suggest doing:
 
   * Find, re-purpose, or buy 3 male-to-female servo extension cables

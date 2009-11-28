@@ -1,0 +1,31 @@
+= UAV Dev Board =
+http://www.sparkfun.com/commerce/images/products/09038-1_i_ma.jpg
+
+The UAV Dev Board, designed by Bill Premerlani, is an IMU-based development platform for building controllers for Unmanned Aerial Vehicles.  This site hosts the development of UAV code that runs on this board, allowing it to stabilize an airplane, maintain altitude, and optionally navigate back to the launch site.
+
+You can [http://www.sparkfun.com/commerce/product_info.php?products_id=9038 buy a UAV Dev Board from Spark Fun].
+
+If you buy a UAV Dev Board, and are interested in hearing about upcoming changes, or want to participate in or influence future development, we strongly urge you to join the [http://groups.google.com/group/uavdevboard UAV Dev Board Discussion List].
+
+There is also a lively community that discusses this platform on the [http://diydrones.com/page/uav-devboard DIY Drones site].
+
+
+== Hardware Specifications ==
+This board comes with a dsPIC30F4011 CPU, an MMA7260 three axis accelerometer and 3 LISY300AL gyros already soldered as shown in the picture. It is intended for the do-it-yourselfer. By itself, it can be used to develop a three axis IMU controller. With the addition of a GPS receiver, it can be used to develop a UAV controller for an RC car, plane, or boat.  All firmware versions are compatible with the [http://www.sparkfun.com/commerce/product_info.php?products_id=465 EM406 GPS].  The new MatrixPilot firmware can also use the superior [http://store.diydrones.com/ProductDetails.asp?ProductCode=SPK-GPS-GS407 uBlox 5H GPS].
+
+
+== Already Have a UAV Dev Board? ==
+  * [http://groups.google.com/group/uavdevboard Join the uavdevboard google group to follow the latest development]
+  * [http://gentlenav.googlecode.com/files/PICProgrammingGettingStarted.pdf Get set up to program your UAV Dev Board with the latest firmware]
+  * [HowToInstall How to get your UAV Dev Board set up, installed, and connected]
+  * [HowToConfigure How to configure the firmware for your plane]
+  * [HowToContribute Contribute to the project]
+
+
+== UAV Dev Board Firmwares ==
+
+|| MatrixPilot || Matrix Pilot is still in beta, but it's almost ready to release.  It offers up to 5 input channels and 6 output channels, allows much more configuration, plus a bunch of other cool new features too. ||
+|| AileronAssist || Aileron Assist controls a plane's elevator and ailerons to stabilize a plane's pitch and roll, and to navigate back to the launch location on command. ||
+|| MatrixNav || Matrix Nav controls a plane's elevator and rudder to stabilize its pitch, and navigate back to the launch location on command. ||
+|| RollPitchYaw || The Roll Pitch Yaw firmware is not meant for flying. It's a test program that drives three servos proportionally to the current roll, pitch, and yaw of the UAV Dev Board. It also sends serial data about it's orientation out the TX pin, which can be useful for visualizations on a computer.  ||
+|| [http://code.google.com/p/gentlenav/wiki/UAVSelfTest UAVSelfTest] || The UAVSelfTest firmware lets you test that your dev board hardware is functioning properly. It helps you test the receiver channels, the servo channels, the gyros, accelerometers, LEDs, and switches. ||
