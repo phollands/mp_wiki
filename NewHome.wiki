@@ -19,7 +19,7 @@ This board comes with a dsPIC30F4011 CPU, an MMA7260 three axis accelerometer an
   * [http://gentlenav.googlecode.com/files/PICProgrammingGettingStarted.pdf Get set up to program your UAV Dev Board with the latest firmware]
   * [HowToInstall How to get your UAV Dev Board set up, installed, and connected]
   * [HowToConfigure How to configure the firmware for your plane]
-  * [Troubleshooting Troubleshooting problems with your AV Dev Board]
+  * [Troubleshooting Troubleshooting problems with your UAV Dev Board]
   * [HowToContribute Contribute to the project]
 
 
