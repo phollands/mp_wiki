@@ -1,0 +1,14 @@
+== Troubleshooting your UAV Dev Board ==
+
+If you don't see a solution to your problem here, please come on over to [http://groups.google.com/group/uavdevboard the uavdevboard google group] and ask us.
+
+
+=== I can't get MPLab to program the board ===
+
+See Bill's PIC Programming document here: http://gentlenav.googlecode.com/files/PICProgrammingGettingStarted.pdf
+
+
+=== Sometimes the board starts ignoring manual controls, or switches back to RTL mode unexpectedly ===
+
+This is a problem with some receivers that output servo signals at slightly low voltages.  This causes the UAV Dev Board to not be able to see them.  One solution is to change to a receiver that sends out stronger signals.  Another option is to lower the voltage at which the UAV Dev Board runs from 5.0V to 4.5V.  This makes the low receiver voltages look stronger relative to the UAV Dev Board's voltage.
+

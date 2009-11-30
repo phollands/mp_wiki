@@ -1,4 +1,4 @@
-= Overview =
+= MatrixPilot: Overview =
 
 MatrixPilot is the latest version of the firmware that is being actively developed. It combines the features of MatrixNav and AileronAssist into one code base, adds some important new features, and allows much more configuration than previous firmwares.
 

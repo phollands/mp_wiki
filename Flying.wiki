@@ -1,4 +1,4 @@
-== Operation ==
+== MatrixPilot: Operation ==
 You power up with the plane level and motionless, and the throttle set for off for an ESC, or for low idle for a fueled engine. It does not matter what direction your plane points when it powers up, north, south, east or west. It will achieve yaw lock in a few seconds after takeoff.
 
 After 10 seconds, the ailerons and rudder will waggle once. Then you can let go of the plane. If you have an ESC that needs for you to move the throttle stick to maximum and back, now is the time to do it.

@@ -1,4 +1,4 @@
-= Overview =
+= MatrixPilot: Connecting Extra Channels =
 
 The existing Red and Green boards only include built in connections for 4 Radio Input channels, and 3 Servo Output channels.
 

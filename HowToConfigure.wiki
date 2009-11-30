@@ -1,4 +1,4 @@
-== Configuration ==
+== MatrixPilot: Configuration ==
 
 To configure MatrixPilot to work for your plane, you'll probably need to edit your options.h file.  This page describes all the settings in that file.
 
