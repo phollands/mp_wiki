@@ -32,4 +32,4 @@ SERIAL_DEBUG, SERIAL_ARDUSTATION, SERIAL_UDB, or SERIAL_OSD_REMZIBI
 
 re-compile and re-load your firmware.
 
-http://code.google.com/p/gentlenav/source/browse/wiki/images/wiring_serial_link_v3.jpg
+http://gentlenav.googlecode.com/svn/wiki/images/wiring_serial_link_v3.jpg
