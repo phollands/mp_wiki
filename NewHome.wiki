@@ -33,3 +33,11 @@ For info on the latest developments and future plans, check out the ProjectStatu
 || MatrixNav || Matrix Nav controls a plane's elevator and rudder to stabilize its pitch, and navigate back to the launch location on command. ||
 || RollPitchYaw || The Roll Pitch Yaw firmware is not meant for flying. It's a test program that drives three servos proportionally to the current roll, pitch, and yaw of the UAV Dev Board. It also sends serial data about it's orientation out the TX pin, which can be useful for visualizations on a computer.  ||
 || [http://code.google.com/p/gentlenav/wiki/UAVSelfTest UAVSelfTest] || The UAVSelfTest firmware lets you test that your dev board hardware is functioning properly. It helps you test the receiver channels, the servo channels, the gyros, accelerometers, LEDs, and switches. ||
+
+
+== Related Projects and Sites ==
+
+  * [http://www.sparkfun.com/commerce/product_info.php?products_id=9038 Buy a UAV Dev Board from SparkFun]
+  * [http://store.diydrones.com/ProductDetails.asp?ProductCode=SPK-GPS-GS407 uBlox 5H GPS with Adapter]
+  * [http://diydrones.com/ DIY Drones Community]
+  * [http://code.google.com/p/uavexpansionboard/ "Oil Pan" UDB Expansion Board]

@@ -32,5 +32,6 @@ This version will include features that are either needed or helpful for users p
 
 === MatrixPilot 2.2 ===
 
-  * This version will hopefully include some fun acrobatic features.
+  * Add stabilization of inverted flight, hovering, knife-edge flight.
+  * Improve the mixing of manual input with stabilization controls.
   * ...

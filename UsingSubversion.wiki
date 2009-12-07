@@ -1,6 +1,6 @@
 = Check out the development code =
 
-If you're running OS X or *nix, use the instructions [http://code.google.com/p/gentlenav/source/checkout here].
+If you're running OS X or Unix/Linix, use the instructions [http://code.google.com/p/gentlenav/source/checkout here].
 
 If you're running Windows, as I assume most of us are for MPLab, then I suggest the following:
 
