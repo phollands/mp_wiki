@@ -1,4 +1,4 @@
-== Check out the development code ==
+= Check out the development code =
 
 If you're running OS X or *nix, use the instructions [http://code.google.com/p/gentlenav/source/checkout here].
 
@@ -9,7 +9,7 @@ Grab a copy of [http://tortoisesvn.net/downloads TortoiseSVN]. It integrates svn
 Once you have that installed, you can right click on the desktop or in a folder, and choose the "Svn Checkout..." option.  For the repository, enter: http://gentlenav.googlecode.com/svn/trunk/  The rest of the defaults should be fine.  That should get you a clean checkout of the most recent version of each firmware.  Note that it's fine to rename the resulting top level svn folder and move it around.
 
 
-== Create a patch ==
+= Create a patch =
 
 If you make changes that you'd like to share with others, or get feedback on, you can use TortoiseSVN to create a patch file to share.
 

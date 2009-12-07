@@ -1,0 +1,36 @@
+= Project Status =
+
+
+== What's New in MatrixPilot 2.0 ==
+
+  * Combine the functionality of MatrixNav and AileronAssist into a single firmware.
+  * Supports navigation using both ailerons and rudder.
+  * Increase the number of Radio Input channels (from 4 to 5), and Servo Output channels (from 3 to 6).
+  * Support controlling Delta wing and VTail airframes, in addition to Standard airframes.
+  * More responsive to switching between Manual, Stabilized, and Waypoint modes.
+  * Support using the new uBlox GPS for faster navigation responses.
+  * Super-basic camera stabilization code.
+  * Add serial telemetry output in a variety of formats.
+    * Support for telemetry output in our own UAV Dev Board format.
+    * Support for telemetry output using an Ardupilot Ground Station compatible format.
+    * Support for NMEA output to a Remzibi OSD.
+  
+
+== Future Roadmap ==
+
+As with all long term plans, these could change at any time, but here's where we're thinking we'll go in the next couple releases.
+
+=== MatrixPilot 2.1 ===
+
+This version will include features that are either needed or helpful for users participating in the [http://www.sparkfun.com/commerce/product_info.php?products_id=9016 SparkFun Autonomous Vehicle Challenge] on April 17th, 2010.
+
+  * Add support for absolute waypoints.
+  * Improve robustness of launching while in Waypoint mode.
+  * Possibly add support for automatic detection of, and adjustment for average wind speed and direction.
+  * ...
+
+
+=== MatrixPilot 2.2 ===
+
+  * This version will hopefully include some fun acrobatic features.
+  * ...

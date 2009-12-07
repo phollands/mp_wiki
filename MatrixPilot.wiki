@@ -4,6 +4,8 @@ MatrixPilot is the latest version of the firmware that is being actively develop
 
 The code is located here: http://code.google.com/p/gentlenav/source/browse/#svn/trunk/MatrixPilot
 
+You can also check out the ProjectStatus.
+
 
 == Supported Air Frames ==
 

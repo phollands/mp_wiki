@@ -1,4 +1,4 @@
-== Troubleshooting your UAV Dev Board ==
+= Troubleshooting your UAV Dev Board =
 
 If you don't see a solution to your problem here, please come on over to [http://groups.google.com/group/uavdevboard the uavdevboard google group] and ask us.
 

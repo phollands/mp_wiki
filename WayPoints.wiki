@@ -1,4 +1,4 @@
-== Waypoints 1.0 Installation, Setup and Operation for MatrixNav, AileronAssist, and MatrixPilot ==
+= Waypoints 1.0 Installation, Setup and Operation for MatrixNav, AileronAssist, and MatrixPilot =
 
 MatrixNav, AileronAssist, and MatrixPilot firmwares have the following features:
   * Waypoints are 3D. You specify location of the points relative to the initialization location of the board.

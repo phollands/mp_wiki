@@ -16,7 +16,7 @@ This board comes with a dsPIC30F4011 CPU, an MMA7260 three axis accelerometer an
 
 == Already Have a UAV Dev Board? ==
   * [http://groups.google.com/group/uavdevboard Join the uavdevboard google group to follow the latest development]
-  * [http://gentlenav.googlecode.com/files/PICProgrammingGettingStarted.pdf Get set up to program your UAV Dev Board with the latest firmware]
+  * [http://gentlenav.googlecode.com/files/PICProgrammingGettingStarted.pdf Get set up to program your UAV Dev Board with the latest firmware (PDF)]
   * [HowToInstall How to get your UAV Dev Board set up, installed, and connected]
   * [HowToConfigure How to configure the firmware for your plane]
   * [SerialConnection Connect a Serial Cable from the UAV Dev Board to a Computer]
@@ -25,6 +25,8 @@ This board comes with a dsPIC30F4011 CPU, an MMA7260 three axis accelerometer an
 
 
 == UAV Dev Board Firmwares ==
+
+For info on the latest developments and future plans, check out the ProjectStatus page.
 
 || MatrixPilot || Matrix Pilot is still in beta, but it's almost ready to release.  It offers up to 5 input channels and 6 output channels, allows much more configuration, plus a bunch of other cool new features too. ||
 || AileronAssist || Aileron Assist controls a plane's elevator and ailerons to stabilize a plane's pitch and roll, and to navigate back to the launch location on command. ||

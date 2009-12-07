@@ -1,5 +1,6 @@
-== MatrixPilot: Power up and manual checkout ==
-Power everything up. Turn on your transmitter first, and then your plane. If you are using an electronic speed control, make very sure that the throttle stick is set for minimum throttle and the mode control is set for manual. Otherwise your motor could possibly come on during the initialization sequence. It might be a good idea to prepare for the possibility that the motor will come on during initialization, until you go through the setup process once.
+= MatrixPilot: Power up and manual checkout =
+
+Power everything up. Turn on your transmitter first, and then your plane. If you are using an electronic speed control, make very sure that the throttle stick is set for minimum throttle and the mode control is set for manual. Otherwise your motor could possibly come on during the initialization sequence. It might be a good idea to prepare for the possibility that the motor will come on during initialization, until you go through the setup process once.
 
 Hold the plane level and steady during the first 10 seconds of power up.
 
@@ -13,7 +14,8 @@ Now you need to wait for GPS lock, it may take a minute or two. After the GPS lo
 
 
 == Stabilization checkout ==
-Test the stabilization functions, including altitude hold. If you are using a stick and trim tab, move the trim tab all the way to the right. Make sure the throttle is in the off position. Put the controls in "stabilize mode", but be prepared for the possibility that the motor will come on. Now is the time to check that the throttle reversing switch (SR3 by default), is in the right position. Make sure the controls are in the stabilize mode, and advance the throttle. If you have the throttle reversing switch in the correct position, the throttle will “snap” on to the minimum throttle setting. If you have the throttle reversing switch in the wrong position, the altitude hold will not engage, and the motor will stay off. So, if the motor does not come on, then this switch is in the wrong position, flip it the other way. Once you have it in the correct position, test out the altitude hold function by slowly increasing the throttle. What you are doing is changing the commanded altitude. At some point, the motor will turn on rather abruptly. Switch back and forth between manual and stabilized mode and notice the different throttle response in the two modes.
+
+Test the stabilization functions, including altitude hold. If you are using a stick and trim tab, move the trim tab all the way to the right. Make sure the throttle is in the off position. Put the controls in "stabilize mode", but be prepared for the possibility that the motor will come on. Now is the time to check that the throttle reversing switch (SR3 by default), is in the right position. Make sure the controls are in the stabilize mode, and advance the throttle. If you have the throttle reversing switch in the correct position, the throttle will “snap” on to the minimum throttle setting. If you have the throttle reversing switch in the wrong position, the altitude hold will not engage, and the motor will stay off. So, if the motor does not come on, then this switch is in the wrong position, flip it the other way. Once you have it in the correct position, test out the altitude hold function by slowly increasing the throttle. What you are doing is changing the commanded altitude. At some point, the motor will turn on rather abruptly. Switch back and forth between manual and stabilized mode and notice the different throttle response in the two modes.
 
 Next, set the throttle back to off, still in the stabilized mode, and then check pitch, roll, and yaw response. When you pitch, roll, and yaw the plane, the elevator, ailerons, and rudder should respond (for a standard airframe). The elevator should respond to pitch, the ailerons to roll and yaw, and the rudder to yaw.
 
@@ -32,7 +34,10 @@ If when moving the dev board between planes, you change SR1, SR2, or SR3, rememb
 
 Once you have stabilize mode checked out, test the Waypoint function. You can do that by moving your 3-way mode switch to the 3rd position. Keep in mind that, depending on your settings, the motor may come on.  Walk around and see what the ailerons elevator, and rudder do. The elevator should continue pitch control. The ailerons should stabilize the roll, and also try to turn the plane back to the RTL point, as should the rudder.
 
-Here are a few tips for doing that:  * Temporarily set any rate feedback gains to zero, so that you do not have to hold the plane steady.  * Keep the throttle stick off so the motor does not come on. Better yet, disconnect the motor, if that is possible.  * Use short course legs so that you do not have to walk too far. 
+Here are a few tips for doing that:
+  * Temporarily set any rate feedback gains to zero, so that you do not have to hold the plane steady.
+  * Keep the throttle stick off so the motor does not come on. Better yet, disconnect the motor, if that is possible.
+  * Use short course legs so that you do not have to walk too far. 
 
 There is one more important part of Waypoint mode that you will want to test: what will be the bank angle when you switch to Waypoint mode when the plane is going 180 degrees away from the next waypoint.
 
@@ -47,8 +52,11 @@ How you configure the UAV Dev Board to recognize signal loss depends on what you
   * If your receiver just continues outputting the last known values for all channels, you actually can not make use of RTL.
   * If your receiver has a programmable loss-of-signal fail-safe, even just for one channel (usually throttle), program the fail safe to set this channel outside the range of valid pulse widths, and set your FAILSAFE_INPUT_CHANNEL to this channel.  
   
-In order to make the best use of the capabilities of the waypoints function, it is suggested that you set up the radio fail safe as follows:  * Set the rudder, ailerons, and elevator for center position.
-  * Set the control mode selection channel to select the waypointsfunction.  * Set the throttle however you want. If you are not using altitude hold, the motor will respond accordingly. If you are using altitude hold, If you set the throttle for full off, the aircraft will follow the waypoints with the throttle off. If you set the throttle for anything else, the aircraft will continue to follow the waypoints, including the height coordinates.
+In order to make the best use of the capabilities of the waypoints function, it is suggested that you set up the radio fail safe as follows:
+  * Set the rudder, ailerons, and elevator for center position.
+  * Set the control mode selection channel to select the waypoints
+function.
+  * Set the throttle however you want. If you are not using altitude hold, the motor will respond accordingly. If you are using altitude hold, If you set the throttle for full off, the aircraft will follow the waypoints with the throttle off. If you set the throttle for anything else, the aircraft will continue to follow the waypoints, including the height coordinates.
 
 You can test the RTL function by setting your UDB to manual mode, and then shutting off the transmitter. Keep in mind that, depending on your settings, the motor may come on.  If your plane starts stabilizing and try to turn, you have your configuration successfully set up to enter RTL mode on signal loss.  It's a good idea to also make sure that the plane returns to manual mode when you turn your transmitter back on.
 
