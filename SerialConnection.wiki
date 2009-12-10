@@ -1,4 +1,4 @@
-= Connect a Serial Cable from the UAV Dev Board to a Computer =
+= MatrixPilot: Connect a Serial Cable from the UAV Dev Board to a Computer =
 
 This document attempt to describe in detail how to establish a wired serial link from the UAV Devboard to
 a PC.

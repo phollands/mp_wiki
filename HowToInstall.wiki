@@ -1,3 +1,35 @@
-== MatrixPilot: Installation and Connections ==Install the board in your plane with the GPS connector facing forward and the components facing up. Try to get the board level when the plane is level, but it is all right if it is a little bit off.  If you are using the red board, and you expect some vibration, you may want to mount the board to your plane using a couple layers of gyro-mounting foam tape.Next, connect the GPS to the board.By default, the firmware is set up to expect the following Radio/Servo connections, although this can all be configured in the options.h file of the firmware:  * Aileron control. Connect whatever channel on your Rx that you like to use for the ailerons to channel 1 input on the board.  * Elevator control. Connect whatever channel on your Rx that you like to use for elevator to channel 2 input on the board.  * Throttle control. If you are using altitude hold, connect whatever channel on your Rx that you like to use for throttle to channel 3 input on the board. If you are not using altitude hold, connect the throttle servo or ESC input directly to the Rx.  * Manual/Stabilized/WayPoint mode control. Connect whatever channel on your Rx that you are going to use for mode control to channel 4 input on the board.  A 3-way switch works best.  * Connect servo 1 output from the board to your aileron servos.  * Connect servo 2 output from the board to your elevator servo.  * If you are using altitude hold, connect servo 3 output from the board to your throttle servo or electronic speed control.The ordering of the pins on the board are the ground connections are nearest the edge of the board, the power connection is in the middle, and the signal is farthest from the edge. If you are using cables with black-red-white wires, the black wire connects closest to the edge. If you are using cables with brown-red-orange wires, the brown wire connects closest to the edge. Connections from the board PWM input channels to your radio will require special cables with female connectors on both ends.If you want to use the Extra Chanels on the board, check out the ConnectingExtraChannels page, and then connect any of the following connections you want:  * Rudder control. Connect whatever channel on your Rx that you like to use for rudder to channel 5 input (RE8) on the board.  * Connect servo 4 output (RE0) from the board to your rudder servo.  * Connect servo 2 output (RE2) from the board to your 2nd aileron servo.  (This servo is separately reversible.)If you plan to set up the board to send out telemetry or OSD data, this will come from the serial port on the board, which is located in the line of holes along the edge of the board.  It is made up of the 4 holes labeled VCC, TXO, RXI, GND.  We suggest soldering a 1x4 male pin header here to access these pins.If you are installing the board deep inside your plane in a head to reach spot, you'll probably want to attach a programming cable to the 6-pin programming header on the board, so you can adjust your control gains and upgrade the firmware without pulling the board out.
+= MatrixPilot: Installation and Basic Connections =
 
-Once this is all set up, [HowToConfigure make sure MatrixPilot is configured well for your plane], and make sure to [GroundTest do an initial ground-test of everything]. It might be best to do it outside to get a faster GPS lock.
+Install the board in your plane with the GPS connector facing forward and the components facing up. Try to get the board level when the plane is level, but it is all right if it is a little bit off.  If you are using the red board, and you expect some vibration, you may want to mount the board to your plane using a couple layers of gyro-mounting foam tape.
+
+Next, connect the GPS to the board.
+
+By default, the firmware is set up to expect the following Radio/Servo connections, although this can all be configured in the options.h file of the firmware:
+  * Aileron control. Connect whatever channel on your Rx that you like to use for the ailerons to channel 1 input on the board.
+  * Elevator control. Connect whatever channel on your Rx that you like to use for elevator to channel 2 input on the board.
+  * Throttle control. If you are using altitude hold, connect whatever channel on your Rx that you like to use for throttle to channel 3 input on the board. If you are not using altitude hold, connect the throttle servo or ESC input directly to the Rx.
+  * Manual/Stabilized/WayPoint mode control. Connect whatever channel on your Rx that you are going to use for mode control to channel 4 input on the board.  A 3-way switch works best.
+  * Connect servo 1 output from the board to your aileron servos.
+  * Connect servo 2 output from the board to your elevator servo.
+  * If you are using altitude hold, connect servo 3 output from the board to your throttle servo or electronic speed control.
+
+The ordering of the pins on the board are the ground connections are nearest the edge of the board, the power connection is in the middle, and the signal is farthest from the edge. If you are using cables with black-red-white wires, the black wire connects closest to the edge. If you are using cables with brown-red-orange wires, the brown wire connects closest to the edge. Connections from the board PWM input channels to your radio will require special cables with female connectors on both ends.
+
+If you want to use the Extra Chanels on the board, check out the ConnectingExtraChannels page, and then connect any of the following connections you want:
+  * Rudder control. Connect whatever channel on your Rx that you like to use for rudder to channel 5 input (RE8) on the board.
+  * Connect servo 4 output (RE0) from the board to your rudder servo.
+  * Connect servo 2 output (RE2) from the board to your 2nd aileron servo.  (This servo is separately reversible.)
+
+If you plan to set up the board to send out telemetry or OSD data, this will come from the serial port on the board, which is located in the line of holes along the edge of the board.  It is made up of the 4 holes labeled VCC, TXO, RXI, GND.  We suggest soldering a 1x4 male pin header here to access these pins.
+
+If you are installing the board deep inside your plane in a head to reach spot, you'll probably want to attach a programming cable to the 6-pin programming header on the board, so you can adjust your control gains and upgrade the firmware without pulling the board out.
+
+Once this is all set up, [HowToConfigure make sure MatrixPilot is configured well for your plane], and make sure to [GroundTest do an initial ground-test of everything]. It might be best to do it outside to get a faster GPS lock.
+
+
+== Other Connections ==
+
+  * [SerialConnection Connect a Serial Cable from the UAV Dev Board to a Computer]
+  * [XBeeConnection Connect an XBee to the UAV Dev Board, and one to your Computer for wireless telemetry]
+  * [RemzibiConnection Connect a Remzibi OSD to the UAV Dev Board.  No need for a 2nd GPS!]
+  * [http://code.google.com/p/uavexpansionboard/ "Oil Pan" UDB Expansion Board]
