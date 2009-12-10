@@ -49,8 +49,8 @@ You can enable or disable each axis of stabilization.
 // Set any of these to 0 to disable the stabilization in that axis.
 #define ROLL_STABILIZATION					1
 #define PITCH_STABILIZATION					1
-#define YAW_STABILIZATION_RUDDER			1
-#define YAW_STABILIZATION_AILERON			1
+#define YAW_STABILIZATION_RUDDER				1
+#define YAW_STABILIZATION_AILERON				1
 }}}
 
 and navigation using either rudder, ailerons, or both.
@@ -75,7 +75,7 @@ You can also enable camera stabilization if you have servo chanels available.
 {{{
 // Camera Stabilization
 // To enable, set this value to 1, and assign one or more of the CAMERA_*_OUTPUT_CHANNELS below.
-#define USE_CAMERA_STABILIZATION			0
+#define USE_CAMERA_STABILIZATION				0
 }}}
 
 Racing mode can be useful when trying to keep up your speed, or when fighting stronger winds.
@@ -84,7 +84,7 @@ Racing mode can be useful when trying to keep up your speed, or when fighting st
 // Racing Mode
 // Setting this to 1 will keep the plane at full throttle while in waypoint mode
 // Racing performance can be improved by disabling CROSSTRACKING in waypoints.h
-#define RACING_MODE							0
+#define RACING_MODE						0
 }}}
 
 You shouldn't use this NORADIO unless you need it for some esoteric ground testing of some otherwise untestable edge cases.
@@ -94,7 +94,7 @@ You shouldn't use this NORADIO unless you need it for some esoteric ground testi
 // receiver. (Totally autonomous.)  This is just meant for debugging.  It is not recommended that
 // you acually use this since there is no automatic landing code yet, and you'd have no manual
 // control to fall back on if things go wrong.  It may not even be legal in your area.
-#define NORADIO								0
+#define NORADIO							0
 }}}
 
 
@@ -144,7 +144,7 @@ In this section you can configure how many input and output chanels you're using
 #define AILERON_OUTPUT_CHANNEL				CHANNEL_1
 #define ELEVATOR_OUTPUT_CHANNEL				CHANNEL_2
 #define RUDDER_OUTPUT_CHANNEL				CHANNEL_4
-#define AILERON_SECONDARY_OUTPUT_CHANNEL	CHANNEL_5
+#define AILERON_SECONDARY_OUTPUT_CHANNEL		CHANNEL_5
 #define CAMERA_ROLL_OUTPUT_CHANNEL			CHANNEL_UNUSED
 #define CAMERA_PITCH_OUTPUT_CHANNEL			CHANNEL_UNUSED
 #define CAMERA_YAW_OUTPUT_CHANNEL			CHANNEL_UNUSED
@@ -161,14 +161,14 @@ Here you can choose which of your radio/servo channels are reversed.  If a servo
 #define AILERON_CHANNEL_REVERSED			HW_SWITCH_1
 #define ELEVATOR_CHANNEL_REVERSED			HW_SWITCH_2
 #define RUDDER_CHANNEL_REVERSED				HW_SWITCH_3
-#define AILERON_SECONDARY_CHANNEL_REVERSED	0 // Hardcoded to be unreversed, since we have only 3 switches.
+#define AILERON_SECONDARY_CHANNEL_REVERSED		0 // Hardcoded to be unreversed, since we have only 3 switches.
 #define THROTTLE_CHANNEL_REVERSED			0 // Set to 1 to hardcode a channel to be reversed
-#define CAMERA_ROLL_CHANNEL_REVERSED		0
-#define CAMERA_PITCH_CHANNEL_REVERSED		0
+#define CAMERA_ROLL_CHANNEL_REVERSED			0
+#define CAMERA_PITCH_CHANNEL_REVERSED			0
 #define CAMERA_YAW_CHANNEL_REVERSED			0
 
 // Set this to 1 if you need to switch the left and right elevon or vtail surfaces
-#define ELEVON_VTAIL_SURFACES_REVERSED		0
+#define ELEVON_VTAIL_SURFACES_REVERSED			0
 }}}
 
 Here you can set up the thresholds for your mode switching channel.  A 3-way switch works best for this channel, but a knob can also work, as could a 2-way switch combined with a trim for this channel.  These values are the positions where we switch between the low and middle, and then the middle and high positions of the 3-way mode switch.
@@ -202,8 +202,8 @@ Setting up the Failsafe Chanel allows your plane to know when it loses transmitt
 // FAILSAFE_INPUT_MIN and _MAX define the range within which we consider the radio on.
 // Normal signals should fall within about 2000 - 4000.
 #define FAILSAFE_INPUT_CHANNEL				THROTTLE_INPUT_CHANNEL
-#define FAILSAFE_INPUT_MIN					1500
-#define FAILSAFE_INPUT_MAX					4500
+#define FAILSAFE_INPUT_MIN				1500
+#define FAILSAFE_INPUT_MAX				4500
 }}}
 
 == Telemetry and Serial Output ==
@@ -219,16 +219,17 @@ Setting up the Failsafe Chanel allows your plane to know when it loses transmitt
 == Gains ==
 
 Servo Saturation controls the maximum throw of the servos.  Typical value is 1.0.  Maximum recommended value is 1.0, maximum valid value is 1.999.  Lower values will stop servos from moving too far.
-{{{
+
+{{{
 // SERVOSAT limits servo throw by controlling pulse width saturation.
 // set it to 1.0 if you want full servo throw, otherwise set it to the portion that you want
-#define SERVOSAT				1.0
+#define SERVOSAT					1.0
 }}}
 
 
 There are several gains that you can adjust. They should all be set to positive numbers.  If you think any gain needs to be reversed, you should instead reversals in the Reversal section above, and with the board reversing switches SR1, SR2 and SR3. Use the same gains on either the red board or the green board, the appropriate multipliers are now built into the firmware.
 
-  * ROLLKP – This is the proportional feedback for the aileron control of roll. Setting it higher will improve precision of the bank leveling, but will reduce the bank angle and will make the turning radius get larger. Setting it too high may cause low frequency roll flutter that isannoying but not dangerous. Setting it lower will increase the bank angle and sharpen the turns, particularly during RTL. Typical value is 0.25.
+  * ROLLKP – This is the proportional feedback for the aileron control of roll. Setting it higher will improve precision of the bank leveling, but will reduce the bank angle and will make the turning radius get larger. Setting it too high may cause low frequency roll flutter that is annoying but not dangerous. Setting it lower will increase the bank angle and sharpen the turns, particularly during RTL. Typical value is 0.25.
   * ROLLKD – This is the derivative (gyro) feedback for the aileron control of roll. It is used to improve the damping of the roll control, to dampen any low frequency flutter. But if it is set too high, there may be a high frequency flutter that is annoying but not dangerous. Typical value is 0.125. This gain does not have to be greater than or equal to ROLLKP, you can use any value that you want.
   * YAWKP_AILERON – This is the proportional turning gain used by navigation for controlling ailerons. Typical value is 0.1. Larger values will produce tighter turns. Using a value that is too large will produce a “dutch roll”.  Maximum valid value is 1.999.
   * YAWKD_AILERON – This is the derivative yaw gain used for yaw damping by yaw stabilization to reduce the impact of the wind, and to help stabilize the yaw control. Typical value is 0.2. Maximum valid value is 0.5.
@@ -243,9 +244,9 @@ There are several gains that you can adjust. They should all be set to positive 
 // AILERON_BOOST is the additional gain multiplier for the manually commanded aileron deflection
 #define ROLLKP					0.25
 #define ROLLKD					0.125
-#define YAWKP_AILERON			0.100
-#define YAWKD_AILERON			0.2
-#define AILERON_BOOST			1.0
+#define YAWKP_AILERON				0.100
+#define YAWKD_AILERON				0.2
+#define AILERON_BOOST				1.0
 }}}
 
 
@@ -265,9 +266,9 @@ There are several gains that you can adjust. They should all be set to positive 
 // ELEVATOR_BOOST is the additional gain multiplier for the manually commanded elevator deflection
 #define PITCHGAIN				0.150
 #define PITCHKD					0.0625
-#define RUDDER_ELEV_MIX			0.5
-#define ROLL_ELEV_MIX			0.1
-#define ELEVATOR_BOOST			0.5
+#define RUDDER_ELEV_MIX				0.5
+#define ROLL_ELEV_MIX				0.1
+#define ELEVATOR_BOOST				0.5
 }}}
 
 
@@ -280,9 +281,9 @@ There are several gains that you can adjust. They should all be set to positive 
 // YAWKP_RUDDER is the proportional feedback gain for rudder navigation
 // YAWKD_RUDDER is the yaw gyro feedback gain for the rudder in reponse to yaw rotation
 // RUDDER_BOOST is the additional gain multiplier for the manually commanded rudder deflection
-#define YAWKP_RUDDER			0.0625
-#define YAWKD_RUDDER			0.5
-#define RUDDER_BOOST			1.0
+#define YAWKP_RUDDER				0.0625
+#define YAWKD_RUDDER				0.5
+#define RUDDER_BOOST				1.0
 }}}
 
 
@@ -291,32 +292,50 @@ These camera gains are currently proportional to the roll, pitch, and yaw of the
 {{{
 // The following section is for camera stabilization
 // These values are untested and will need adjustment
-#define CAMERA_ROLLKP			0.5
-#define CAMERA_PITCHKP			0.5
-#define CAMERA_YAWKP			0.5
+#define CAMERA_ROLLKP				0.5
+#define CAMERA_PITCHKP				0.5
+#define CAMERA_YAWKP				0.5
 }}}
 
 
 
 == Altitude Hold ==
 
-  * HEIGHTMAX – This is the maximum target height, in meters, above the launch point. Typical value is 100. The commanded height for altitude hold is proportional to the throttle, up to this maximum height. Altitude hold will command full throttle until the plane is within 50 meters of the commanded height. It will gradually reduce throttle as it climbs higher. It will reduce to minimum throttle at the commanded height. If it continues to climb higher, the motor will be cut off completely.
-  * HEIGHTMIN - This is the minimum target height, in meters, used in stabilized mode.
-  * MINIMUMTHROTTLE – This parameter sets a value for the minimum amount of throttle during altitude hold. Typical value is 0.55, define a value between 0.0 and 1.0
-  * MAXIMUMTHROTTLE – This parameter sets a value for the maximum amount of throttle during altitude hold. Typical value is 1.0, define a value between 0.0 and 1.0
-  * PITCHATMINTHROTTLE – This is the pitch angle, in degrees, that the control will attempt to hold the plane’s pitch, at minimum throttle. The suggested value for this parameter for a sailplane is 0. If you want the altitude hold feature to maintain altitude without turning off the motor, select a slightly negative value for this parameter, such as -2. If you do not want to use this feature, set it to 0. Otherwise, set it the pitch angle that you would normally control the plane at minimum throttle. Positive values means the nose points upward, negative values means the nose pitches downward.
-  * PITCHATMAXTHROTTLE – This is the pitch angle, in degrees, that the control will attempt to hold the plane’s pitch, at MAXIMUM throttle. The suggested value for this parameter is 10. Otherwise, set the pitch angle that you would normally control the plane at maximum throttle. Positive values means the nose points upward, negative values means the nose pitches downward.
-  * PITCHATZEROTHROTTLE – This is the pitch angle, in degrees, that the control will attempt to hold the plane’s pitch, at ZERO throttle. In other words, this is the pitch angle that you want when your sailplane is gliding, or when your plane is flying “dead stick”. The suggested value for this parameter is 0. If you do not want to use this feature, set it to 0. Otherwise, set it the pitch angle that you would normally control the plane at zero throttle. Positive values means the nose points upward, negative values means the nose pitches downward.
+  * HEIGHT_TARGET_MIN - This is the minimum target height, in meters, used in stabilized mode.
+  * HEIGHT_TARGET_MAX – This is the maximum target height, in meters, above the launch point. Typical value is 100. The commanded height for altitude hold is proportional to the throttle, up to this maximum height. Altitude hold will command full throttle until the plane is within 50 meters of the commanded height. It will gradually reduce throttle as it climbs higher. It will reduce to minimum throttle at the commanded height. If it continues to climb higher, the motor will be cut off completely.
+  * HEIGHT_MARGIN - The vertical range, in meters, to try to keep the plane within when altitude hold is enabled.
+  * ALT_HOLD_THROTTLE_MIN – This parameter sets a value for the minimum amount of throttle during altitude hold. Typical value is 0.55, define a value between 0.0 and 1.0
+  * ALT_HOLD_THROTTLE_MAX – This parameter sets a value for the maximum amount of throttle during altitude hold. Typical value is 1.0, define a value between 0.0 and 1.0
+  * ALT_HOLD_PITCH_MIN – This is the pitch angle, in degrees, that the control will attempt to hold the plane’s pitch, at minimum throttle. The suggested value for this parameter for a sailplane is 0. If you want the altitude hold feature to maintain altitude without turning off the motor, select a slightly negative value for this parameter, such as -2. If you do not want to use this feature, set it to 0. Otherwise, set it the pitch angle that you would normally control the plane at minimum throttle. Positive values means the nose points upward, negative values means the nose pitches downward.
+  * ALT_HOLD_PITCH_MAX – This is the pitch angle, in degrees, that the control will attempt to hold the plane’s pitch, at MAXIMUM throttle. The suggested value for this parameter is 10. Otherwise, set the pitch angle that you would normally control the plane at maximum throttle. Positive values means the nose points upward, negative values means the nose pitches downward.
+  * ALT_HOLD_PITCH_HIGH – This is the pitch angle, in degrees, that the control will attempt to hold the plane’s pitch, at ZERO throttle. In other words, this is the pitch angle that you want when your sailplane is gliding, or when your plane is flying “dead stick”. The suggested value for this parameter is 0. If you do not want to use this feature, set it to 0. Otherwise, set it to the pitch angle that you would normally control the plane at zero throttle. Positive values means the nose points upward, negative values means the nose pitches downward.
 
 {{{
-// Configure altitude hold
-#define HEIGHTMAX				100.0	// maximum target height in meters
-#define HEIGHTMIN				 25.0	// minimum target height in meters
-#define MINIMUMTHROTTLE			  0.35	// minimum throttle
-#define MAXIMUMTHROTTLE			  1.0	// maximum throttle from 0.0 - 1.0
-#define PITCHATMINTHROTTLE		  0.0	// target pitch angle in degrees at minimum throttle
-#define PITCHATMAXTHROTTLE		 15.0	// target pitch angle in degrees at maximum throttle
-#define PITCHATZEROTHROTTLE		  0.0	// target pitch angle in degrees while gliding
+// Min and Max target heights in meters.  These only apply to stabilized mode.
+#define HEIGHT_TARGET_MIN		25.0
+#define HEIGHT_TARGET_MAX		100.0
+
+// The range of altitude within which to linearly vary the throttle
+// and pitch to maintain altitude.  A bigger value makes altitude hold
+// smoother, and is suggested for very fast planes.
+#define HEIGHT_MARGIN			 10
+
+// Use ALT_HOLD_THROTTLE_MAX when below HEIGHT_MARGIN of the target height.
+// Interpolate between ALT_HOLD_THROTTLE_MAX and ALT_HOLD_THROTTLE_MIN
+// when within HEIGHT_MARGIN of the target height.
+// Use ALT_HOLD_THROTTLE_MIN when above HEIGHT_MARGIN of the target height.
+// Throttle values are from 0.0 - 1.0.
+#define ALT_HOLD_THROTTLE_MIN		0.35
+#define ALT_HOLD_THROTTLE_MAX		1.0
+
+// Use ALT_HOLD_PITCH_MAX when below HEIGHT_MARGIN of the target height.
+// Interpolate between ALT_HOLD_PITCH_MAX and ALT_HOLD_PITCH_MIN when
+// within HEIGHT_MARGIN of the target height.
+// Use ALT_HOLD_PITCH_HIGH when above HEIGHT_MARGIN of the target height.
+// Pitch values are in degrees.  Negative values pitch the plane down.
+#define ALT_HOLD_PITCH_MIN		 0.0
+#define ALT_HOLD_PITCH_MAX		15.0
+#define ALT_HOLD_PITCH_HIGH		 0.0
 }}}
 
 
@@ -328,6 +347,28 @@ RTL_PITCH_DOWN is used if you want the nose to pitch down during return to launc
 // it is used to increase speed (and wind penetration) during a return to launch.
 // set it to zero if you do not want to use this feature.
 // This only takes effect when entering RTL mode, which only happens when the plane loses the transmitter signal.
-#define RTL_PITCH_DOWN			0.0
+#define RTL_PITCH_DOWN			  0.0
 }}}
 
+
+== Waypoint Handling ==
+
+The waypoint handling options live at the top of the waypoints.h file.
+
+{{{
+////////////////////////////////////////////////////////////////////////////////
+// Waypoint handling
+
+// You have the option of using either cross tracking,
+// in which navigation is based on the distance of the plane
+// to the line between the waypoints.
+// Or you can use navigation directly toward the goal point.
+// If you want to use cross tracking, set USE_CROSSTRACKING to 1,
+// otherwise, to use navigation directly toward the goal,
+// set USE_CROSSTRACKING to 0.
+#define USE_CROSSTRACKING		0
+
+// Move on to the next waypoint when getting within this distance of the current goal (in meters)
+// Only applies if not using cross tracking.
+#define WAYPOINT_RADIUS 		25
+}}}
