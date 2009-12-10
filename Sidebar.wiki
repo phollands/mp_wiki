@@ -1,11 +1,8 @@
 === UAV Dev Board ===
-  * *[http://code.google.com/p/gentlenav/ Home]*
-  * *[ProjectStatus Status / Roadmap]*
-
-  * *[HowToInstall Hardware Setup]*
-  * *[MatrixPilot Firmware]*
-
-  * *[HowToContribute How To Help]*
-
-  * *[http://www.sparkfun.com/commerce/product_info.php?products_id=9038 Buy from SparkFun]*
-  * *[http://diydrones.com/page/uav-devboard On DIY Drones]*
+ * [http://code.google.com/p/gentlenav/ Home]
+ * [ProjectStatus Status / Roadmap]
+ * [HowToInstall Hardware Setup]
+ * [MatrixPilot Firmware]
+ * [HowToContribute How To Help]
+ * [http://www.sparkfun.com/commerce/product_info.php?products_id=9038 Buy from SparkFun]
+ * [http://diydrones.com/page/uav-devboard On DIY Drones]
