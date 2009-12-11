@@ -27,11 +27,11 @@ This board comes with a dsPIC30F4011 CPU, an MMA7260 three axis accelerometer an
 
 For info on the latest developments and future plans, check out the ProjectStatus page.
 
-|| MatrixPilot || Matrix Pilot is still in beta, but it's almost ready to release.  It offers up to 5 input channels and 6 output channels, allows much more configuration, plus a bunch of other cool new features too. ||
-|| AileronAssist || Aileron Assist controls a plane's elevator and ailerons to stabilize a plane's pitch and roll, and to navigate back to the launch location on command. ||
-|| MatrixNav || Matrix Nav controls a plane's elevator and rudder to stabilize its pitch, and navigate back to the launch location on command. ||
+|| *MatrixPilot* || *!MatrixPilot is the latest version of the firmware for the UAV Dev Board.  It is a recommended upgrade from both MatrixNav and AileronAssist.  It offers up to 5 input channels and 6 output channels, control of Delta Wing and V-Tail airframes, allows much more configuration, plus a bunch of other cool new features too.* ||
+|| AileronAssist || Aileron Assist controls a plane's elevator and ailerons to stabilize a plane's pitch and roll, and to navigate back to the launch location on command.  It is recommended that AileronAssist users upgrade to MatrixPilot for better support. ||
+|| MatrixNav || Matrix Nav controls a plane's elevator and rudder to stabilize its pitch, and navigate back to the launch location on command.  It is recommended that MatrixNav users upgrade to MatrixPilot for better support. ||
 || RollPitchYaw || The Roll Pitch Yaw firmware is not meant for flying. It's a test program that drives three servos proportionally to the current roll, pitch, and yaw of the UAV Dev Board. It also sends serial data about it's orientation out the TX pin, which can be useful for visualizations on a computer.  ||
-|| [http://code.google.com/p/gentlenav/wiki/UAVSelfTest UAVSelfTest] || The UAVSelfTest firmware lets you test that your dev board hardware is functioning properly. It helps you test the receiver channels, the servo channels, the gyros, accelerometers, LEDs, and switches. ||
+|| [UAVSelfTest UAVSelfTest] || The UAVSelfTest firmware lets you test that your dev board hardware is functioning properly. It helps you test the receiver channels, the servo channels, the gyros, accelerometers, LEDs, and switches. ||
 
 
 == Related Projects and Sites ==
