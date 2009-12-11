@@ -8,7 +8,7 @@
 
 *Firmware*
   * *[MatrixPilot MatrixPilot Info]*
-  * *[MatrixPilot MatrixPilot Manual]*
+  * *!MatrixPilot Manual*
     # *[HowToInstall Installation]*
       # *[ConnectingExtraChannels Extra Channels]*
       # *[SerialConnection Serial Connection]*
