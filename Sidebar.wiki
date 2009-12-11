@@ -1,8 +1,21 @@
 === UAV Dev Board ===
  * [http://code.google.com/p/gentlenav/ Home]
- * [ProjectStatus Status / Roadmap]
- * [HowToInstall Hardware Setup]
- * [MatrixPilot Firmware]
- * [HowToContribute How To Help]
- * [http://www.sparkfun.com/commerce/product_info.php?products_id=9038 Buy from SparkFun]
+ * Hardware
+   * [HowToInstall Hardware Setup]
+   * [http://www.sparkfun.com/commerce/product_info.php?products_id=9038 Buy from SparkFun]
+ * Firmware
+   * [MatrixPilot MatrixPilot Info]
+   * [MatrixPilot MatrixPilot Manual]
+     # HowToInstall
+       # ConnectingExtraChannels
+       # SerialConnection
+       # XBeeConnection
+       # RemzibiConnection
+     # HowToConfigure
+     # WayPoints
+     # GroundTest
+     # Flying
+     # Troubleshooting
+   * [ProjectStatus Status / Roadmap]
+   * [HowToContribute How To Help]
  * [http://diydrones.com/page/uav-devboard On DIY Drones]
