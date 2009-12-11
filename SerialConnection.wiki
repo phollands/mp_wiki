@@ -1,27 +1,24 @@
 = MatrixPilot: Connect a Serial Cable from the UAV Dev Board to a Computer =
 
-This document attempt to describe in detail how to establish a wired serial link from the UAV Devboard to
-a PC.
+This document attempts to describe in detail how to establish a wired serial link from the UAV Devboard to a PC.
 
-Many of us want to have bi-directional communications with our UAV Devboard in a plane / helicopter.
-That is best established in two steps. Establish a link through a serial link to a PC using wires. Then, once that is working,
-attempt a more complex link using a wireless connection with a device such as an Xbee.
+Many of us want to have bi-directional communications with our UAV Devboard in a plane / helicopter. That is best established in two steps. Establish a link through a serial link to a PC using wires. Then, once that is working, attempt a more complex link using a wireless connection with a device such as an Xbee.
 
-If you follow this route - then a number of us on in the discussion group can support you, as we have exactly
-the same equipment and setup which is:-
+If you follow this route - then a number of us on in the discussion group can support you, as we have exactly the same equipment and setup which is:-
 
-1. A [http://www.sparkfun.com/commerce/product_info.php?products_id=718 USB Serial board] from sparkfun. Product Number:- BOB-00718 at Sparkfun.
-2. a [http://www.sparkfun.com/commerce/product_info.php?products_id=598 USB cable] from that board to your PC. Product Number:- CAB-00598 at Sparkfun.
-    These cables have been used with quite a few digital cameras in the past, so you may already have one.
-3. Pins and Connectors. You must decide for yourself what connectors that you want to use and solder onto the boards.
+* One (or two) [http://www.sparkfun.com/commerce/product_info.php?products_id=718 USB Serial board] from sparkfun. Product Number:- BOB-00718 at Sparkfun. 
+
+* a [http://www.sparkfun.com/commerce/product_info.php?products_id=598 USB cable] from that board to your PC. Product Number:- CAB-00598 at Sparkfun. These cables have been used with quite a few digital cameras in the past, so you may already have one.
+
+* Pins and Connectors. You must decide for yourself what connectors that you want to use and solder onto the boards.
 
 Then follow the wiring instructions for the 4 wires on the enclosed jpeg picture. Please note that you will have to de-solder a solder blob on the board - as shown in the picture (and shown on the Sparkfun [http://www.sparkfun.com/datasheets/BreakoutBoards/FT232RL-Breakout-Schematic.pdf schematic] at location SJ2.)
 
+http://gentlenav.googlecode.com/svn/wiki/images/wiring_serial_link_v3.jpg
+
 You will then need the FTDI windows driver for the USB serial card. There are several types. I used the "Virtual Comms Port" drivers which present the USB serial card as an old fashioned Windows Comms Port - usually Comm 6 or 7 under Windows XP depending on what other devices you have installed. That driver can be found here on [http://www.ftdichip.com/Drivers/VCP.htm this page at FTDI]. I used the setup executable for Windows XP from that page. I've not linked to it directly as it is a .exe file.
 
-After loading the drivers, doing the usual Windows reboot, I usually use "Start / Accessories / Communications / Hyper Terminal / udb.ht" under Windows to open a terminal session to the USB board and to the plane - remembering in my case, to set the correct COMMS port. Setting the port is achived under "File / Properties" "Connect Using: Comm 6" or what ever Comms port you
-think the USB serial port is on. If you are not sure, look at the list with the USB serial port plugged in. Then look at it again, with
-the USB serial port unplugged. Which ever COMMS port is now not listed in the "Connect Using" drop down menu, is the COMMS port of your USB serial port.
+After loading the drivers, doing the usual Windows reboot, I usually use "Start / Accessories / Communications / Hyper Terminal / udb.ht" under Windows to open a terminal session to the USB board and to the plane - remembering in my case, to set the correct COMMS port. Setting the port is achived under "File / Properties" "Connect Using: Comm 6" or what ever Comms port you think the USB serial port is on. If you are not sure, look at the list with the USB serial port plugged in. Then look at it again, with the USB serial port unplugged. Which ever COMMS port is now not listed in the "Connect Using" drop down menu, is the COMMS port of your USB serial port.
 
 Finally, Once you've configured the COMM port name, configure also the baud rate by pressing "CONFIGURE". Set the following parameters: Baud Rate 19200, Data Bits 8, Parity None, Flow Control None.
 
@@ -30,6 +27,4 @@ i.e. one of
 
 SERIAL_DEBUG, SERIAL_ARDUSTATION, SERIAL_UDB, or SERIAL_OSD_REMZIBI
 
-re-compile and re-load your firmware.
-
-http://gentlenav.googlecode.com/svn/wiki/images/wiring_serial_link_v3.jpg
+re-compile, re-load your firmware, boot the plane. Serial Output begins once messages are being received from the GPS unit. So you will want to make sure that your plane is receiving a clear signal from the GPS satellites.
