@@ -6,14 +6,14 @@
  * Firmware
    * [MatrixPilot MatrixPilot Info]
    * [MatrixPilot MatrixPilot Manual]
-     # HowToInstall
-       # ConnectingExtraChannels
-       # SerialConnection
-       # XBeeConnection
-       # RemzibiConnection
-     # HowToConfigure
-     # WayPoints
-     # GroundTest
+     # [HowToInstall Installation]
+       * [ConnectingExtraChannels Extra Channels]
+       * [SerialConnection Serial Connection]
+       * [XBeeConnection XBee Connection]
+       * [RemzibiConnection Remzibi Connection]
+     # [HowToConfigure Configuration]
+     # [WayPoints Waypoints]
+     # [GroundTest Ground Testing]
      # Flying
      # Troubleshooting
    * [ProjectStatus Status / Roadmap]
