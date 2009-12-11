@@ -1,6 +1,6 @@
-= Waypoints 1.0 Installation, Setup and Operation for MatrixNav, AileronAssist, and MatrixPilot =
+= MatrixPilot: Waypoints 1.0 Installation, Setup and Operation =
 
-MatrixNav, AileronAssist, and MatrixPilot firmwares have the following features:
+MatrixPilot has the following waypoint related features:
   * Waypoints are 3D. You specify location of the points relative to the initialization location of the board.
   * You have the option of using either cross-track error navigation, or using navigation toward the target waypoint.
   * Arrival at a waypoint is based on the change in sign of the projection of the vector from the location to the target onto the vector between the waypoints. This produces a reliable assessment of arrival, without any chance of loitering.
@@ -13,19 +13,26 @@ The waypoint function will work in a 3D mode with altitude hold controlling heig
 
 == Specifying waypoints ==
 
-The waypoints are defined in the file waypoints.h that is a header file in the project source code for the firmware. There are two items you need to specify in the file:  * whether or not you want to use cross-tracking
+The waypoints are defined in the file waypoints.h that is a header file in the project source code for the firmware. There are three items you can specify in the file:
+  * whether or not you want to use cross-tracking
+  * how close the plane has to get to each waypoint (if not using cross-tracking)
   * the coordinates of the points.
 
 If you select cross tracking in waypoints.h, navigation will be based on the perpendicular distance from the aircraft to the line between the waypoints that define the course leg. The steering angle toward the course leg is proportional to the cross track distance, up to 45 degrees at a distance of 32 meters. Beyond 32 meters, the steering angle is 45 degrees. If you select cross tracking, arrival at waypoint will be declared when the plane crosses an imaginary finish line through the target waypoint, perpendicular to the course leg.
 
-If you do not enable cross tracking, then steering will be toward the target waypoint of the course leg. Arrival at the waypoint will be declared if either the cross track arrival condition is satisfied, or if the aircraft approaches closer than 25 meters to the target waypoint.The waypoints themselves are specified in the file waypoints.h using a C declaration of a constant array. Here is a simple example that I use for testing and debugging, with two points:
+If you do not enable cross tracking, then steering will be toward the target waypoint of the course leg. Arrival at the waypoint will be declared if either the cross track arrival condition is satisfied, or if the aircraft approaches closer than the desired radius to the target waypoint (defaults to 25 meters).
+
+The waypoints themselves are specified in the file waypoints.h using a C declaration of a constant array. Here is a simple example that I use for testing and debugging, with two points:
 
 {{{
 const struct relative3D waypoints[] = {
-	{   0,   0, 100},	{ 100, 173, 100},};
+	{   0,   0, 100},
+	{ 100, 173, 100},
+};
 }}}
 
-Each waypoint is specified as the three coordinates, measured in meters, relative to the initialization location of the board. The C syntax allows an optional comma after the last waypoint in the list. The valid range for each of the coordinates is plus or minus 32767 meters, though in the US you are supposed to maintain visual contact at all times.The first coordinate (X) is measured toward the east from the initialization point. The second coordinate (Y) is measured toward the north. The third coordinate (Z) is the height above the initialization point.
+Each waypoint is specified as the three coordinates, measured in meters, relative to the initialization location of the board. The C syntax allows an optional comma after the last waypoint in the list. The valid range for each of the coordinates is plus or minus 32767 meters, though in the US you are supposed to maintain visual contact at all times.
+The first coordinate (X) is measured toward the east from the initialization point. The second coordinate (Y) is measured toward the north. The third coordinate (Z) is the height above the initialization point.
 
 There is no need for you to indicate how many waypoints you have specified, the compiler will count them for you.
 
@@ -37,9 +44,9 @@ there are only two points. The first point is located 100 meters above the initi
 
 Here is another example in which the waypoint function is used simply for an RTL function, with a target height of 50 meters:
 
-{{
+{{{
 const struct relative3D waypoints[] = {{ 0 , 0 , 50 }} ;
-}}
+}}}
 
 Activation of the waypoint function is achieved the same way as the return to launch function that it replaces. There are three control modes, manual, stabilized, and waypoint navigation, that are selected by a joystick or a three position switch.
 
