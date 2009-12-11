@@ -6,7 +6,7 @@ Many of us want to have bi-directional communications with our UAV Devboard in a
 
 If you follow this route - then a number of us on in the discussion group can support you, as we have exactly the same equipment and setup which is:-
 
-* One (or two) [http://www.sparkfun.com/commerce/product_info.php?products_id=718 USB Serial board] from sparkfun. Product Number:- BOB-00718 at Sparkfun. 
+* One [http://www.sparkfun.com/commerce/product_info.php?products_id=718 USB Serial board] from sparkfun. Product Number:- BOB-00718 at Sparkfun. 
 
 * a [http://www.sparkfun.com/commerce/product_info.php?products_id=598 USB cable] from that board to your PC. Product Number:- CAB-00598 at Sparkfun. These cables have been used with quite a few digital cameras in the past, so you may already have one.
 
