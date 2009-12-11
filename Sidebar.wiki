@@ -1,25 +1,25 @@
 === UAV Dev Board ===
 
-[http://code.google.com/p/gentlenav/ *Home*]
+*[http://code.google.com/p/gentlenav/ Home]*
 
 *Hardware*
-  * [HowToInstall *Hardware Setup*]
-  * [http://www.sparkfun.com/commerce/product_info.php?products_id=9038 *Buy from SparkFun*]
+  * *[HowToInstall Hardware Setup]*
+  * *[http://www.sparkfun.com/commerce/product_info.php?products_id=9038 Buy from SparkFun]*
 
 *Firmware*
-  * [MatrixPilot *MatrixPilot Info*]
-  * [MatrixPilot *MatrixPilot Manual*]
-    # [HowToInstall *Installation*]
-      # [ConnectingExtraChannels *Extra Channels*]
-      # [SerialConnection Serial *Connection*]
-      # [XBeeConnection *XBee Connection*]
-      # [RemzibiConnection *Remzibi Connection*]
-    # [HowToConfigure *Configuration*]
-    # [WayPoints *Waypoints*]
-    # [GroundTest *Ground Testing*]
-    # [Flying *Flying*]
-    # [Troubleshooting *Troubleshooting*]
-  * [ProjectStatus *Status / Roadmap*]
-  * [HowToContribute *How To Help*]
+  * *[MatrixPilot MatrixPilot Info]*
+  * *[MatrixPilot MatrixPilot Manual]*
+    # *[HowToInstall Installation]*
+      # *[ConnectingExtraChannels Extra Channels]*
+      # *[SerialConnection Serial Connection]*
+      # *[XBeeConnection XBee Connection]*
+      # *[RemzibiConnection Remzibi Connection]*
+    # *[HowToConfigure Configuration]*
+    # *[WayPoints Waypoints]*
+    # *[GroundTest Ground Testing]*
+    # *[Flying Flying]*
+    # *[Troubleshooting Troubleshooting]*
+  * *[ProjectStatus Status / Roadmap]*
+  * *[HowToContribute How To Help]*
 
 *[http://diydrones.com/page/uav-devboard On DIY Drones]*
