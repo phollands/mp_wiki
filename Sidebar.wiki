@@ -8,6 +8,7 @@
 
 *Firmware*
   * *[MatrixPilot MatrixPilot Info]*
+  * *[ProjectStatus Status / Roadmap]*
   * *!MatrixPilot Manual*
     # *[HowToInstall Installation]*
       # *[ConnectingExtraChannels Extra Channels]*
@@ -19,7 +20,6 @@
     # *[GroundTest Ground Testing]*
     # *[Flying Flying]*
     # *[Troubleshooting Troubleshooting]*
-  * *[ProjectStatus Status / Roadmap]*
   * *[HowToContribute How To Help]*
 
 *[http://diydrones.com/page/uav-devboard On DIY Drones]*
