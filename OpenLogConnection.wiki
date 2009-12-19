@@ -9,17 +9,24 @@
 As of [http://code.google.com/p/gentlenav/source/list revision 203] the MatrixPilot firmware has *basic* support for the OpenLog, with further enhancements planned.
 
 == Check Functionality ==
-Before attempting to modify the firmware, you should check that the device works in it's "as shipped" state. The easiest was to do this is to connect the OpenLog to your PC with a USB to serial adapter such as the [http://www.sparkfun.com/commerce/product_info.php?products_id=9115 FTDI Basic] sold be Sparkfun. If you wish to use a real hardware serial port, you will have to arrange your own level conversion, as the OpenLog does not use RS232 signalling levels. For this test, connect FTDI to the OpenLog as described in the following table:
+Before attempting to modify the firmware, you should check that the device works in it's "as shipped" state. The easiest was to do this is to connect the OpenLog to your PC with a USB to serial adapter such as the [http://www.sparkfun.com/commerce/product_info.php?products_id=9115 FTDI Basic] sold by Sparkfun. If you wish to use a real hardware serial port, you will have to arrange your own level conversion, as the OpenLog does not use RS232 signalling levels. For this test, connect FTDI to the OpenLog as described in the following table:
 
 || FTDI || OpenLog ||
 || RX || TX ||
 || TX || RX ||
 || VCC || VCC ||
 || GND || GND ||
-|| DTR || DTR ||
+|| DTR || DTR`*` ||
 
+`*`Note: The DTR pin on the OpenLog is labelled "GRN" on the silk screening.
 
+You will also need a micro SD card in the device before you can talk to it via the serial port. I have had excellent results with 2gb SanDisk cards so far. I have some 4gb SanDisk cards which did not work (as expected - FAT16 limitations), and an old 64mb nokia card that also did not work, for reasons unknown (although it works fine in phones and card readers). When powered on the device will flash the LED closest to pin 1 of JP2 twice, and then flash the second LED in bursts of 3 if no card is present. If a card is inserted and correctly initialised, the second LED will stay on solid.
 
+Using a terminal program (Hyper Terminal in a pinch) open a connection with settings of 9600 baud, 8 bits, no parity, 1 stop bit, no flow control. You should be greeted with a prompt of: 
+
+*12>*
+
+The '1' signals that the device itself has initialised ok, and the '2' indicates that the card is initialised. Typing a question mark and pressing enter at this point should reward you with a listing of the available commands.
 
 == OpenLog Firmware ==
 The first thing that needs to be done is to configure the baud rate of the OpenLog to match that of the UAV Dev Board. Unfortunately the firmware that the OpenLog ships with does not support a baud rate of 19,200 which is the default for the second telementary/logging UART on the Dev Board.
