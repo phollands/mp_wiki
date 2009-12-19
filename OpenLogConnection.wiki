@@ -1,0 +1,47 @@
+#summary Using the SparkFun OpenLog board with the UDB.
+
+= Introduction =
+
+[http://www.sparkfun.com SparkFun] sell a simple and lightweight data logging device called the [http://www.sparkfun.com/commerce/product_info.php?products_id=9530 OpenLog], which is based around an Atmel ATmega328P microcontroller and a micro SD card socket. The device implements [http://www.roland-riegel.de/sd-reader/index.html Roland Riegel's] open FAT library. The device currently only supports FAT16, which means you are limited to cards of 2gb or under.
+
+= Details =
+
+As of [http://code.google.com/p/gentlenav/source/list revision 203] the MatrixPilot firmware has *basic* support for the OpenLog, with further enhancements planned.
+
+== Check Functionality ==
+Before attempting to modify the firmware, you should check that the device works in it's "as shipped" state. The easiest was to do this is to connect the OpenLog to your PC with a USB to serial adapter such as the [http://www.sparkfun.com/commerce/product_info.php?products_id=9115 FTDI Basic] sold be Sparkfun. If you wish to use a real hardware serial port, you will have to arrange your own level conversion, as the OpenLog does not use RS232 signalling levels. For this test, connect FTDI to the OpenLog as described in the following table:
+
+|| FTDI || OpenLog ||
+|| RX || TX ||
+|| TX || RX ||
+|| VCC || VCC ||
+|| GND || GND ||
+|| DTR || DTR ||
+
+
+
+
+== OpenLog Firmware ==
+The first thing that needs to be done is to configure the baud rate of the OpenLog to match that of the UAV Dev Board. Unfortunately the firmware that the OpenLog ships with does not support a baud rate of 19,200 which is the default for the second telementary/logging UART on the Dev Board.
+
+To fix this you will need to update the firmware on the OpenLog board. The modified source code can be downloaded [http://gentlenav.googlecode.com/files/OLFWforUDBv1.zip here.]
+
+Next you will need to compile this code and program the OpenLog. If you have not worked with Atmel devices before you will need a copy of [http://winavr.sourceforge.net/ WinAVR]
+
+WinAVR includes Programmers Notepad, which provides you with a basic (but sufficient) IDE, as well as all the tools to build the code and program the device.
+
+The OpenLog device uses an Stk500 compatible serial bootloader, which allows it to program itself using only a normal serial connection. For an excellent walk through of setting up Programmer's Notepad and the serial programmer, see [http://www.sparkfun.com/commerce/tutorial_info.php?tutorials_id=142 this guide] by Nate from Sparkfun, which explains everything you need to know.
+
+I personally followed the advice in the walk through and grabbed the [http://arduino.cc/en/Main/Software latest arduino] software (version 0017 at the time of writing) to use their version of avrdude.conf. You may be able to get away with using the version of avrdude.conf that comes with WinAVR, but i didn't test this.
+
+Either way, you will need to update the Makefile that comes with the source code to reflect your development environment. The following entries are the ones you will need to update, they are under the heading _Programming Options (avrdude serial bootloader)_ in the Makefile.
+
+{{{
+SERIAL_AVRDUDE = <PATH TO ARDUINO>\hardware\tools\avr\bin\avrdude
+SERIAL_AVRDUDE_CONFIG = <PATH TO ARDUINO>\hardware\tools\avr\etc\avrdude.conf
+SERIAL_AVRDUDE_PORT = COM2
+SERIAL_AVRDUDE_SPEED = 57600
+}}}
+
+If you've followed the instructions in Nate's walk through, you should now be able to build the code either with a hotkey or using the Tools->`[`WinAVR`]` Make All.
+If the build completes successfully, the next step is to program the device.
