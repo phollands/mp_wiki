@@ -20,6 +20,8 @@ Before attempting to modify the !OpenLog firmware, you should check that the dev
 
 `*`Note: The DTR pin on the !OpenLog is labelled "GRN" on the silk screening.
 
+<a href="http://picasaweb.google.com.au/lh/photo/q3EF4KmrHsl3-xnAnm8rzQ?authkey=Gv1sRgCIC3lZTg9_CSdg&feat=embedwebsite"><img src="http://lh4.ggpht.com/_GufzRAf4Eas/Sy4VdLJVn4I/AAAAAAAAAFs/Skn2L_xjGdo/s144/OL2FTDI.gif" /></a>
+
 You will also need a micro SD card in the device before you can talk to it via the serial port. I have had excellent results with 2gb !SanDisk cards so far. I have some 4gb !SanDisk cards which did not work (as expected - FAT16 limitations), and an old 64mb nokia card that also did not work, for reasons unknown (although it works fine in phones and card readers). When powered on the device will flash the LED closest to pin 1 of JP2 twice, and then flash the second LED in bursts of 3 if no card is present. If a card is inserted and correctly initialised, the second LED will stay on solid.
 
 Using a terminal program (Hyper Terminal in a pinch) open a connection with settings of 9600 baud, 8 bits, no parity, 1 stop bit, no flow control. You should be greeted with a prompt of: 
@@ -75,11 +77,11 @@ Change the settings in your terminal program to 19200 baud, 8 bits, no parity, 1
 
 To use the !OpenLog with the Dev Board, you simply need to provide power and ground, and connect the RXI line of the !OpenLog to the TX line of UART1 on the dev board. A diagram of a typical connection is shown below. 
 
-<diagram of udb and ol in standalone mode>
+<a href="http://picasaweb.google.com.au/lh/photo/IvdY89ZTeGSe0rW_UGt1kg?authkey=Gv1sRgCIC3lZTg9_CSdg&feat=embedwebsite"><img src="http://lh3.ggpht.com/_GufzRAf4Eas/Sy4VdAGAHRI/AAAAAAAAAFo/GP1mqdiyLfQ/s144/OL2UDB.gif" /></a>
 
 If you are using another serial device with the Dev Board, such as an XBee, then that device and the !OpenLog will have to share the TX line of the Dev Board. The Dev Board appears to have sufficient fanout to drive both the !OpenLog and an FTDI board, but no testing has yet been done with any other devices.
 
-<disgram of udb and openlog and xbee>
+<a href="http://picasaweb.google.com.au/lh/photo/VFIBtHMaFSYdegbyGN-7Sw?authkey=Gv1sRgCIC3lZTg9_CSdg&feat=embedwebsite"><img src="http://lh4.ggpht.com/_GufzRAf4Eas/Sy4VdAxRx6I/AAAAAAAAAFk/_IMLFYIxR4o/s144/OL2UDBwFTDI.gif" /></a>
 
 == Using the !OpenLog ==
 
