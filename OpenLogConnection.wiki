@@ -2,14 +2,14 @@
 
 = Introduction =
 
-[http://www.sparkfun.com SparkFun] sell a simple and lightweight data logging device called the [http://www.sparkfun.com/commerce/product_info.php?products_id=9530 OpenLog], which is based around an Atmel ATmega328P microcontroller and a micro SD card socket. The device implements [http://www.roland-riegel.de/sd-reader/index.html Roland Riegel's] open FAT library. The device currently only supports FAT16, which means you are limited to cards of 2gb or under.
+[http://www.sparkfun.com SparkFun] sell a simple and lightweight data logging device called the [http://www.sparkfun.com/commerce/product_info.php?products_id=9530 OpenLog], which is based around an Atmel ATmega328P microcontroller and a micro SD card socket. The device implements [http://www.roland-riegel.de/sd-reader/index.html Roland Riegel's] open FAT library. The device currently only supports FAT16, which means you are basically limited to cards of 2gb or under.
 
 = Details =
 
-As of [http://code.google.com/p/gentlenav/source/list revision 203] the MatrixPilot firmware has *basic* support for the OpenLog, with further enhancements planned.
+As of [http://code.google.com/p/gentlenav/source/list revision 203], the MatrixPilot firmware has *basic* support for the OpenLog, with further enhancements planned.
 
 == Check Functionality ==
-Before attempting to modify the firmware, you should check that the device works in it's "as shipped" state. The easiest was to do this is to connect the OpenLog to your PC with a USB to serial adapter such as the [http://www.sparkfun.com/commerce/product_info.php?products_id=9115 FTDI Basic] sold by Sparkfun. If you wish to use a real hardware serial port, you will have to arrange your own level conversion, as the OpenLog does not use RS232 signalling levels. For this test, connect FTDI to the OpenLog as described in the following table:
+Before attempting to modify the OpenLog firmware, you should check that the device works in it's "as shipped" state. The easiest was to do this is to connect the OpenLog to your PC with a USB to serial adapter such as the [http://www.sparkfun.com/commerce/product_info.php?products_id=9115 FTDI Basic] sold by Sparkfun. If you wish to use a real hardware serial port, you will have to arrange your own level conversion, as the OpenLog does not use RS232 signalling levels. For this test, connect FTDI to the OpenLog as described in the following table:
 
 || FTDI || OpenLog ||
 || RX || TX ||
@@ -28,8 +28,10 @@ Using a terminal program (Hyper Terminal in a pinch) open a connection with sett
 
 The '1' signals that the device itself has initialised ok, and the '2' indicates that the card is initialised. Typing a question mark and pressing enter at this point should reward you with a listing of the available commands.
 
+This is sufficient to verify that you have working communcations. If you wish, take some time to familiarise yourself with the available commands. Most of the commands should be familiar to anyone who has used a DOS or UNIX console.
+
 == OpenLog Firmware ==
-The first thing that needs to be done is to configure the baud rate of the OpenLog to match that of the UAV Dev Board. Unfortunately the firmware that the OpenLog ships with does not support a baud rate of 19,200 which is the default for the second telementary/logging UART on the Dev Board.
+The next thing that needs to be done is to configure the baud rate of the OpenLog to match that of the UAV Dev Board. Unfortunately the firmware that the OpenLog ships with does not support a baud rate of 19,200 which is the default for the second telementary/logging UART on the Dev Board.
 
 To fix this you will need to update the firmware on the OpenLog board. The modified source code can be downloaded [http://gentlenav.googlecode.com/files/OLFWforUDBv1.zip here.]
 
@@ -50,5 +52,48 @@ SERIAL_AVRDUDE_PORT = COM2
 SERIAL_AVRDUDE_SPEED = 57600
 }}}
 
-If you've followed the instructions in Nate's walk through, you should now be able to build the code either with a hotkey or using the Tools->`[`WinAVR`]` Make All.
-If the build completes successfully, the next step is to program the device.
+If you've followed the instructions in Nate's walk through, you should now be able to build the code either with a hotkey or using the _Tools->`[`WinAVR`]`_ Make All menu item.
+If the build completes successfully, the next step is to program the device. This can be done using the F10 function key or with the _Tools->Serial_ Program menu item. If everything is correct, you should see the following output in the Programmer's Notepad window, as well as lots of activity on the FTDI and OpenLog LEDs.
+
+<IMAGE OF PROGRAMMERS NOTEPAD OUTPUT WINDOW HERE>
+
+== Setting The Baud Rate ==
+
+Once the programming process is complete, reconnect to the device using your terminal program and the settings from before. You should again be presented with the following prompt:
+
+*12>*
+
+type "set" followed by enter. You should be presented with a menu of baud rate selections. The modified firmware should display 19200 baud as option 2, where the stock firmware listed 57600 (which the Dev Board cannot achieve at it current clock speed anyway). Type "2" followed by enter. The OpenLog should display a message saying that it is changine to 19200 baud. 
+
+<image of baud rate setting in hyperterminal>
+
+Disoconnect from your terminal program. At this point, the OpenLog requires a reboot. If you have the DTR line connected as described above, this will happen automatically when you reconnect. Otherwise a power cycle will be required.
+
+Change the settings in your terminal program to 19200 baud, 8 bits, no parity, 1 stop bit, no flow control, and reconnect to the OpenLog. If all has gone well, you should again be greeted with the *12>* prompt. The new baud rate setting is stored in non-volatile flash on the OpenLog, and will stay set unless you change it to something else, so this should only need to be a one of process.
+
+== Connecting To The UAV Dev Board ==
+
+To use the OpenLog with the Dev Board, you simply need to provide power and ground, and connect the RXI line of the OpenLog to the TX line of UART1 on the dev board. A diagram of a typical connection is shown below. 
+
+<diagram of udb and ol in standalone mode>
+
+If you are using another serial device with the Dev Board, such as a XBee, then that device and the OpenLog will have to share the TX line of the Dev Board. The Dev Board appears to have sufficient fanout to drive both the OpenLog and an FTDI board, but no testing has yet been done with any other devices.
+
+<disgram of udb and openlog and xbee>
+
+== Using the OpenLog ==
+
+As of Revision 203 of the MatrixPilot firmware, the UAV Dev Board operates the OpenLog as follows:
+At startup the Dev Board pauses to allow the OpenLog time to initialise it's uSD card. 
+The first thing that the Dev Board sends over the UART is a CTRL-Z character. This will cause the OpenLog to flush its buffers to disk if it is already writing to a file. This would be the case when the Dev Board has a soft restart (using the reset button, as opposed to a power cycle). 
+The Dev Board then sends the command "new UDBlog.txt". This will create our logfile if it doesn't exist, or return an error if it does. We will never see this error, nor do we care about it :)
+Next, the Dev Board sends "append UDBlog.txt". This opens the logfile for writing, and from that point the OpenLog will record everything it receives to the file, until it receives a CTRL-Z character (ASCII 26).
+
+With the current firmware, you can write any outstanding data to disk simply by resetting the Dev Board. This would be usefull at the end of a flight, to ensure the last of the flight data is stored before powering the system off. If the OpenLog does not receive a CTRL-Z before it is powered down, it will lose whatever is in it's write buffer. This can be anywhere up to 511 bytes, which may represent a reasonable period of data, depending on the data rate of the telementary being used.
+
+= Future Developments =
+Planned enhancements to the interaction between the OpenLog and the Dev Board include the following:
+# Modify the OpenLog to automatically generate incremental sequential filenames for each run. This code is almost complete, barring some apparent instability wierdness with the OpenLog firmware.
+# Add ability to send CTRL-Z using a button attached to an IO line of the Dev Board, so that buffers can be flushed to disk without needing to restart the UDB
+# Add ability to send CTRL-Z from the ground?
+
