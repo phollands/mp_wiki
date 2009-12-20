@@ -15,6 +15,7 @@
       # *[SerialConnection Serial Connection]*
       # *[XBeeConnection XBee Connection]*
       # *[RemzibiConnection Remzibi Connection]*
+      # *[OpenLogConnection OpenLog Connection]*
     # *[HowToConfigure Configuration]*
     # *[WayPoints Waypoints]*
     # *[GroundTest Ground Testing]*
