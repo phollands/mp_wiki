@@ -24,11 +24,17 @@ Before attempting to modify the !OpenLog firmware, you should check that the dev
 
 You will also need a micro SD card in the device before you can talk to it via the serial port. I have had excellent results with 2gb !SanDisk cards so far. I have some 4gb !SanDisk cards which did not work (as expected - FAT16 limitations), and an old 64mb nokia card that also did not work, for reasons unknown (although it works fine in phones and card readers). When powered on the device will flash the LED closest to pin 1 of JP2 twice, and then flash the second LED in bursts of 3 if no card is present. If a card is inserted and correctly initialised, the second LED will stay on solid.
 
-Using a terminal program (Hyper Terminal in a pinch) open a connection with settings of 9600 baud, 8 bits, no parity, 1 stop bit, no flow control. You should be greeted with a prompt of: 
+Using a terminal program (Hyper Terminal in a pinch) open a connection with settings of 9600 baud, 8 bits, no parity, 1 stop bit, no flow control. 
+
+<a href="http://picasaweb.google.com.au/lh/photo/lem5zLsGGrd7UQhaHQ9PVA?authkey=Gv1sRgCIC3lZTg9_CSdg&feat=embedwebsite"><img src="http://lh3.ggpht.com/_GufzRAf4Eas/Szf_9WAWFUI/AAAAAAAAAGQ/NIKMlQYp1E8/s800/OLConnSet.jpg" /></a>
+
+You should be greeted with a prompt of: 
 
 *12>*
 
 The '1' signals that the device itself has initialised ok, and the '2' indicates that the card is initialised. Typing a question mark and pressing enter at this point should reward you with a listing of the available commands.
+
+<a href="http://picasaweb.google.com.au/lh/photo/iCL96PPp4gMdPH0XvrInxQ?authkey=Gv1sRgCIC3lZTg9_CSdg&feat=embedwebsite"><img src="http://lh4.ggpht.com/_GufzRAf4Eas/Szf_9Wm3EtI/AAAAAAAAAGU/iXCz6fMySFk/s800/OLCommands.gif" /></a>
 
 This is sufficient to verify that you have working communcations. If you wish, take some time to familiarise yourself with the available commands. Most of the commands should be familiar to anyone who has used a DOS or UNIX console.
 
