@@ -4,9 +4,6 @@
 Peter Hollands, December 2009
 with thanks to William Premerlani for detailed review and corrections.
 
-Note: At this time this Wiki version of a Word Document does not have vital diagrams attached. These are being converted from word diagrams to images to be included shortly.
-Please wait for these diagrams to be included before attempting to read this document.
-
 The software inside of the UAV DevBoard uses 4 coordinate systems.
 
 These are:-
@@ -19,6 +16,8 @@ Why 4? In summary, it is because UAV DevBoard has been a learning journey for th
 
 ==AVIATION CONVENTION – AIRPLANE==
 
+http://gentlenav.googlecode.com/svn/wiki/images/udb_coords_fig1.jpg
+
 We use a variation of the aviation convention for the coordinates for vectors measured in the frame of reference of the plane, such as accelerometer and gyro signals. It is not exactly the same as the standard aviation convention. It came out the way that it is simply because the design of the board included X and Y arrow labels that agreed with the mounting of the three-axis accelerometer on the board. Since then, we discovered that the industry standard aviation convention is rotated 90 degrees from the aviation convention used in the UAV DevBoard firmware. 
 
 There is a supporting document to this document which explains the mathematics that is used by the UAV DevBoard firmware.  That document is called the Direction Cosine Matrix IMU: Theory. See [http://gentlenav.googlecode.com/files/DCMDraft2.pdf] . The X and Y axis in the Theory document are the reverse of this document. 
@@ -27,13 +26,14 @@ In the system used for UAV DevBoard, angles are defined using the mathematical c
 
 Some of the Z angles are shown in the previous figure, which are measured from the X axis. X and Y angles are not shown. Another way of describing how angles are measured is that angles follow the “right hand rule”. That is, if you take your right hand, and place your thumb in the direction of any axis, then your remaining fingers, when slightly clenched will point in the direction of a positive angle around that axis.
 
-http://code.google.com/p/gentlenav/source/browse/wiki/images/righ_hand_small.jpg
+<img src="http://gentlenav.googlecode.com/svn/wiki/images/righ_hand_small.jpg" width="100" height="100">
   
 This hand would need to be rotated down so that the thumb points downwards in line with the positive direction of the Z axis.
 
 ==AVIATION CONVENTION – EARTH==
 
-http://code.google.com/p/gentlenav/source/browse/wiki/images/udb_coords_fig1.jpg
+
+http://gentlenav.googlecode.com/svn/wiki/images/udb_coords_fig2.jpg
 
 Aviation Convention – Earth is exactly the same as Aviation Convention – Plane. It is just that the two coordinate systems move independently as the plane banks, turns, dives and “loops the loop” around the sky. The two coordinate systems can be related to each other by a mathematical “translation” of the origins of each coordinate system and by a rotation. The latter rotation is specified by the Direction Cosine Matrix, also known as “rmat” (rotation matrix) in the firmware of the UAV DevBoard. The Aviation Convention – Plane coordinate system coincides with the Aviation Convention – Earth coordinate system when the plane is located at the origin of the Aviation Convention – Earth coordinate system, pointing north, with the plane level with respect to both pitch and roll.
 
@@ -43,7 +43,7 @@ The mathematics of this approach is described in a document called Direction Cos
 
 This coordinate system is used by software within the UAV DevBoard to represent relative distances from where the plane’s computer was started up.  Using relative distances, allows the computer to save on memory and CPU cycles as the variables can then be sized as 16 bit variables, rather than 64 bit variables. (Note that 16 bit values mean that the computer can travel at most 2 to the power 15 [ the 16th bit  is the sign bit ] i.e. 32768 meters or 20.36 miles from it’s origin before navigation variables will overflow. )
 
-http://code.google.com/p/gentlenav/source/browse/wiki/images/udb_coords_fig3.jpg
+http://gentlenav.googlecode.com/svn/wiki/images/udb_coords_fig3.jpg
 
 Distances along the X axis and Y axis are measured in meters from the location where the plane first acquired a GPS location. This is usually the place where the plane’s UAV DevBoard is started up on the airfield. Note that the X Axis of UAV DevBoard – Earth is reversed when compared to Aviation Convention – Earth.
 
@@ -53,7 +53,7 @@ Angles in the UAV DevBoard system are measured in the mathematical convention of
 
 ==GPS CONVENTION – LAT/LON==
 
-http://code.google.com/p/gentlenav/source/browse/wiki/images/udb_coords_fig4.jpg
+http://gentlenav.googlecode.com/svn/wiki/images/udb_coords_fig4.jpg
 
 This coordinate system is the normal navigational convention used by shipping and aircraft since the seventeenth century. We use it because we receive positional information from the Global Positioning System (GPS) in this format.
 
@@ -138,7 +138,7 @@ That vector, in order to be useful for pointing the camera on the plane, needs t
 
 For a vector, that simply means swapping the signs of the X axis and the Z axis. The figure below shows this quite clearly.
 
-http://code.google.com/p/gentlenav/source/browse/wiki/images/udb_coords_fig5.jpg
+http://gentlenav.googlecode.com/svn/wiki/images/udb_coords_fig5.jpg
 
 To convert from the Aviation Convention - Ground convention to the UAV DevBoard - Ground, values of Y remain the same. Values of X must be negated (The X axis of the plane is opposite to that of the ground). Values for Z must also be negated.
 
