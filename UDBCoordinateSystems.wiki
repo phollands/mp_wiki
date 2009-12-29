@@ -41,7 +41,7 @@ The mathematics of this approach is described in a document called Direction Cos
 
 ==UAV DEVBOARD - EARTH==
 
-This coordinate system is used by software within the UAV DevBoard to represent relative distances from where the plane’s computer was started up.  Using relative distances, allows the computer to save on memory and CPU cycles as the variables can then be sized as 16 bit variables, rather than 64 bit variables. (Note that 16 bit values mean that the computer can travel at most 2 to the power 15 [ the 16th bit  is the sign bit ] i.e. 32768 meters or 20.36 miles from it’s origin before navigation variables will overflow. )
+This coordinate system is used by software within the UAV DevBoard to represent relative distances from where the plane’s computer was started up.  Using relative distances, allows the computer to save on memory and CPU cycles as the variables can then be sized as 16 bit variables, rather than 32 bit variables. (Note that 16 bit values mean that the computer can travel at most 2 to the power 15 [ the 16th bit  is the sign bit ] i.e. 32768 meters or 20.36 miles from it’s origin before navigation variables will overflow. )
 
 http://gentlenav.googlecode.com/svn/wiki/images/udb_coords_fig3.jpg
 
@@ -87,7 +87,7 @@ vector_to_origin.x = - accum_nav._.W1 ;
 GPSlocation.x = accum_nav._.W1
 }}}
 
-The code uses a 64 bit temporary variable called accum_nav.WW to subtract the latitude at start-up (lat_origin) from its current location (lat_gps). The result when divide by 90 converts the difference in latitude into meters. Keeping the difference as a 64 bit quantity is no longer required as the amount will be relatively small. 
+The code uses a 32 bit temporary variable called accum_nav.WW to subtract the latitude at start-up (lat_origin) from its current location (lat_gps). The result when divide by 90 converts the difference in latitude into meters. Keeping the difference as a 32 bit quantity is no longer required as the amount will be relatively small. 
 {{{
 GPSlocation.y = accum_nav._.W0 ;
 }}}
