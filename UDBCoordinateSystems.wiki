@@ -197,9 +197,9 @@ cam.WW = __builtin_mulss((yawServoLimit(yaw - yaw_offset_centred)), yaw_servo_ra
 
 So there are primarily 4 coordinate systems in use in the UAV DevBoard:
 
-•	Aviation Convention - Airplane
-•	Aviation Convention - Earth
-•	UAV DevBoard – Earth
-•	GPS Convention – Lat / Lon
+  * Aviation Convention - Airplane
+  * Aviation Convention - Earth
+  * UAV DevBoard – Earth
+  * GPS Convention – Lat / Lon
 
 With the camera example, we have traversed those systems in reverse order to show how each coordinate system relates to the previous one.
