@@ -1,5 +1,7 @@
 #summary Using the SparkFun OpenLog board with the UDB.
 
+== Note: (04Jan2010) The latest OpenLog firmware (v1.1) which is shipping on any new devices sold by sparkfun fixes a number of isses, and changes its default behaviour slightly from that described in this document (v1.0). This document will be updated shortly to reflect this fact. If you need to get one of these devices working in the meantime, contact Adam Bellchambers via the uavdevboard Google Groups mailing list. ==
+
 = Introduction =
 
 [http://www.sparkfun.com SparkFun] sell a simple and lightweight data logging device called the [http://www.sparkfun.com/commerce/product_info.php?products_id=9530 OpenLog], which is based around an Atmel ATmega328P microcontroller and a micro SD card socket. The device implements [http://www.roland-riegel.de/sd-reader/index.html Roland Riegel's] open FAT library. The device currently only supports FAT16, which means you are basically limited to cards of 2gb or under.
