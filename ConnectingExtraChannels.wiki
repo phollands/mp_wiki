@@ -5,9 +5,24 @@ The existing Red and Green boards only include built in connections for 4 Radio 
 Here's how to connect the 5th Input channel, and the 4th, 5th, and 6th Output channels.
 
 
-= Details =
+== Simple Method: One Extra Input and One Extra Output ==
 
-The new Input runs on pin RE8.  The new outputs on RE0, RE2, and RE4.  This pins are made available along the bottom-left edge of the board  To use these pins as a radio input and servo outputs, here's what I suggest doing:
+The new Input runs on pin RE8.  The new outputs on RE0, RE2, and RE4.  This pins are made available along the bottom-left edge of the board.
+
+If you just need one more input and one more output, here's a simple way to do it:
+
+  * Find, re-purpose, or buy a male-to-female servo extension cable
+  * Near the middle of the cable, separate the Orange (signal) wire from the other two for a distance of a couple inches
+  * Cut only the orange wire, near the middle of the cable
+  * Strip the two new ends of the orange wire
+  * Either by soldering directly to the board, or through a header and connector, connect the side of the orange wire coming from the radio receiver to RE8, and the other end of the orange wire to RE0.  This will act as Input Channel 5 and Output Channel 4 on the UDB.
+
+http://gentlenav.googlecode.com/svn/wiki/images/simple_extra_channels.jpg
+
+
+== All Extra Channels ==
+
+To use all of these pins as a radio input and servo outputs, here's what I suggest doing:
 
   * Find, re-purpose, or buy 3 male-to-female servo extension cables
   * Near the middle of each cable, separate the Orange (signal) wire from the other two for a distance of a couple inches
