@@ -13,6 +13,19 @@ When manual control comes on, check the directions of elevator and aileron under
 Now you need to wait for GPS lock, it may take a minute or two. After the GPS locks, the ailerons and rudder should "waggle" 4 times. When they stop waggling, the controls are ready for further setup.
 
 
+== Table of LED Behavior ==
+
+The green LED shows whether or not the UDB is receiving a signal from the radio receiver.  The red LED's meaning depends on whether we already have GPS lock or not.  The signal that the UDB has a GPS lock is 4 wags of the control surfaces.
+
+|| *Green LED* || *Red LED* || *Description* ||
+|| Off || Off || Not powered, or not programmed properly ||
+|| Off || On || If before GPS lock: Has power, but isn't yet receiving pulses from the receiver.  If After GPS lock: Return-to-Launch mode  ||
+|| Off || Blinking || _(Not currently used)_ ||
+|| On || Off ||  If before GPS lock: Done with Calibration, but waiting for GPS.  If after GPS lock: Manual mode ||
+|| On || On || Stabilized mode ||
+|| On || Blinking || If before GPS lock: Calibrating the sensors.  If after GPS lock: Waypoint mode ||
+
+
 == Stabilization checkout ==
 
 Test the stabilization functions, including altitude hold. If you are using a stick and trim tab, move the trim tab all the way to the right. Make sure the throttle is in the off position. Put the controls in "stabilize mode", but be prepared for the possibility that the motor will come on. Now is the time to check that the throttle reversing switch (SR3 by default), is in the right position. Make sure the controls are in the stabilize mode, and advance the throttle. If you have the throttle reversing switch in the correct position, the throttle will “snap” on to the minimum throttle setting. If you have the throttle reversing switch in the wrong position, the altitude hold will not engage, and the motor will stay off. So, if the motor does not come on, then this switch is in the wrong position, flip it the other way. Once you have it in the correct position, test out the altitude hold function by slowly increasing the throttle. What you are doing is changing the commanded altitude. At some point, the motor will turn on rather abruptly. Switch back and forth between manual and stabilized mode and notice the different throttle response in the two modes.
