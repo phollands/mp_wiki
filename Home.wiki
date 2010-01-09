@@ -12,6 +12,11 @@ There is also a lively community that discusses this platform on the [http://diy
 
 == News! ==
 
+*MatrixPilot 2.0.1 - Sunday, January 9, 2010*
+
+Happy New Year from the UAV Dev Board team!  Version 2.0.1 is an important bug fix release.  All users of MatrixPilot should upgrade to 2.0.1.  It fixes a nasty bug that showed itself first as infrequent glitches in serial telemetry output, but could also cause worse problems.  It also fixes two small formatting bugs in the ArduStation-compatible telemetry output.
+
+
 *MatrixPilot 2.0 - Thursday, December 10, 2009*
 
 The team has just released the initial version of *MatrixPilot*.  It now offers up to 5 input channels and 6 output channels, control of Delta Wing and V-Tail airframes, allows much more configuration, supports multiple telemetry formats, and includes a bunch of other cool new features too.  It is a recommended upgrade from both MatrixNav and AileronAssist.
