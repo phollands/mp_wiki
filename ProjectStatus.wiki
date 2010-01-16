@@ -20,24 +20,33 @@ As with all long term plans, these could change at any time, but here's where we
 
 === MatrixPilot 2.1 ===
 
-This version will include features that are either needed or helpful for users participating in the [http://www.sparkfun.com/commerce/product_info.php?products_id=9016 SparkFun Autonomous Vehicle Challenge] on April 17th, 2010.  Plus whichever other goodies make their way in.
+With this version we aim to include features that are either needed or helpful for users participating in the [http://www.sparkfun.com/commerce/product_info.php?products_id=9016 SparkFun Autonomous Vehicle Challenge] on April 17th, 2010.  Plus whichever other goodies make their way in.
 
-  * Add support for absolute waypoints.
   * Improve robustness of launching while in Waypoint mode.
+  * Improve robustness of following waypoints when losing the transmitter signal.
+  * Possibly add support for absolute waypoints.
   * Possibly add support for automatic detection of, and adjustment for average wind speed and direction.
+
+=== MatrixPilot 2.x ===
+
+Other features being actively developed:
+
+  * Stabilize inverted flight.
+  * Stabilize vertical / hovering flight.
+  * Stabilize knife-edge flight.
+  * More configurable flight patterns.
+  * Automatic landing.
+  * Better camera stabilization and targeting.
   * ...
 
+=== MatrixPilot 3.0 ===
 
-=== Other Features Being Discussed/Developed ===
+Other features that are probably a bit further out:
 
-  * Add stabilization of inverted flight, hovering, knife-edge flight.
-  * Improve the mixing of manual input with stabilization controls.
-  * More configurable flight patterns.
-  * Automatic landing?
   * Fully rotational based controls, using the complete theory proposed by Robert Mahoney.
-  * Better Helicopter support.
-  * Quadcopter support.
-  * Improved Navigation and altitude control.
-  * Better camera stabilization and targeting.
+  * Replace list of waypoints with a programmable flight / mission language.
   * IMU based "dead" reckoning.
+  * Improve the mixing of manual input with stabilization controls.
+  * Better Helicopter and quadcopter support.
+  * Possibly develop a new revision of the hardware platform.
   * ...
