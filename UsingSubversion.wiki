@@ -8,6 +8,7 @@ Grab a copy of [http://tortoisesvn.net/downloads TortoiseSVN]. It integrates svn
 
 Once you have that installed, you can right click on the desktop or in a folder, and choose the "Svn Checkout..." option.  For the repository, enter: http://gentlenav.googlecode.com/svn/trunk/  The rest of the defaults should be fine.  That should get you a clean checkout of the most recent version of each firmware.  Note that it's fine to rename the resulting top level svn folder and move it around.
 
+*Check out this [http://vimeo.com/9245809 great video] of Pete explaining the use of TortoiseSVN with MatrixPilot.*
 
 = Create a patch =
 
