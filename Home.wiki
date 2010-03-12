@@ -12,6 +12,10 @@ There is also a lively community that discusses this platform on the [http://diy
 
 == News! ==
 
+*MatrixPilot 2.0.3 - Thursday, March 11, 2010*
+
+Version 2.0.3 fixes two bugs associated with certain types of receivers that do not have a fail-safe. These receivers typically produce random pulses when your transmitter is off.  Users of MatrixPilot with such receivers should upgrade to 2.0.3, which eliminates a glitch in the control surfaces when you shut off your transmitter, and prevents a rare, but serious "lockup" of a PWM input channel if it receives a string of closely spaced, extremely narrow pulses. Also, if you have transmitters in your plane, such as for video or telemetry, that might interfere with your receiver, you should use this version.
+
 *MatrixPilot 2.0.2 - Tuesday, January 19, 2010*
 
 Version 2.0.2 is another important bug fix release.  All users of MatrixPilot should upgrade to 2.0.2.  It fixes a new bug introduced with the last release that under certain circumstances and configurations, could cause your UDB to reboot unexpectedly.  It also fixes a couple more small formatting bugs in the ArduStation-compatible telemetry output, all fields of which should now work as expected.
