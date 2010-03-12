@@ -16,18 +16,8 @@ There is also a lively community that discusses this platform on the [http://diy
 
 Version 2.0.3 fixes two bugs associated with certain types of receivers that do not have a fail-safe. These receivers typically produce random pulses when your transmitter is off.  Users of MatrixPilot with such receivers should upgrade to 2.0.3, which eliminates a glitch in the control surfaces when you shut off your transmitter, and prevents a rare, but serious "lockup" of a PWM input channel if it receives a string of closely spaced, extremely narrow pulses. Also, if you have transmitters in your plane, such as for video or telemetry, that might interfere with your receiver, you should use version 2.0.3.
 
-*MatrixPilot 2.0.2 - Tuesday, January 19, 2010*
 
-Version 2.0.2 is another important bug fix release.  All users of MatrixPilot should upgrade to 2.0.2.  It fixes a new bug introduced with the last release that under certain circumstances and configurations, could cause your UDB to reboot unexpectedly.  It also fixes a couple more small formatting bugs in the ArduStation-compatible telemetry output, all fields of which should now work as expected.
-
-*MatrixPilot 2.0.1 - Sunday, January 9, 2010*
-
-Happy New Year from the UAV Dev Board team!  Version 2.0.1 is an important bug fix release.  All users of MatrixPilot should upgrade to 2.0.1.  It fixes a nasty bug that showed itself first as infrequent glitches in serial telemetry output, but could also cause worse problems.  It also fixes two small formatting bugs in the ArduStation-compatible telemetry output.
-
-
-*MatrixPilot 2.0 - Thursday, December 10, 2009*
-
-The team has just released the initial version of *MatrixPilot*.  It now offers up to 5 input channels and 6 output channels, control of Delta Wing and V-Tail airframes, allows much more configuration, supports multiple telemetry formats, and includes a bunch of other cool new features too.  It is a recommended upgrade from both MatrixNav and AileronAssist.
+*[News More News...]*
 
 
 == Hardware Specifications ==
