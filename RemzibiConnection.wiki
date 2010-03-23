@@ -7,3 +7,5 @@ The Remzibi OSD usually needs a GPS plugged in to it, but since the UAV Dev Boar
 So MatrixPilot offers the ability to output NMEA formatted GPS data that can be read by the Remzibi OSD.
 
 To enable this, just set the SERIAL_OUTPUT_FORMAT to SERIAL_OSD_REMZIBI in the options.h file.  Then connect the TX pin from the serial header on the UAVDevBoard to the RX pin on the GPS header on the OSD, and make sure the OSD gets power as usual, and shares a GND connection with the UAV Dev Board.
+
+Also note that currently this only works using the [http://store.diydrones.com/ProductDetails.asp?ProductCode=SPK-GPS-GS407 uBlox 5H GPS].
