@@ -58,7 +58,9 @@ and after connecting them together:
 
 http://gentlenav.googlecode.com/svn/wiki/images/connectors2.jpg
 
-No soldering required for the cables, although you'll still have to solder the header onto the board.
+The 4 black connectors at the bottom of the photo just above are, left to right, servo output 5, servo output 4, a connection to a spare receiver output for power, and radio input 5.
+
+No soldering is required to build these cables, although you'll still have to solder the header pins onto the UDB.
 
 
 == Using the Extra Channels ==
