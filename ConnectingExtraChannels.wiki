@@ -40,6 +40,29 @@ To use all of these pins as a radio input and servo outputs, here's what I sugge
 http://www.pololu.com/picture/0J652.250.jpg
 
 
+An easier method is to use these cables from pololu.com:
+
+http://www.pololu.com/catalog/product/1800
+
+http://www.pololu.com/catalog/product/1801
+
+http://www.pololu.com/catalog/product/1902
+
+http://www.pololu.com/catalog/product/1903
+
+and arrange them as seen in these photos showing both before:
+
+http://gentlenav.googlecode.com/svn/wiki/images/connectors1.jpg
+
+and after connecting them together:
+
+http://gentlenav.googlecode.com/svn/wiki/images/connectors2.jpg
+
+No soldering required for the cables, although you'll still have to solder the header onto the board.
+
+
+== Using the Extra Channels ==
+
 Now to use these cables, connect the new Input 5 to a channel you want to use on your receiver.  And attach the other two female ends to 2 unused channels on your receiver.  (You can connect one of them to the BATT connection on the receiver, if that is unused in your setup.)  Note that these two channels are only being used for power, and the values from the receiver on these channels is being ignored.  Now you can connect servos to the other ends of these cables, and they will be driven as output channels 4, 5, and 6.
 
 Here's a diagram put together by Peter Hollands:
