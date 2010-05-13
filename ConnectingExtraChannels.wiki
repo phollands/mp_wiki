@@ -50,7 +50,7 @@ http://www.pololu.com/catalog/product/1902
 
 http://www.pololu.com/catalog/product/1903
 
-and arrange them as seen in these photos showing both before:
+and arrange them as seen in these photos showing the parts needed to add one extra input and two extra outputs, both before:
 
 http://gentlenav.googlecode.com/svn/wiki/images/connectors1.jpg
 
