@@ -1,5 +1,19 @@
 = Project Status =
 
+=== What's New in MatrixPilot 2.5 ===
+
+  * IMU based "dead" reckoning.
+  * Support for waypoints at absolute positions, relative to startup, or relative to a fixed location.
+  * More configurable waypoints / flight patterns.
+  * Stabilize inverted flight.
+  * Stabilize vertical / hovering flight.
+  * Beginnings of automatic landing.
+  * Camera stabilization and targeting.
+  * Support for automatic detection of, and adjustment for average wind speed and direction.
+  * Support for using a magnetometer for yaw stabilization.
+  * Improve robustness of waypoint following when losing the transmitter signal.
+
+
 == What's New in MatrixPilot 2.0 ==
 
   * Combines the functionality of MatrixNav and AileronAssist into a single firmware.
@@ -20,27 +34,11 @@
 As with all long term plans, these could change at any time, but here's where we're thinking we'll go in the near future.
 
 
-=== MatrixPilot 2.5 ===
-
-What's already in svn, or just around the corner:
-
-  * Support for waypoints at absolute positions, relative to startup, or relative to a fixed location.
-  * More configurable waypoints / flight patterns.
-  * Stabilize inverted flight.
-  * Stabilize vertical / hovering flight.
-  * Beginnings of automatic landing.
-  * Camera stabilization and targeting.
-  * Support for automatic detection of, and adjustment for average wind speed and direction.
-  * Support for using a magnetometer for yaw stabilization.
-  * Improve robustness of waypoint following when losing the transmitter signal.
-
-
-=== MatrixPilot 3.0 ===
+=== MatrixPilot 3.0 and Beyond ===
 
 Other features that are in progress, or planned for the not too distant future:
 
   * Fully rotational based controls, using the complete theory proposed by Robert Mahoney.
-  * IMU based "dead" reckoning.
   * Barometric pressure sensor for more precise altitude control.
   * Hardware-In-the-Loop simulation using a UDB and X-Plane.
   * Replace list of waypoints with a programmable flight / mission language.
