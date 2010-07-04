@@ -20,6 +20,7 @@
     # *[WayPoints Waypoints]*
     # *[GroundTest Ground Testing]*
     # *[Flying Flying]*
+    # *[HardwareInLoop Simulation]*
     # *[Troubleshooting Troubleshooting]*
   * *Development*
     # *[HowToContribute How To Help]*
