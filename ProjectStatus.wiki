@@ -12,6 +12,7 @@
   * Support for automatic detection of, and adjustment for average wind speed and direction.
   * Support for using a magnetometer for yaw stabilization.
   * Improve robustness of waypoint following when losing the transmitter signal.
+  * Hardware-In-the-Loop simulation using a UDB and X-Plane.
 
 
 == What's New in MatrixPilot 2.0 ==
@@ -40,7 +41,6 @@ Other features that are in progress, or planned for the not too distant future:
 
   * Fully rotational based controls, using the complete theory proposed by Robert Mahoney.
   * Barometric pressure sensor for more precise altitude control.
-  * Hardware-In-the-Loop simulation using a UDB and X-Plane.
   * Replace list of waypoints with a programmable flight / mission language.
   * Improve the mixing of manual input with stabilization controls.
   * Real Helicopter and quadcopter support.
