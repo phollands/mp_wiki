@@ -1,10 +1,10 @@
 = MatrixPilot: Overview =
 
-MatrixPilot is the latest version of the firmware that is being actively developed. It combines the features of MatrixNav and AileronAssist into one code base, adds some important new features, and allows much more configuration than previous firmwares.
+MatrixPilot is the latest version of the firmware for the UAV Dev Board. It combines the features of MatrixNav and AileronAssist into one code base, adds some important new features, and allows much more configuration than previous firmwares.
 
 The code is located here: http://code.google.com/p/gentlenav/source/browse/#svn/trunk/MatrixPilot
 
-You can also check out the ProjectStatus.
+You can also check out the [ProjectStatus project status].
 
 
 == Supported Air Frames ==
@@ -13,7 +13,6 @@ The new firmware will be able to be used to control a wide variety of airframes:
   * *Standard Airplane*: Stabilize and navigate using elevator, and either ailerons, rudder, or both.  This is the Airframe type to use if you're upgrading from AileronAssist or MatrixNav.
   * *Delta Wing*: Similar to the *Standard Airplane*, but all control is performed through the 2 "elevon" control surfaces.
   * *V-Tail*: Similar to the *Standard Airplane*, but rudder and elevator channels are mixed for a V-Tail configuration.
-  * *Helicopter*: _Experimental support for stabilizing a CCPM helicopter like the TREX 450SE.  Don't use this yet without first emailing the dev list for support. :)_
 
 
 == More Radio Inputs and Servo Outputs ==
@@ -34,7 +33,7 @@ Each Output channel can be configured as one of the following:
   * *Elevator*
   * *Rudder*
   * *2nd Aileron* (separately reversible from the main aileron output)
-  * *Camera Roll*, *Camera Pitch*, and *Camera Yaw* controls for stabilizing an on-board camera
+  * *Camera Roll*, *Camera Pitch*, and *Camera Yaw* controls for stabilizing and targeting an on-board camera
 
 Each of the 3 hardware switches on the board can also be configured to reverse any of the output channels.
 
@@ -60,4 +59,4 @@ MatrixPilot has support for outputting telemetry data in one of a few different 
 
 == Camera Stabilization ==
 
-The upcoming version of the firmware will also offer simple 3-axis camera stabilization.
+MatrixPilot 2.5 includes the ability to stabilize a camera, and even to have the UDB automatically keep a camera targeted at a specific location in 3D space.
