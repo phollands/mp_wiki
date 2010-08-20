@@ -12,14 +12,14 @@ There is also a lively community that discusses this platform on the [http://diy
 
 == News! ==
 
+*MatrixPilot 2.5 - Thursday, August 19, 2010*
+
+We're excited to finally release version 2.5 of MatrixPilot!  This version adds tons of new features, including inverted stabilization, camera targeting, more configurable waypoints, wind speed estimation, dead reckoning, and hardware-in-the-loop simulation.  See the full list on the [ProjectStatus status page].
+
+
 *UAV Dev Board Wins a UAV Contest in Taiwan! - Thursday, March 25, 2010*
 
 It sounds like the UAV Dev Board won First Place in an event in the "2010 Taiwan Robot Aircraft Design and Photography Competition".  We think it was running MatrixPilot, but can't confirm that.  [http://www.diydrones.com/profiles/blogs/easystar-and-uav-devboard-got Full Story Here.]
-
-
-*MatrixPilot 2.0.3 - Thursday, March 11, 2010*
-
-Version 2.0.3 fixes two bugs associated with certain types of receivers that do not have a fail-safe. These receivers typically produce random pulses when your transmitter is off.  Users of MatrixPilot with such receivers should upgrade to 2.0.3, which eliminates a glitch in the control surfaces when you shut off your transmitter, and prevents a rare, but serious "lockup" of a PWM input channel if it receives a string of closely spaced, extremely narrow pulses. Also, if you have transmitters in your plane, such as for video or telemetry, that might interfere with your receiver, you should use version 2.0.3.
 
 
 *[News More News...]*
