@@ -135,4 +135,4 @@ When the throttle stick is placed in the full off position, the motor will turn 
 When the waypoint function is activated, the aircraft flies to the first waypoint along a line between its position at the time that the waypoints function is activated, and the first waypoint. If you disengage the waypoint function at any time and then reengage it, it will start over with the first waypoint on the list. So, if you decide you want to return the plane to the first point at any time, simply disengage the waypoint function, wait a couple of seconds, and reengage it.
 
 
-[WayPoints-MP20 Or read the waypoints documentation for MatrixPilot 2.0 here.]
+[WayPointsMP20 Or read the waypoints documentation for MatrixPilot 2.0 here.]

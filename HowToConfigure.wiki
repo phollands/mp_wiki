@@ -573,4 +573,4 @@ The waypoint handling options live at the top of the waypoints.h file.
 }}}
 
 
-[HowToConfigure-MP20 Or read the configuration documentation for MatrixPilot 2.0 here.]
+[HowToConfigureMP20 Or read the configuration documentation for MatrixPilot 2.0 here.]
