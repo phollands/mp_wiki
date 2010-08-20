@@ -1,5 +1,5 @@
 = UAV Dev Board =
-http://www.sparkfun.com/commerce/images/products/09038-1_i_ma.jpg
+http://static.sparkfun.com/images/products/09980-01b_i_ma.jpg
 
 The UAV Dev Board, designed by Bill Premerlani, is an IMU-based development platform for building controllers for Unmanned Aerial Vehicles.  This site hosts the development of UAV code that runs on this board, allowing it to stabilize an airplane, maintain altitude, and optionally navigate back to the launch site.
 
