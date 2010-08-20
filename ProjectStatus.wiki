@@ -10,7 +10,7 @@
   * Beginnings of automatic landing.
   * Camera stabilization and targeting.
   * Support for automatic detection of, and adjustment for average wind speed and direction.
-  * Support for using a magnetometer for yaw stabilization.
+  * Support for using a magnetometer for yaw stabilization (using the I2C interface)
   * Improve robustness of waypoint following when losing the transmitter signal.
   * Hardware-In-the-Loop simulation using a UDB and X-Plane.
 
