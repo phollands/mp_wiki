@@ -16,7 +16,7 @@ The waypoint function will work in a 3D mode with altitude hold controlling heig
 
 The waypoints are defined in the file waypoints.h that is a header file in the project source code for the firmware. This file allows configuring the following settings:
   * whether or not you want to use cross-tracking
-  * how close the plane has to get to each waypoint (if not using cross-tracking)
+  * how close the plane has to get to each waypoint
   * an optional static origin point to fix the relative waypoints into absolute locations.
   * a list of waypoints to use when entering waypoint mode
   * a list of waypoints to use when a loss of signal commands RTL mode  (usually these are set up to bring the plane home.)
