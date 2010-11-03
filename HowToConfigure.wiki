@@ -331,11 +331,11 @@ Servo Saturation controls the maximum throw of the servos.  Typical value is 1.0
 
 There are several gains that you can adjust. They should all be set to positive numbers.  If you think any gain needs to be reversed, you should instead reversals in the Reversal section above, and with the board reversing switches SR1, SR2 and SR3. Use the same gains on either the red board or the green board, the appropriate multipliers are now built into the firmware.
 
-  * ROLLKP Ð This is the proportional feedback for the aileron control of roll. Setting it higher will improve precision of the bank leveling, but will reduce the bank angle and will make the turning radius get larger. Setting it too high may cause low frequency roll flutter that is annoying but not dangerous. Setting it lower will increase the bank angle and sharpen the turns, particularly during RTL. Typical value is 0.25.
-  * ROLLKD Ð This is the derivative (gyro) feedback for the aileron control of roll. It is used to improve the damping of the roll control, to dampen any low frequency flutter. But if it is set too high, there may be a high frequency flutter that is annoying but not dangerous. Typical value is 0.125. This gain does not have to be greater than or equal to ROLLKP, you can use any value that you want.
-  * YAWKP_AILERON Ð This is the proportional turning gain used by navigation for controlling ailerons. Typical value is 0.1. Larger values will produce tighter turns. Using a value that is too large will produce a Òdutch rollÓ.  Maximum valid value is 1.999.
-  * YAWKD_AILERON Ð This is the derivative yaw gain used for yaw damping by yaw stabilization to reduce the impact of the wind, and to help stabilize the yaw control. Typical value is 0.2. Maximum valid value is 0.5.
-  * AILERON_BOOST Ð This is an amplification, or ÒboostÓ factor for manual control of the ailerons, used during stabilized and waypoint modes to restore control authority to the ailerons in the face of the damping effect of stabilization. Typical value is 1.0. This factor is in addition to the manual control, so a value of PITCHBOOST of 0 turns the boost off, and provides unmodified response to manual control. A PITCHBOOST of 1 makes the elevator response to manual control approximately twice as great. Maximum valid value is 1.999.
+  * ROLLKP ï¿½ This is the proportional feedback for the aileron control of roll. Setting it higher will improve precision of the bank leveling, but will reduce the bank angle and will make the turning radius get larger. Setting it too high may cause low frequency roll flutter that is annoying but not dangerous. Setting it lower will increase the bank angle and sharpen the turns, particularly during RTL. Typical value is 0.25.
+  * ROLLKD ï¿½ This is the derivative (gyro) feedback for the aileron control of roll. It is used to improve the damping of the roll control, to dampen any low frequency flutter. But if it is set too high, there may be a high frequency flutter that is annoying but not dangerous. Typical value is 0.125. This gain does not have to be greater than or equal to ROLLKP, you can use any value that you want.
+  * YAWKP_AILERON ï¿½ This is the proportional turning gain used by navigation for controlling ailerons. Typical value is 0.1. Larger values will produce tighter turns. Using a value that is too large will produce a ï¿½dutch rollï¿½.  Maximum valid value is 1.999.
+  * YAWKD_AILERON ï¿½ This is the derivative yaw gain used for yaw damping by yaw stabilization to reduce the impact of the wind, and to help stabilize the yaw control. Typical value is 0.2. Maximum valid value is 0.5.
+  * AILERON_BOOST ï¿½ This is an amplification, or ï¿½boostï¿½ factor for manual control of the ailerons, used during stabilized and waypoint modes to restore control authority to the ailerons in the face of the damping effect of stabilization. Typical value is 1.0. This factor is in addition to the manual control, so a value of PITCHBOOST of 0 turns the boost off, and provides unmodified response to manual control. A PITCHBOOST of 1 makes the elevator response to manual control approximately twice as great. Maximum valid value is 1.999.
 
 {{{
 // Aileron/Roll Control Gains
@@ -352,11 +352,11 @@ There are several gains that you can adjust. They should all be set to positive 
 }}}
 
 
-  * PITCHGAIN Ð This is the proportional feedback for the elevator control of pitch. Setting it higher will improve precision of the pitch leveling. If you set it too high, it may cause pitch flutter, but it is not dangerous, just annoying. Typical value is 0.250. Maximum valid value is 1.999.
-  * PITCHKD Ð This is the pitch rate (measured in the earth coordinate system!) damping feedback for the elevator. Typical value is 0.25. Maximum valid value is (0.50*SCALEGYRO).
-  * RUDDER_ELEV_MIX Ð This is the amount of rudder-elevator mixing that you want. Typical value is 0.5. Set this parameter to 0 if you do not want to use this mixing. Maximum valid value is 1.999.
-  * ROLL_ELEV_MIX Ð This is the amount of roll-elevator mixing that you want. Typical value is 0.1. Set this parameter to 0 if you do not want to use this mixing. Maximum valid value is 1.999.
-  * ELEVATOR_BOOST Ð This is an amplification, or ÒboostÓ factor for manual control of the elevator, used during stabilized mode to restore control authority to the elevator in the face of the damping effect of stabilization. Typical value is 0.5. This factor is in addition to the manual control, so a value of ELEVATOR_BOOST of 0 turns the boost off, and provides unmodified response to manual control. A ELEVATOR_BOOST of 1 makes the elevator response to manual control approximately twice as great. Maximum valid value is 1.999.
+  * PITCHGAIN ï¿½ This is the proportional feedback for the elevator control of pitch. Setting it higher will improve precision of the pitch leveling. If you set it too high, it may cause pitch flutter, but it is not dangerous, just annoying. Typical value is 0.250. Maximum valid value is 1.999.
+  * PITCHKD ï¿½ This is the pitch rate (measured in the earth coordinate system!) damping feedback for the elevator. Typical value is 0.25. Maximum valid value is (0.50*SCALEGYRO).
+  * RUDDER_ELEV_MIX ï¿½ This is the amount of rudder-elevator mixing that you want. Typical value is 0.5. Set this parameter to 0 if you do not want to use this mixing. Maximum valid value is 1.999.
+  * ROLL_ELEV_MIX ï¿½ This is the amount of roll-elevator mixing that you want. Typical value is 0.1. Set this parameter to 0 if you do not want to use this mixing. Maximum valid value is 1.999.
+  * ELEVATOR_BOOST ï¿½ This is an amplification, or ï¿½boostï¿½ factor for manual control of the elevator, used during stabilized mode to restore control authority to the elevator in the face of the damping effect of stabilization. Typical value is 0.5. This factor is in addition to the manual control, so a value of ELEVATOR_BOOST of 0 turns the boost off, and provides unmodified response to manual control. A ELEVATOR_BOOST of 1 makes the elevator response to manual control approximately twice as great. Maximum valid value is 1.999.
 
 
 {{{
@@ -378,10 +378,10 @@ There are several gains that you can adjust. They should all be set to positive 
 }}}
 
 
-  * YAWKP_RUDDER Ð This is the turning gain used by RTL for using the rudder to make a turn. Typical value is 0.1. Larger values will produce tighter turns. Using a value that is too large will produce a Òdutch rollÓ. Maximum valid value is 1.999.
-  * YAWKD_RUDDER Ð This is a yaw damping term used both by stabilization and RTL to reduce the impact of the wind, and to help stabilize the yaw control. Typical value is 0.2. Maximum valid value is 0.5.
+  * YAWKP_RUDDER ï¿½ This is the turning gain used by RTL for using the rudder to make a turn. Typical value is 0.1. Larger values will produce tighter turns. Using a value that is too large will produce a ï¿½dutch rollï¿½. Maximum valid value is 1.999.
+  * YAWKD_RUDDER ï¿½ This is a yaw damping term used both by stabilization and RTL to reduce the impact of the wind, and to help stabilize the yaw control. Typical value is 0.2. Maximum valid value is 0.5.
   * MANUAL_AILERON_RUDDER_MIX - This can be used to improve the responsiveness of manually commanded aimeron-based turns while in stabilized mode.  It's there to inhibit the rudder's tendency to fight a turn while in stabilized mode.
-  * RUDDER_BOOST Ð This is an amplification, or ÒboostÓ factor for manual control of the rudder, used during stabilized mode to restore control authority to the rudder in the face of the damping effect of stabilization. Typical value is 1.0. This factor is in addition to the manual control, so a value of RUDDER_BOOST of 0 turns the boost off, and provides unmodified response to manual control. A RUDDER_BOOST of 1 makes the rudder response to manual control approximately twice as great. Maximum valid value is 1.999.
+  * RUDDER_BOOST ï¿½ This is an amplification, or ï¿½boostï¿½ factor for manual control of the rudder, used during stabilized mode to restore control authority to the rudder in the face of the damping effect of stabilization. Typical value is 1.0. This factor is in addition to the manual control, so a value of RUDDER_BOOST of 0 turns the boost off, and provides unmodified response to manual control. A RUDDER_BOOST of 1 makes the rudder response to manual control approximately twice as great. Maximum valid value is 1.999.
 
 {{{
 // Rudder/Yaw Control Gains
@@ -466,14 +466,13 @@ One or two servo channels can be used to stabilize and target a camera mounted o
 These settings are only used when Altitude Hold is enabled above.
 
   * HEIGHT_TARGET_MIN - This is the minimum target height, in meters, used in stabilized mode.
-  * HEIGHT_TARGET_MAX Ð This is the maximum target height, in meters, above the launch point. Typical value is 100. The commanded height for altitude hold is proportional to the throttle, up to this maximum height. Altitude hold will command full throttle until the plane is within 50 meters of the commanded height. It will gradually reduce throttle as it climbs higher. It will reduce to minimum throttle at the commanded height. If it continues to climb higher, the motor will be cut off completely.
+  * HEIGHT_TARGET_MAX ï¿½ This is the maximum target height, in meters, above the launch point. Typical value is 100. The commanded height for altitude hold is proportional to the throttle, up to this maximum height. Altitude hold will command full throttle until the plane is within 50 meters of the commanded height. It will gradually reduce throttle as it climbs higher. It will reduce to minimum throttle at the commanded height. If it continues to climb higher, the motor will be cut off completely.
   * HEIGHT_MARGIN - The vertical range, in meters, to try to keep the plane within when altitude hold is enabled.
-  * ALT_HOLD_THROTTLE_MIN Ð This parameter sets a value for the minimum amount of throttle during altitude hold. Typical value is 0.55, define a value between 0.0 and 1.0
-  * ALT_HOLD_THROTTLE_MAX Ð This parameter sets a value for the maximum amount of throttle during altitude hold. Typical value is 1.0, define a value between 0.0 and 1.0
-  * ALT_HOLD_PITCH_MIN Ð This is the pitch angle, in degrees, that the control will attempt to hold the planeÕs pitch, at minimum throttle. The suggested value for this parameter for a sailplane is 0. If you want the altitude hold feature to maintain altitude without turning off the motor, select a slightly negative value for this parameter, such as -2. If you do not want to use this feature, set it to 0. Otherwise, set it the pitch angle that you would normally control the plane at minimum throttle. Positive values means the nose points upward, negative values means the nose pitches downward.
-  * ALT_HOLD_PITCH_MAX Ð This is the pitch angle, in degrees, that the control will attempt to hold the planeÕs pitch, at MAXIMUM throttle. The suggested value for this parameter is 10. Otherwise, set the pitch angle that you would normally control the plane at maximum throttle. Positive values means the nose points upward, negative values means the nose pitches downward.
-  * ALT_HOLD_PITCH_HIGH Ð This is the pitch angle, in degrees, that the control will attempt to hold the planeÕs pitch, at ZERO throttle. In other words, this is the pitch angle that you want when your sailplane is gliding, or when your plane is flying Òdead stickÓ. The suggested value for this parameter is 0. If you do not want to use this feature, set it to 0. Otherwise, set it to the pitch angle that you would normally control the plane at zero throttle. Positive values means the nose points upward, negative values means the nose pitches downward.
-  * ALT_HOLD_PITCH_LAND - Pitch to use when the current waypoint has the F_LAND flag set.
+  * ALT_HOLD_THROTTLE_MIN ï¿½ This parameter sets a value for the minimum amount of throttle during altitude hold. Typical value is 0.55, define a value between 0.0 and 1.0
+  * ALT_HOLD_THROTTLE_MAX ï¿½ This parameter sets a value for the maximum amount of throttle during altitude hold. Typical value is 1.0, define a value between 0.0 and 1.0
+  * ALT_HOLD_PITCH_MIN ï¿½ This is the pitch angle, in degrees, that the control will attempt to hold the planeï¿½s pitch, at minimum throttle. The suggested value for this parameter for a sailplane is 0. If you want the altitude hold feature to maintain altitude without turning off the motor, select a slightly negative value for this parameter, such as -2. If you do not want to use this feature, set it to 0. Otherwise, set it the pitch angle that you would normally control the plane at minimum throttle. Positive values means the nose points upward, negative values means the nose pitches downward.
+  * ALT_HOLD_PITCH_MAX ï¿½ This is the pitch angle, in degrees, that the control will attempt to hold the planeï¿½s pitch, at MAXIMUM throttle. The suggested value for this parameter is 10. Otherwise, set the pitch angle that you would normally control the plane at maximum throttle. Positive values means the nose points upward, negative values means the nose pitches downward.
+  * ALT_HOLD_PITCH_HIGH ï¿½ This is the pitch angle, in degrees, that the control will attempt to hold the planeï¿½s pitch, at ZERO throttle. In other words, this is the pitch angle that you want when your sailplane is gliding, or when your plane is flying ï¿½dead stickï¿½. The suggested value for this parameter is 0. If you do not want to use this feature, set it to 0. Otherwise, set it to the pitch angle that you would normally control the plane at zero throttle. Positive values means the nose points upward, negative values means the nose pitches downward.
 
 {{{
 // Min and Max target heights in meters.  These only apply to stabilized mode.
@@ -502,10 +501,9 @@ These settings are only used when Altitude Hold is enabled above.
 #define ALT_HOLD_PITCH_MAX					15.0
 #define ALT_HOLD_PITCH_HIGH					-15.0
 
-// Use ALT_HOLD_PITCH_LAND in conjunction with the F_LAND waypoint qualifier.
 // The throttle will be turned off for an F_LAND waypoint.
-// The pitch goal during landing, in degrees, will be set to ALT_HOLD_PITCH_LAND.
-#define ALT_HOLD_PITCH_LAND					-10.0
+// The plane will use the line between the F_LAND waypoint and the previous
+// waypoint to define a target glide slope that serves as a ceiling during landing.
 }}}
 
 
