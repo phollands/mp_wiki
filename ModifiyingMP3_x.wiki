@@ -45,20 +45,33 @@ Lets say we wish to change the servo mixers.
 
 _The original method - copying MatrixPilot_
   1. Define a new airframe type
+
   2. Change options.h for the new airframe
+
   3. Hunt through all of the code for anthing that used the old airframe type
+
   4. Modify all of the #if(AIRFRAME_TYPE == ??) options in all of the code to fit the new airframe
+
   5. Add a new #if(AIRFRAME_TYPE == ??) into the servoMix function in servoMix.c
+
   6. Insert code
+
   7. Test and debug all points of modification
+
 
 _The alternative_
   1. Copy servoMix.c to a reasonable new name, say tricopterMix.c
+
   2. Delete the contents of the servoMix function including and if statements
+
   3. Insert your new code into the blank function
+
   4. Delete servoMix from your MPLAB project
+
   5. Add the new file - tricopterMix.c to the project
+
   6. Debug only the new function
+
 
 
 *Adding a new project*
