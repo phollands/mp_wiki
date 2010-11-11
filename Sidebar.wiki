@@ -25,7 +25,6 @@
   * *Development*
     # *[HowToContribute How To Help]*
       # *[UsingSubversion Using SVN]*
-      # *[ModifiyingMP3_x Modifying MatrixPilot Code]*
     # *[UDBCoordinateSystems UDB Coordinate Systems]*
 
 *[http://diydrones.com/page/uav-devboard On DIY Drones]*
