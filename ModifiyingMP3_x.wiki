@@ -2,16 +2,18 @@
 #labels Phase-Implementation
 
 = Introduction =
-This describes easy ways to develop code modules for MatrixPilot. Aims are
-  Have as little impact as possible on the core code
-  Make your code easy to read
+This describes easy ways to develop code modules for MatrixPilot. 
 
+Aims are:
+  **Do this in a safe way
+  **Do it in an easy way
+  **Make the changes maintainable
 This topic does not include bugfixes.  Those are core problems which need to be addressed in the released code.
 
-This will also cover creating a new project in a new directory, leaving the original project intact.
+This will also cover creating a new project in a new directory, leaving the original project unchanged.
  
 
- 
+
 *The basics*
 
 If you need different behavoir and functions in MatrixPilot, you will need to add or modify code.
