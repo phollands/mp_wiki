@@ -64,7 +64,7 @@ _The alternative_
 
   1. Copy servoMix.c to a reasonable new name, say tricopterMix.c
 
-  2. Delete the contents of the servoMix function including and if statements
+  2. Delete the contents of the servoMix function including any if statements contained
 
   3. Insert your new code into the blank function
 
