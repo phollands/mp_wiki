@@ -44,6 +44,7 @@ It might not exist.  In this case we need to improve the core code to accept cha
 Lets say we wish to change the servo mixers.
 
 _The original method - copying MatrixPilot_
+
   1. Define a new airframe type
 
   2. Change options.h for the new airframe
@@ -60,6 +61,7 @@ _The original method - copying MatrixPilot_
 
 
 _The alternative_
+
   1. Copy servoMix.c to a reasonable new name, say tricopterMix.c
 
   2. Delete the contents of the servoMix function including and if statements
