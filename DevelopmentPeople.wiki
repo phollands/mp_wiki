@@ -11,6 +11,9 @@
 *GCS Telemetry*
  **Pete Hollands
 
+*Camera Control*
+ **Pete Hollands
+
 *Datalogging*
  ** Pete Hollands
 
