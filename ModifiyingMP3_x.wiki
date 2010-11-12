@@ -82,12 +82,19 @@ Maybe you have modified a few files and wish to create a different project for t
 
   1.Create a suitable application project in parrallel with the MatrixPilot, libUDB and libDCM folder
 
-  2. Copy MatrixPilot_udbx to the new folder and run it.
+  2. Copy the MPLAB project file from the MatrixPilot folder to the new folder.
 
-  3. It will have lost links to all the files in MatrixPilot (headers and implementations).  You need to fix these links.
+The MPLAB project is different for different boards:
+UDB2/3 = MatrixPilot.mcp
+UDB4 = MatrixPilot_udb4.mcp
 
-  4. Now you need to let the MatrixPilot files how to find each other:
+  3. Rename the project to have a suitable title
 
+  4. Open the new project in MPLAB
+
+  5. It will have lost links to all the files in MatrixPilot (headers and implementations).  You need to fix these links.
+
+  6. Now you need to let the MatrixPilot files how to find each other:
 
 Follwing the menus, tabs, dropdown boxes etc..
 
