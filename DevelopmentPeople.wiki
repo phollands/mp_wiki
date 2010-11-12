@@ -5,6 +5,9 @@
 *Code structure*
  **Ben Levitt
 
+*IMU / Stabilization*
+ **Bill Premerlani
+
 *Navigation*
  **Bill Premerlani
 
@@ -17,8 +20,7 @@
 *Datalogging*
  ** Pete Hollands
 
-*HILSIM - Autopilot connection to simulator
-
+*HILSIM - Autopilot connection to simulator*
  **Adam Bellchambers
  **Ben Levitt
  **Parvu
@@ -26,12 +28,21 @@
 *Advanced flight control*
  **Bill Premerlani
 
+*Mission planning language/s*
+ **Ben Levitt
+ **Pete Hollands
+ **Robert Eunice
+
 *Mixers*
  **Matt Coleman
  **Paul Grobler
 
 *Oilpans and expansion interfaces*
+ **Thomas Posey
  **Matt coleman
+
+*OSD*
+ **Ben Levitt
 
 *Magnetometer*
  **Bill Premerlani
@@ -42,11 +53,12 @@
 *Barometer for altitude measurement*
  **Matt Coleman
 
+*In flight re-tasking*
+ **Ben Levitt
+
 
 = Topics without known/declared developers=
 
 *In flight auto tuning*
 
 *In flight settings modification*
-
-*In flight re-tasking*
