@@ -1,0 +1,49 @@
+#summary A list of development topics and people working on them
+
+= Developers working on activities=
+
+*Code structure*
+ **Ben Levitt
+
+*Navigation*
+ **Bill Premerlani
+
+*GCS Telemetry*
+ **Pete Hollands
+
+*Datalogging*
+ ** Pete Hollands
+
+*HILSIM - Autopilot connection to simulator
+
+ **Adam Bellchambers
+ **Ben Levitt
+ **Parvu
+
+*Advanced flight control*
+ **Bill Premerlani
+
+*Mixers*
+ **Matt Coleman
+ **Paul Grobler
+
+*Oilpans and expansion interfaces*
+ **Matt coleman
+
+*Magnetometer*
+ **Bill Premerlani
+
+*Airspeed sensor*
+ ** Matt Coleman
+
+*Barometer for altitude measurement*
+ **Matt Coleman
+
+
+= Topics without known/declared developers=
+
+*In flight auto tuning*
+
+*In flight settings modification*
+
+*In flight re-tasking*
