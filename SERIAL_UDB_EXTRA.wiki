@@ -1,13 +1,160 @@
-#summary One-sentence summary of this page.
-
-= Introduction =
-
-Add your content here.
-
-
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+MatrixPilot Telemetry Formats
+MatrixPilot Telemetry Formats
+Author: Peter Hollands, November 2010
+With thanks to Bill Premerlani, Ben Levitt,Riccardo Kuebler and Tom, alias skymonkey, for comments and review.
+ 
+In revision 677 of MatrixPilot trunk (November 2010), the following telemetry formats can be requested in the options.h file:-
+SERIAL_NONE: Use this setting when you do not want to send any telemetry output.
+SERIAL_UDB_EXTRA: This is the primary, recommended format at the time of writing this document. SERIAL_UDB_EXTRA telemetry can be processed by the “Flight Analyzer”, flan.pyw, which will show your flight in 3D in Google Earth, along with the orientation of your plane 4 times per second, estimated wind, and the magnetic vectors of the magnetometer, if you have installed that device. Flan.pyw can also produce a spreadsheet version of SERIAL_UDB_EXTRA telemetry.
+SERIAL_UDB: This format is a subset of SERIAL_UDB_EXTRA, and is used when the serial link speed is too slow to transmit SERIAL_UDB_EXTRA. It is supported by flan.pyw.
+SERIAL_ARDUSTATION was an early format and is largely supported for:-
+backwards compatibility
+because it can be easy to read in real time (provides yaw, roll and pitch)
+to provide support for the Ardustation hardware device, that can point a directional aerial at a transmitting plane.
+SERIAL_DEBUG : Used by developers to output arbitrary variables.
+SERIAL_OSD_REMZIBI : Historically this was used by “First Person View” (FPV) flyers, that wanted to pass on the GPS information of the plane to an On Screen Display (OSD).
+Note: The latest version of UAV DevBoard has it’s own nascent OSD system, directly driven by MatrixPilot.
+This document describes the MatrixPilot telemetry format called SERIAL_UDB_EXTRA in detail.
+Background:-
+MatrixPilot telemetry formats have evolved over time taking that most users and developers are on a learning journey. For this reason, the telemetry formats use human readable ascii text, rather than binary format. This makes debugging telemetry output through serial connections much easier.  Also, we cannot be sure what link is going to be used for the telemetry. Will it be a  serial cable to a PC? a radio link via an Xbee wireless link ? or a link to another small  on board computer like the OpenLog ? Binary formats do not run over all serial links.
+ 
+Ascii text will run just fine over most serial links. But ascii text has the disadvantage of :-
+Using up a large amount of CPU power and stack memory in the dspic microcontroller when printing a number.
+Using more bandwidth: An ascii text representation of a number requires many more bytes than a binary number, and so fewer numbers can be sent down a serial line with ascii formats than binary.
+ 
+There is a strong demand for more telemetry to be sent down the wire. So it is likely that ascii formats will be complimented by binary formats during the next year. Also, as the market for small drone software matures, projects will standardize around common formats and telemetry. Some standardized binary formats, like Mavlink, are already starting to appear.
+SERIAL_UDB_EXTRA
+Although SERIAL_UDB_EXTRA telemetry is human readable, it is primarily meant to be parsed, analyzed and graphed by a program on a PC.
+ 
+The dsPIC micro-controller has limited RAM and CPU power. So most telemetry is sent directly from the UAV DevBoard to a PC or logger, without spending time converting the data into standard units that are easy for a human to understand. For example, the orientation of the plane is sent as the Direction Cosine Matrix, not as Euler angles (yaw, roll and pitch), as these would take considerable extra resources to calculate.
+ 
+Here is a sample of some real SERIAL_UDB_EXTRA telemetry:-
+ 
+F2:T207968500:S110:N614773312:E-20950234:A7547:W0:a16304:b1614:c-46:d-1616:e16298:f-454:g2:h456:i16378:c4990:s1:cpu10:bmv0:as1:wvx0:wvy0:wvz0:ma0:mb0:mc0:svs7:hd7:p1i3033:p2i3050:p3i2273:p4i2289:p5i3142:p1o3033:p2o3050:p3o2274:p4o3142:p5o3040:p6o3800:imx0:imy0:imz0:fgs1000:
+ 
+This format of telemetry is sent every 1/4 of a second from the UDB down the serial link. The following table describes the telemetry in detail:-
+ 
+ 
+FIELD NAME
+DESCRIPTION
+F2:
+This defines the following line to be of “type F2” telemetry, and helps other down stream parsers to understand what variables to expect in the line.
+T207968500:
+Data is date stamped with the time in micro seconds since Saturday midnight GMT. This is a standard way in which GPS represents time.  The telemetry sends a special extra line of telemetry (the F13 format line) on acquiring valid GPS signals which includes the GPS week no..  By combining the GPS week no., with the above time, downstream software can calculate the exact time and date.
+S110:
+These are 3 status bits giving some idea of the plane’s mode.
+The first status bit represents whether the plane is receiving a valid radio signal from the transmitter.
+The second status bit represents  whether the plane is receiving a valid GPS position and velocity.
+The third status bit signifies whether the plane is flying autonomously (e.g. waypoint mode or “return to landing” (RTL) mode.
+In the example on the left, the plane is receiving radio signals, has a valid GPS but is not flying autonomously. It is either in manual or stabilized mode.
+ 
+Here are some more examples:-
+S011: No radio is being received. Valid GPS data is being received. Flying autonomously. This means that the plane is in Return to Landing Mode.
+S111:  Normal state for a plane flying autonomously in waypoint mode.
+S100: Often seen during the plane’s boot up process. Radio is being received, but there is no valid GPS signal yet.
+ 
+There are in fact potentially 32 different status flags in MatrixPilot. These are recorded by the final field in the line of telemetry. e.g. fgs:1000. This is described further at the end of this table.
+N614773312:
+The plane’s latitude shown as the number of degrees times 10 to the power 7 North of the equator. (negative means south). This example is 61.4773312 degrees North.
+E-20950234:
+The plane’s longitude shown as the number of degrees times 10 to the power 7 East of the Greenwich Meridian. This example is negative so it is actually West. e.g. The longitude is 2.0950234 degrees West.
+A7547:
+The plane’s altitude in centimeters above mean sea level. This example is 75.47 meters above sea level.
+W0:
+The next desired waypoint number. In this case, waypoint 0. This is shown even in manual or stabilized mode, but only becomes active once the plane is in waypoint or RTL mode.
+a16304:
+b1614:
+c-46:
+d-1616:
+e16298:
+f-454:
+g2:
+h456:
+i16378:
+These numbers refer to the 3x3 rotation matrix, called the Direction Cosine Matrix (DCM), which specifies the orientation of the plane’s coordinate reference system, in the coordinate reference system of the earth.
+ 
+The Direction Cosine Matrix, when matrix multiplied onto a vector, will rotate that vector from the plane’s coordinate system onto the earth’s coordinate system.
+ 
+These numbers are not as easy for humans to read and understand as Euler angle (yaw, roll and pitch). But they describe the orientation of the plane in a better mathematical model than  Euler angles  They also can confirm that the DCM, which is at the heart of the operation of MatrixPilot, is fully orthogonal in it’s own axis, and “healthy”.
+ 
+You might expect each number to be a floating point number between zero and one. To avoid the overhead of using floating point numbers, MatrixPilot uses integer numbers from 0 to 16384 to represent values from 0 to 1. So in this example: a16304 is very close to 16384. It is a value of nearly 1.
+ 
+The direction cosine matrix, can be thought of as describing the plane’s axis in terms of the earth’s coordinate system.  The numbers are in row order of the matrix. So:-
+a16304:b1614:c-46: says that the X-axis of the plane (which by the way is positive out of the left wing), is orientated as nearly 1 (16384) in the X axis of the earth, close to  0 for Y in the earth axis (1614), and pretty much zero (-46_ for the Z axis.  So the X axis of the plane, is almost aligned with the X axis of the earth.
+d-1616:e16298:f-454: says that the Y-axis (which is forward through the front of the fuselage) is orientated pretty much as 0 in the X axis of Earth, 1 in the Y axis of earth, and 0 in the Z axis.
+g2:h456:i16378: and finally, the Z axis which is down through the bottom of the plane, is orientated as 0 in the X axis of earth, 0 in the Y axis, and 1 in the Z axis.
+ 
+In other words,the plane’s coordinate system is still in line with the earth’s coordinate system. It has, in fact, booted up,and has not yet been lifted up yet.
+ 
+Note that the UDB ground reference earth axis is aligned with the compass as follows:-
+X axis is West
+Y axis is North
+Z axis is Down.
+ 
+Further information on the UDB Coordinate reference system can be found at this location:-
+http://code.google.com/p/gentlenav/wiki/UDBCoordinateSystems
+c4990:
+This is the GPS Course over the Ground (2D) of the plane in degrees times 100. This course is 49.9 degrees from North.
+s1:
+This is the speed over the ground from the GPS in meters / second times 100.  In this case the plane is said to be moving at 1cm / second. (in fact it was stationary).
+cpu10:
+This is the percentage of available cpu power that has been used over the last one second. In this example, 10 percent of the cpu. Or to put it another way, the cpu has been idle and “twiddling it’s thumbs” for 90 percent of the time during the previous second.
+bmv0:
+This is the battery voltage in millivolts. It is usually 0. In the past, the telemetry data has been sent from the UDB to Tom Posey’s OilPan board, which can sense battery voltage. Tom’s software looks for this field, and substitutes the voltage value, before sending the telemetry onwards to a PC, Xbee or Openlog etc.
+as1:
+This is the calculated air speed in centimeters / second. At the time of writing, this is still a 2 dimensional horizontal air speed. So a steep vertical dive will not show the correct true air speed. The air speed, to date, is derived from wind estimation and GPS speeds (rather than a direct measurement of differential air pressure). It is highly likely that this field will change to a 3D estimated air speed in the future. It is recommended that true, measured airspeed, uses another new variable (e.g. mas:1) when that is available.
+wvx0:
+wvy0:
+wvz0:
+If wind estimation is enabled, these value represent the speed of the wind in centimeters per second in the UDB’s ground coordinate system, in the X, Y, and Z axis. Together they describe the wind vector in the Earth axis.
+ma0:
+mb0:
+mc0:
+These values describe the magnetic Gaussian vector within the  X, Y and Z axis of the UDB ground coordinate system.
+svs7:
+This is the number of satellites in view to the GPS system. Between 6 and 10 is typical. 4 is the minimum for a position fix. In this example, there are 7 satellites in view.
+hd7:
+This  is a measure of the horizontal accuracy of the GPS and is known as the “horizontal dilution of precision”. In general, diving this number by 5, will give the approximate horizontal precision in meters. In this case close to 1 meter of precision. (7/5 meters)
+p1i3033:
+p2i3050:
+p3i2273:
+p4i2289:
+p5i3142:
+These values represent the Pulse Width Modulated signals being received by the UDB from the receiver on channel inputs 1,2,3,4 and 5.
+ 
+The numbers represent the PWM signal length in microseconds times 2.
+ 
+So in the example on the left, p1i3033 can be read as “PWM channel 1 Input is 3033”. In other words, the PWM length in time is 1516.5 micro iseconds. Usually a servo is  centered for a PWM value of 3000 (1500 micro seconds). It is at a maximum extension at 4000 (2000 micro seconds), and minimum at 2000 (1000 micro seconds).
+ 
+In the channel examples on the left, the channels were assigned as:-
+1. Ailerons: 3033, centered
+2. Elevator: 3050, centered
+3. Throttle:  2273, At minimum
+4. Flight Mode Switch: Close to minimum, manual mode.
+5. Rudder: 3142, close to center, slightly trimmed to one side.
+ 
+The exact channels assignments for your own plane may vary, as these are configured in the options.h file of MatrixPilot.
+p1o3033:
+p2o3050:
+p3o2274:
+p4o3142:
+p5o3040:
+p6o3800:
+These values represent the output values from the UDB to the various servos.
+ 
+Since, in this example, the plane was in manual mode, most of the input values re being pushed without alteration to the output channels.
+For example, p1o3033, is an exact copy of the input channel above which was, p1i3033. The same is true of channels 2,3 and 4 above.
+ 
+Output channels 5 and 6 in this example, are being used to drive camera targeting.
+imx0:
+imy0:
+imz0:
+This is the position of the plane, calculated by the UDB and MatrixPilot using High Bandwidth Dead Reckoning 40 times per second. It it the position, in meters, from the “Origin” in the X, Y and Z axis of the UDB’s ground reference coordinate system. The Origin can be either a) the boot up location of the plane, or b) an absolutely defined latitude and longitude position. The type of Origin is settable in the waypoints.h file.
+fgs1000:
+This is the 32 bit status flags of the plane represented as a decimal number. It is not currently much used, but may provide useful state information in unusual circumstances. A complete description of the status flags of MatrixPilot is beyond the scope of this document.
+ 
+ 
+ 
+DOCUMENT ENDS
+ 
+Edit this page (if you have permission)–Published by Google Docs–Report Abuse–Updated automatically every 5 minutes
