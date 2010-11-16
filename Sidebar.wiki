@@ -16,7 +16,6 @@
       # *[XBeeConnection XBee Connection]*
       # *[RemzibiConnection Remzibi Connection]*
       # *[OpenLogConnection OpenLog Connection]*
-      # *[Description of the SERIAL_UDB_EXTRA data format]*
     # *[HowToConfigure Configuration]*
     # *[WayPoints Waypoints]*
     # *[GroundTest Ground Testing]*
