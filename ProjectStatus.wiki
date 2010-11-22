@@ -1,5 +1,17 @@
 = Project Status =
 
+=== What's New in the Upcoming MatrixPilot 3.0 ===
+  * Added a new mission description language based on Logo.
+  * Support for up to 8-channel PPM RC Input on a single pin, freeing up other pins for other features.  Compatible with [http://store.diydrones.com/product_p/br-ppme.htm this board from the DIYDrones store].
+  * Support for a native On-Screen Display using [http://www.sparkfun.com/products/9168 this board from SparkFun].
+  * Allow sending waypoints (or UDB Logo instructions) mid flight over the telemetry channel (but no ground-station support yet).
+  * Improved camera-targeting logic and precision.
+  * Added an RTL Hold feature that keeps you in RTL mode once it's been triggered, until you flip your mode switch.  This helps avoid chaos if you're flying at the edge of your RC range.
+  * Improved autonomous landing control.
+  * Improved flight analysis tools.
+  * Code restructuring into shared libraries makes building your own UDB-based projects much easier!
+
+
 === What's New in MatrixPilot 2.5 ===
 
   * IMU based "dead" reckoning.
@@ -35,14 +47,10 @@
 As with all long term plans, these could change at any time, but here's where we're thinking we'll go in the near future.
 
 
-=== MatrixPilot 3.0 and Beyond ===
-
-Other features that are in progress, or planned for the not too distant future:
+=== Future Ideas ===
 
   * Fully rotational based controls, using the complete theory proposed by Robert Mahoney.
   * Barometric pressure sensor for more precise altitude control.
-  * Replace list of waypoints with a programmable flight / mission language.
-  * Improve the mixing of manual input with stabilization controls.
+  * Finish adding support for an upcoming new revision of the hardware platform.
   * Real Helicopter and quadcopter support.
-  * Support for an upcoming new revision of the hardware platform.
   * ...
