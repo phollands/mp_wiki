@@ -21,7 +21,7 @@ The waypoints are defined in the file waypoints.h that is a header file in the p
   * a list of waypoints to use when entering waypoint mode
   * a list of waypoints to use when a loss of signal commands RTL mode  (usually these are set up to bring the plane home.)
 
-If you select cross tracking in waypoints.h, navigation will be based on the perpendicular distance from the aircraft to the line between the waypoints that define the course leg. The steering angle toward the course leg is proportional to the cross track distance, up to 45 degrees at a distance of 32 meters. Beyond 32 meters, the steering angle is 45 degrees. If you select cross tracking, arrival at waypoint will be declared when the plane crosses an imaginary finish line through the target waypoint, perpendicular to the course leg.
+If you select cross tracking in waypoints.h, navigation will be based on the perpendicular distance from the aircraft to the line between the waypoints that define the course leg. The steering angle toward the course leg is proportional to the cross track distance, up to 45 degrees at a distance of 16 meters. Beyond 16 meters, the steering angle is 45 degrees. If you select cross tracking, arrival at waypoint will be declared when the plane crosses an imaginary finish line through the target waypoint, perpendicular to the course leg.
 
 If you do not enable cross tracking, then steering will be toward the target waypoint of the course leg. Arrival at the waypoint will be declared if either the cross track arrival condition is satisfied, or if the aircraft approaches closer than the desired radius to the target waypoint (defaults to 25 meters).
 
