@@ -28,6 +28,6 @@
       # *[UsingSubversion Using SVN]*
     # *[UDBCoordinateSystems UDB Coordinate Systems]*
     # *[TelemetryFormats Telemetry Formats]
-    # *[GroundControlStation Ground Controls Station Software (GCS)]
+    # *[GroundControlStation Ground Controls Station Software GCS]*
 
 *[http://diydrones.com/page/uav-devboard On DIY Drones]*
