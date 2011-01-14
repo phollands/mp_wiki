@@ -5,7 +5,7 @@
 
 *Hardware*
   * *[HowToInstall Hardware Setup]*
-  * *[http://www.sparkfun.com/commerce/product_info.php?products_id=9038 Buy from SparkFun]*
+  * *[http://www.sparkfun.com/products/9980 Buy from SparkFun]*
 
 *Firmware*
   * *[MatrixPilot MatrixPilot Info]*
