@@ -1,0 +1,3 @@
+= PPM Input =
+
+This page will describe how to use the [http://store.diydrones.com/product_p/br-ppme.htm DIYDrones PPM Encoder board] to increase the number of inputs and outputs available to MatrixPilot.

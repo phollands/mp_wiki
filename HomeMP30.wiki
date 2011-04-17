@@ -1,0 +1,51 @@
+= UAV Dev Board =
+http://static.sparkfun.com/images/products/09980-01b_i_ma.jpg
+
+The UAV Dev Board, designed by Bill Premerlani, is an IMU-based development platform for building controllers for Unmanned Aerial Vehicles.  This site hosts the development of UAV code that runs on this board, allowing it to stabilize an airplane, maintain altitude, and navigate to specific locations, or back to the launch site.
+
+You can [http://www.sparkfun.com/commerce/product_info.php?products_id=9038 buy a UAV Dev Board from Spark Fun].
+
+If you buy a UAV Dev Board, and are interested in hearing about upcoming changes, or want to participate in or influence future development, we strongly urge you to join the [http://groups.google.com/group/uavdevboard UAV Dev Board Discussion List].
+
+There is also a lively community that discusses this platform on the [http://diydrones.com/page/uav-devboard DIY Drones site].
+
+
+== News! ==
+
+*MatrixPilot wins DIY Drones T3 HILSim Contest - February 2011*
+
+Congratulations to Marcus Fahlen of Norway on winning 1st place in the DIY Drones contest to replicate a flight around Manhattan using an autopilot (in this case the UDB3) connected to a flight simulator. Thanks to all of the wider team that have made Marc's success possible. See [http://diydrones.com/profiles/blogs/t3-contest-season-2-round-1?id=705844%3ABlogPost%3A238107&page=5#comments here for the competition thread ], and the results were published [http://diydrones.com/profiles/blogs/winners-of-t3-contest here].
+
+
+*MatrixPilot 2.5 - Thursday, August 19, 2010*
+
+After many months of work, the UDB development team is excited to release version 2.5 of MatrixPilot!  This version adds tons of new features, including inverted stabilization, camera targeting, more configurable waypoints, wind speed estimation, dead reckoning, and hardware-in-the-loop simulation.  See the full list on the [ProjectStatus status page].
+
+
+*UAV Dev Board Wins a UAV Contest in Taiwan! - Thursday, March 25, 2010*
+
+It sounds like the UAV Dev Board won First Place in an event in the "2010 Taiwan Robot Aircraft Design and Photography Competition".  We think it was running MatrixPilot, but can't confirm that.  [http://www.diydrones.com/profiles/blogs/easystar-and-uav-devboard-got Full Story Here.]
+
+
+*[News More News...]*
+
+
+== Hardware Specifications ==
+This board comes with a dsPIC30F4011 CPU, an MMA7260 three axis accelerometer and two dual-axis Inversense IXZ500 gyroscopes already soldered as shown in the picture. It is intended for the do-it-yourselfer. By itself, it can be used to develop a three axis IMU controller. With the addition of a GPS receiver, it can be used to develop a UAV controller for an RC car, plane, or boat.  All firmware versions are compatible with the [http://www.sparkfun.com/commerce/product_info.php?products_id=465 EM406 GPS].  The new MatrixPilot firmware can also use the [http://store.diydrones.com/ProductDetails.asp?ProductCode=SPK-GPS-GS407 uBlox 5H GPS], but the developers currently recommend using the [http://www.sparkfun.com/commerce/product_info.php?products_id=465 EM406].
+
+
+== Already Have a UAV Dev Board? ==
+  * [http://groups.google.com/group/uavdevboard Join the uavdevboard google group to follow the latest development]
+  * [http://gentlenav.googlecode.com/files/PICProgrammingGettingStarted.pdf Get set up to program your UAV Dev Board with the latest firmware (PDF)]
+  * [HowToInstall How to get your UAV Dev Board set up, installed, and connected to the rest of your hardware]
+  * [HowToConfigure How to configure the firmware for your plane]
+  * [Troubleshooting Troubleshooting problems with your UAV Dev Board]
+  * [HowToContribute Contribute to the project]
+
+
+== Related Projects and Sites ==
+
+  * [http://www.sparkfun.com/commerce/product_info.php?products_id=9038 Buy a UAV Dev Board from SparkFun]
+  * [http://www.sparkfun.com/commerce/product_info.php?products_id=465 EM406 GPS]
+  * [http://diydrones.com/ DIY Drones Community]
+  * [http://code.google.com/p/uavexpansionboard/ "Oil Pan" UDB Expansion Board]

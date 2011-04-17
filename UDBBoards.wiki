@@ -1,0 +1,37 @@
+== UAV Dev Board (Green Board) ==
+
+Board is green and includes 2 vertical gyro daugter-boards.
+
+(Attach an image here.)
+
+
+== UAV Dev Board 2 (Red Board) ==
+
+Board is red and includes 2 vertical gyro daugter-boards.
+
+http://www.sparkfun.com/products/9038
+
+(Attach an image here.)
+
+
+== UAV Dev Board 3 (UDB3 Board) ==
+
+Board is red and includes a single, flat, multi-gyro daugter-board.
+
+http://www.sparkfun.com/products/9980
+
+(Attach an image here.)
+
+
+== UAV Dev Board 4 (UDB4 Board) ==
+
+This board is still being designed.  It will be based on a faster chip with more IO pins, and will be a major upgrade.  Should hopefully be availabe from SparkFun by Summer 2011.
+
+(Attach an image here.)
+
+
+== Other Compatible Boards  ==
+
+Other groups and individuals have built custom boards that are compatible with MatrixPilot, or run their own variants of the code.
+   * (List pending…)
+

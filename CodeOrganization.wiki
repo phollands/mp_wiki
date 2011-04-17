@@ -1,0 +1,7 @@
+= Code Organization =
+
+Here's some brief info on how to get started digging into the MatrixPilot code base.
+
+  * libUDB
+  * libDCM
+  * MatrixPilot

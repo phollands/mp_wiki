@@ -1,0 +1,10 @@
+= Compatible / Optional Hardware =
+
+Here is a list of compatible and optional hardware that works with the UAVDevBoard, and is supported by MatrixPilot.
+
+  * PPM Encoder board
+  * OpenLog
+  * Experimental Native MatrixPilot OSD
+  * XBees
+  * Magnetometer
+  * Remzibi OSD
