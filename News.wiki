@@ -1,6 +1,6 @@
 #summary News and Announcements
 
-* Team Lawn Dart places at the 2011 SparkFun Autonomous Vehicle Competition - Saturday April 23, 2011*
+*Team Lawn Dart places at the 2011 !SparkFun Autonomous Vehicle Competition - Saturday April 23, 2011*
 
 Congratulations to Team Lawn Dart on their great entry and performance.  They used a modified UDB, running a modified version of MatrixPilot to win 3rd place in the air competition.
 
