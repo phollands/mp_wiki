@@ -2,7 +2,7 @@
 
 === What's New in the Upcoming MatrixPilot 3.0 ===
   * Support for up to 8-channel PPM RC Input on a single pin, freeing up other pins for other features, including up to 9 RC outputs.  Compatible with [http://store.diydrones.com/product_p/br-ppme.htm this board from the DIYDrones store].
-  * Added a new mission description language based on Logo.
+  * Added a new mission description language based on LOGO.
   * Allow sending waypoints (or UDB Logo instructions) mid flight over the telemetry channel (but no ground-station support yet).
   * Much improved Navigation, due to improvements in Dead Reckoning and wind estimation.
   * Improved camera-targeting logic and precision.

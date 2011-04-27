@@ -1,6 +1,10 @@
 = MatrixPilot: Installation and Basic Connections =
 
-Install the board in your plane with the GPS connector facing forward and the components facing up. Try to get the board level when the plane is level, but it is all right if it is a little bit off.  If you are using the red board, and you expect some vibration, you may want to mount the board to your plane using a couple layers of gyro-mounting foam tape.
+Install the board in your plane with the GPS connector facing forward and the components facing up.  Or in one of the other orientations defined in the options.h file.
+
+The board should be installed to that it will be level when the plane is flying.  Depending on your plane, this might not line up with the bottom or top edges of the fuselage.
+
+If you are using the UDB2 (red board with 2 vertical daughter boards), and you expect some vibration, you may want to mount the board to your plane using a couple layers of gyro-mounting foam tape.
 
 Next, connect the GPS to the board.
 

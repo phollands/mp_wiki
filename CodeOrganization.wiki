@@ -2,6 +2,12 @@
 
 Here's some brief info on how to get started digging into the MatrixPilot code base.
 
-  * libUDB
-  * libDCM
-  * MatrixPilot
+First of all, as of MatrixPilot 3.0, the code is divided into a few sections:
+  * *libUDB* is the library that interfaces with the UAVDevBoard hardware, and gives you easy access to things like RC inputs, servo outputs, serial ports, LEDs, and gyro and accelerometer data.
+  * *libDCM* is a library that uses libUDB, and implements a Direction Cosine Matrix, which keeps track of the attitude/orientation and location of the plane.
+  * *MatrixPilot* is an application that uses the above 2 libraries to control an RC plane.
+
+
+Other useful notes:
+  * The code is all interrupt based.  Nothing runs in the main loop.
+  * ...

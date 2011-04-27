@@ -2,9 +2,13 @@
 
 Here is a list of the software tools that we use along with the UDB and MatrixPilot.
 
-  * *Flan (FLight ANalyzer)*:  This tool takes telemetry logs from a flight, and converts them into .kmz files for viewing in Google Earth, and into .csv files for importing into a spreadsheet for analysis.
-  * *Ground Stations*:
+  * *[FlightAnalyzer Flan (FLight ANalyzer)]*:  This tool takes telemetry logs from a flight, and converts them into .kmz files for viewing in Google Earth, and into .csv files for importing into a spreadsheet for analysis.
+  * *[UDBLogo UDB Logo Editor]* in Tools/UDB_Logo_Editor
+  * *Waypoint Editor* in Tools/Waypoint_Editor
+
+  * *[GroundControlStations Ground Control Stations]*:
     * HKGCS
     * QGCS
     * Ardupilot GCS
-  * *XPlane*: MatrixPilot can run using a virtual plane and virtual sensors, running inside the XPlane simulator.  HardwareInLoop
+
+  * *[HardwareInLoop XPlane Hardware-In-the-Loop Simulation]*: MatrixPilot can run using a virtual plane and virtual sensors, running inside the XPlane simulator.

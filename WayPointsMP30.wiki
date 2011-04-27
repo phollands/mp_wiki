@@ -1,10 +1,12 @@
 = MatrixPilot: Waypoints Installation, Setup and Operation =
 
+Also available are older versions for [WayPointsMP20 MatrixPilot 2.0], and for [WayPointsMP25 MatrixPilot 2.5].
+
 MatrixPilot has the following waypoint related features:
   * Waypoints are 3D. You can specify location of the points either relative to the initialization location of the board, or as absolute coordinates.
   * Each waypoint can have a set of behavior flags set, which can allow commanding things like inverted flight, climbing vertically (with a 3D-capable plane), triggering a photo, turning on LEDs, targeting a camera, etc.
   * You have the option of using either cross-track error navigation, or using navigation toward the target waypoint.
-  * Arrival at a waypoint is based on the change in sign of the projection of the vector from the location to the target onto the vector between the waypoints. This produces a reliable assessment of arrival, without any chance of loitering.
+  * When using cross-tracking, arrival at a waypoint is based on the change in sign of the projection of the vector from the location to the target onto the vector between the waypoints.  (Basically, when you pass the "finish-line" for that waypoint.)  This produces a reliable assessment of arrival, without any chance of loitering.
   * The primary source of steering is the direction cosine matrix, so steering continues reliably and smoothly even if the GPS were to loose lock during banked turns.
 
 The waypoint function replaces the commanded return-to-launch function in MatrixNav and AileronAssist. The loss-of-signal return-to-launch function remains, but since most pilots use a radio with a fail-safe function, for all intents and purposes, waypoints completely replaces return-to-launch. However, since the autonomous command causes the waypoint function to immediately steer toward the first waypoint, you can use the waypoint function as RTL by careful selection of the first waypoint. In fact, if you select a single point waypoint with X and Y relative coordinates of 0, engaging the waypoint function will be exactly equivalent to the return to launch function.
@@ -15,13 +17,12 @@ The waypoint function will work in a 3D mode with altitude hold controlling heig
 == Specifying Waypoints ==
 
 The waypoints are defined in the file waypoints.h that is a header file in the project source code for the firmware. This file allows configuring the following settings:
-  * whether or not you want to use cross-tracking
   * how close the plane has to get to each waypoint
   * an optional static origin point to fix the relative waypoints into absolute locations.
   * a list of waypoints to use when entering waypoint mode
   * a list of waypoints to use when a loss of signal commands RTL mode  (usually these are set up to bring the plane home.)
 
-If you select cross tracking in waypoints.h, navigation will be based on the perpendicular distance from the aircraft to the line between the waypoints that define the course leg. The steering angle toward the course leg is proportional to the cross track distance, up to 45 degrees at a distance of 16 meters. Beyond 16 meters, the steering angle is 45 degrees. If you select cross tracking, arrival at waypoint will be declared when the plane crosses an imaginary finish line through the target waypoint, perpendicular to the course leg.
+If you select cross tracking for a given waypoint, navigation towards that waypoint will be based on the perpendicular distance from the aircraft to the line between the waypoints that define the course leg. The steering angle toward the course leg is proportional to the cross track distance, up to 45 degrees at a distance of 16 meters. Beyond 16 meters, the steering angle is 45 degrees. If you select cross tracking, arrival at waypoint will be declared when the plane crosses an imaginary finish line through the target waypoint, perpendicular to the course leg.
 
 If you do not enable cross tracking, then steering will be toward the target waypoint of the course leg. Arrival at the waypoint will be declared if either the cross track arrival condition is satisfied, or if the aircraft approaches closer than the desired radius to the target waypoint (defaults to 25 meters).
 
@@ -35,13 +36,14 @@ Here's a list of the available flags, from the waypoints.h file:
 {{{
 // F_ABSOLUTE		- Waypoints are Relative by default, unless F_ABSOLUTE is specified.
 // 
-// F_CLIMBOUT		- Aim immediately for the target altitude.  Helps climb during takeoff.
+// F_TAKEOFF		- More quickly gain altitude at takeoff.
 // F_INVERTED		- Navigate to this waypoint with the plane upside down. (only if STABILIZE_INVERTED_FLIGHT is set to 1 in options.h)
 // F_HOVER		- Hover the plane until reaching this waypoint. (only if STABILIZE_HOVER is set to 1 in options.h)
 //			  NOTE: while hovering, no navigation is performed, and throttle is under manual control.
 // F_LOITER		- After reaching this waypoint, continue navigating towards this same waypoint.  Repeat until leaving waypoint mode.
 // F_TRIGGER		- Trigger an action to happen when this waypoint leg starts.  (See the Trigger Action section of the options.h file.) 
 // F_ALTITUDE_GOAL	- Climb or descend to the given altitude, then continue to the next waypoint.
+// F_CROSS_TRACK	- Navigate using cross-tracking.  Best used for longer waypoint legs.
 // F_LAND		- Navigate towards this waypoint with the throttle off.
 // 
 // 
@@ -133,6 +135,3 @@ When waypoint processing finishes the list, it starts over.  The exception to th
 When the throttle stick is placed in the full off position, the motor will turn off, no matter what control mode is selected. This useful when you want to pitch down to lose altitude quickly and you do not want altitude hold to turn the motor on. It is also useful if you want to use stabilization or return to launch in a sailplane while it is sailing.
 
 When the waypoint function is activated, the aircraft flies to the first waypoint along a line between its position at the time that the waypoints function is activated, and the first waypoint. If you disengage the waypoint function at any time and then reengage it, it will start over with the first waypoint on the list. So, if you decide you want to return the plane to the first point at any time, simply disengage the waypoint function, wait a couple of seconds, and reengage it.
-
-
-[WayPointsMP20 Or read the waypoints documentation for MatrixPilot 2.0 here.]
