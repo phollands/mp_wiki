@@ -128,7 +128,7 @@ Here you can enable altitude hold independently for stabilized mode and for wayp
 }}}
 
 
-Enabling Speed Control also improves the performance of altitude hold.  Be sure to set the desired speed fast enough to keep your plane stable.
+Enabling Speed Control also improves the performance of altitude hold.  Be sure to set the desired speed fast enough to keep your plane stable, and at least as fast as the expected winds during your flights.
 
 {{{
 // Speed Control
@@ -670,7 +670,7 @@ Set this when using the UDB to control the X-Plane simulator instead of controll
 }}}
 
 
-The waypoint handling options live at the top of both the waypoints.h file, and the flightplan-logo.h file.
+The waypoint handling options live at the top of both the waypoints.h file, and the flightplan-logo.h file.  Note that as of MatrixPilot 3.0, the fixed origin option now includes altitude, and that it is expressed as a floating point value in meters above sea level.
 
 {{{
 // Move on to the next waypoint when getting within this distance of the current goal (in meters)
