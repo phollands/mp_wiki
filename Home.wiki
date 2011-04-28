@@ -12,14 +12,14 @@ There is also a lively community that discusses this platform on the [http://diy
 
 == News! ==
 
+*MatrixPilot 3.0 - Wednesday, April 27, 2011*
+
+MatrixPilot 3.0 is a major upgrade.  We started with an overhaul of the code base to be more modular, and added new features like PPM Input, more RC Inputs and Outputs, an experimental native OSD, and a new mission planning language based on LOGO.  We also made performance improvements to Dead Reckoning and Wind Estimation that help flights go more smoothly and accurately.  See the full list on the [ProjectStatus status page].
+
+
 *MatrixPilot wins DIY Drones T3 HILSim Contest - February 2011*
 
 Congratulations to Marcus Fahlen of Norway on winning 1st place in the DIY Drones contest to replicate a flight around Manhattan using an autopilot (in this case the UDB3) connected to a flight simulator. Thanks to all of the wider team that have made Marc's success possible. See [http://diydrones.com/profiles/blogs/t3-contest-season-2-round-1?id=705844%3ABlogPost%3A238107&page=5#comments here for the competition thread ], and the results were published [http://diydrones.com/profiles/blogs/winners-of-t3-contest here].
-
-
-*MatrixPilot 2.5 - Thursday, August 19, 2010*
-
-After many months of work, the UDB development team is excited to release version 2.5 of MatrixPilot!  This version adds tons of new features, including inverted stabilization, camera targeting, more configurable waypoints, wind speed estimation, dead reckoning, and hardware-in-the-loop simulation.  See the full list on the [ProjectStatus status page].
 
 
 *UAV Dev Board Wins a UAV Contest in Taiwan! - Thursday, March 25, 2010*
