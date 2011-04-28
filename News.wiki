@@ -1,5 +1,10 @@
 #summary News and Announcements
 
+*MatrixPilot 3.0 - Wednesday, April 27, 2011*
+
+MatrixPilot 3.0 is a major upgrade.  We started with an overhaul of the code base to be more modular, and added new features like PPM Input, more RC Inputs and Outputs, an experimental native OSD, and a new mission planning language based on LOGO.  We also made performance improvements to Dead Reckoning and Wind Estimation that help flights go more smoothly and accurately.  See the full list on the [ProjectStatus status page].
+
+
 *Team Lawn Dart places at the 2011 !SparkFun Autonomous Vehicle Competition - Saturday April 23, 2011*
 
 Congratulations to Team Lawn Dart on their great entry and performance.  They used a modified UDB, running a modified version of MatrixPilot to win 3rd place in the air competition.
