@@ -4,17 +4,17 @@
 *[http://code.google.com/p/gentlenav/ Home]*
 
 *MatrixPilot Firmware*
-  * *[MatrixPilotMP30 MatrixPilot Info]*
+  * *[MatrixPilot MatrixPilot Info]*
   * *[ProjectStatus Status / Roadmap]*
   * *!MatrixPilot Manual*
-    # *[HowToInstallMP30 Installation]*
-      # *[CompatibleHardware Optional Hardware]*
-    # *[HowToConfigureMP30 Configuration]*
+    # *[HowToInstall Installation]*
+    # *[HowToConfigure Configuration]*
     # *[FlightPlans Flight Plans]*
-      * *[WayPointsMP30 Waypoints]*
+      * *[WayPoints Waypoints]*
       * *[UDBLogo UDB Logo]*
     # *[GroundTest Ground Testing]*
-    # *[FlyingMP30 Flying]*
+    # *[Flying Flying]*
+    # *[CompatibleHardware Optional Hardware]*
     # *[CompatibleSoftware Compatible Software]*
     # *[HardwareInLoop Simulation]*
     # *[Troubleshooting Troubleshooting / FAQ]*
