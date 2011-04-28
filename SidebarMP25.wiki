@@ -1,0 +1,33 @@
+#labels Phase-Implementation
+=== UAV Dev Board ===
+
+*[http://code.google.com/p/gentlenav/ Home]*
+
+*Hardware*
+  * *[HowToInstall Hardware Setup]*
+  * *[http://www.sparkfun.com/products/9980 Buy from SparkFun]*
+
+*Firmware*
+  * *[MatrixPilot MatrixPilot Info]*
+  * *[ProjectStatus Status / Roadmap]*
+  * *!MatrixPilot Manual*
+    # *[HowToInstall Installation]*
+      # *[ConnectingExtraChannels Extra Channels]*
+      # *[SerialConnection Serial Connection]*
+      # *[XBeeConnection XBee Connection]*
+      # *[RemzibiConnection Remzibi Connection]*
+      # *[OpenLogConnection OpenLog Connection]*
+    # *[HowToConfigure Configuration]*
+    # *[WayPoints Waypoints]*
+    # *[GroundTest Ground Testing]*
+    # *[Flying Flying]*
+    # *[HardwareInLoop Simulation]*
+    # *[Troubleshooting Troubleshooting]*
+  * *Development*
+    # *[HowToContribute How To Help]*
+      # *[UsingSubversion Using SVN]*
+    # *[UDBCoordinateSystems UDB Coordinate Systems]*
+    # *[TelemetryFormats Telemetry Formats]*
+    # *[GroundControlStation Ground Controls Station Software GCS]*
+
+*[http://diydrones.com/page/uav-devboard On DIY Drones]*

@@ -1,8 +1,9 @@
 = MatrixPilot: Connecting Extra Channels =
 
-The existing Red and Green boards only include built in connections for 4 Radio Input channels, and 3 Servo Output channels.
+The existing UDB boards only include built in connections for 4 Radio Input channels, and 3 Servo Output channels.
 
-Here's how to connect the 5th Input channel, and the 4th, 5th, and 6th Output channels.
+Here's how to connect the 5th Input channel, and the 4th, 5th, and 6th Output channels.  Also note that as of MatrixPilot 3.0, it is also possible to use a [http://store.diydrones.com/product_p/br-ppme.htm PPM Encoder board] to allow up to 8 RC inputs to come into the UDB through one servo cable attached to IN4. This leaves you with up to 6 proper output servo connectors (by using In1-In3 as additional outputs) plus the 3 extra servo outputs described here.
+
 
 
 == Simple Method: One Extra Input and One Extra Output ==

@@ -3,29 +3,25 @@
 
 *[http://code.google.com/p/gentlenav/ Home]*
 
-*Hardware*
-  * *[HowToInstall Hardware Setup]*
-  * *[http://www.sparkfun.com/products/9980 Buy from SparkFun]*
-
-*Firmware*
-  * *[MatrixPilot MatrixPilot Info]*
+*MatrixPilot Firmware*
+  * *[MatrixPilotMP30 MatrixPilot Info]*
   * *[ProjectStatus Status / Roadmap]*
   * *!MatrixPilot Manual*
-    # *[HowToInstall Installation]*
-      # *[ConnectingExtraChannels Extra Channels]*
-      # *[SerialConnection Serial Connection]*
-      # *[XBeeConnection XBee Connection]*
-      # *[RemzibiConnection Remzibi Connection]*
-      # *[OpenLogConnection OpenLog Connection]*
-    # *[HowToConfigure Configuration]*
-    # *[WayPoints Waypoints]*
+    # *[HowToInstallMP30 Installation]*
+      # *[CompatibleHardware Optional Hardware]*
+    # *[HowToConfigureMP30 Configuration]*
+    # *[FlightPlans Flight Plans]*
+      * *[WayPointsMP30 Waypoints]*
+      * *[UDBLogo UDB Logo]*
     # *[GroundTest Ground Testing]*
-    # *[Flying Flying]*
+    # *[FlyingMP30 Flying]*
+    # *[CompatibleSoftware Compatible Software]*
     # *[HardwareInLoop Simulation]*
-    # *[Troubleshooting Troubleshooting]*
+    # *[Troubleshooting Troubleshooting / FAQ]*
   * *Development*
     # *[HowToContribute How To Help]*
-      # *[UsingSubversion Using SVN]*
+      * *[UsingSubversion Using SVN]*
+    # *[CodeOrganization Code Organization]*
     # *[UDBCoordinateSystems UDB Coordinate Systems]*
     # *[TelemetryFormats Telemetry Formats]*
     # *[GroundControlStation Ground Controls Station Software GCS]*
