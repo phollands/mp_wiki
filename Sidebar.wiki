@@ -1,6 +1,6 @@
 === UAV Dev Board ===
 
-*[http://code.google.com/p/gentlenav/ Home]*
+*[Home Home]*
 
 *MatrixPilot Firmware*
   * *[MatrixPilot MatrixPilot Info]*
