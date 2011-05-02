@@ -6,7 +6,9 @@ The board should be installed to that it will be level when the plane is flying.
 
 If you are using the UDB2 (red board with 2 vertical daughter boards), and you expect some vibration, you may want to mount the board to your plane using a couple layers of gyro-mounting foam tape.
 
-Next, connect the GPS to the board.
+Try to position the UDB away from heat sources.  The biggest heat sources in most electric planes is the ESC.  Some people do this by mounting the UDB inside the fuselage, and moving the ESC outside of it, to the top of the fuselage.
+
+Next, connect the GPS to the board, and find a place to install the GPS into the plane.  It should point up, and have a clear view of the sky.  The GPS will likely work best if it is mounted on top of the plane, as opposed to inside the fuselage.
 
 By default, the firmware is set up to expect the following Radio/Servo connections, although this can all be configured in the options.h file of the firmware:
   * Aileron control. Connect whatever channel on your Rx that you like to use for the ailerons to channel 1 input on the board.
