@@ -65,7 +65,7 @@ Then choose your airframe type: Standard, V-Tail, or Delta Wing.
 }}}
 
 
-And choose which GPS you're using.  Currently we support the [http://www.sparkfun.com/commerce/product_info.php?products_id=465 EM-406A], and the [http://store.diydrones.com/ProductDetails.asp?ProductCode=SPK-GPS-GS407 UBlox GS407].  Many of us are having better luck with the EM-406A.
+And choose which GPS you're using.  Currently we support the [http://www.sparkfun.com/commerce/product_info.php?products_id=465 EM-406A], and the [http://store.diydrones.com/ProductDetails.asp?ProductCode=SPK-GPS-GS407 UBlox GS407].  Many of us are having better luck with the EM-406A.  (When using the EM-406A, choose GPS_STD below.)
 
 {{{
 // Set this value to your GPS type.  (Set to GPS_STD, GPS_UBX_2HZ, or GPS_UBX_4HZ)
@@ -435,7 +435,7 @@ Servo Saturation controls the maximum throw of the servos.  Typical value is 1.0
 }}}
 
 
-There are several gains that you can adjust. They should all be set to positive numbers.  If you think any gain needs to be reversed, you should instead reversals in the Reversal section above, and with the board reversing switches SR1, SR2 and SR3. Use the same gains on either the red board or the green board, the appropriate multipliers are now built into the firmware.
+There are several gains that you can adjust. They should all be set to positive numbers.  If you think any gain needs to be reversed, you should instead set up reversals in the Reversal section above.  Use the same gains all board types -- the appropriate multipliers are now built into the firmware.
 
   * ROLLKP - This is the proportional feedback for the aileron control of roll. Setting it higher will improve precision of the bank leveling, but will reduce the bank angle and will make the turning radius get larger. Setting it too high may cause low frequency roll flutter that is annoying but not dangerous. Setting it lower will increase the bank angle and sharpen the turns, particularly during RTL. Typical value is 0.25.
   * ROLLKD - This is the derivative (gyro) feedback for the aileron control of roll. It is used to improve the damping of the roll control, to dampen any low frequency flutter. But if it is set too high, there may be a high frequency flutter that is annoying but not dangerous. Typical value is 0.125. This gain does not have to be greater than or equal to ROLLKP, you can use any value that you want.
@@ -463,7 +463,7 @@ There are several gains that you can adjust. They should all be set to positive 
   * RUDDER_ELEV_MIX - This is the amount of rudder-elevator mixing that you want. Typical value is 0.5. Set this parameter to 0 if you do not want to use this mixing. Maximum valid value is 1.999.
   * ROLL_ELEV_MIX - This is the amount of roll-elevator mixing that you want. Typical value is 0.1. Set this parameter to 0 if you do not want to use this mixing. Maximum valid value is 1.999.
   * ELEVATOR_BOOST - This is an amplification, or "boost" factor for manual control of the elevator, used during stabilized mode to restore control authority to the elevator in the face of the damping effect of stabilization. Typical value is 0.5. This factor is in addition to the manual control, so a value of ELEVATOR_BOOST of 0 turns the boost off, and provides unmodified response to manual control. A ELEVATOR_BOOST of 1 makes the elevator response to manual control approximately twice as great. Maximum valid value is 1.999.
-  * INVERTED_NEUTRAL_PITCH - This is the number of degrees that the plane should pith the nose up while flying inverted, in order to maintain altitude.
+  * INVERTED_NEUTRAL_PITCH - This is the number of degrees that the plane should pitch the nose up while flying inverted, in order to maintain altitude.
 
 {{{
 // Elevator/Pitch Control Gains
@@ -592,7 +592,7 @@ These settings are only used when Altitude Hold is enabled above.
   * HEIGHT_MARGIN - The vertical range, in meters, to try to keep the plane within when altitude hold is enabled.
   * ALT_HOLD_THROTTLE_MIN - This parameter sets a value for the minimum amount of throttle during altitude hold. Typical value is 0.55, define a value between 0.0 and 1.0
   * ALT_HOLD_THROTTLE_MAX - This parameter sets a value for the maximum amount of throttle during altitude hold. Typical value is 1.0, define a value between 0.0 and 1.0
-  * ALT_HOLD_PITCH_MIN - This is the pitch angle, in degrees, that the control will attempt to hold the plane's pitch, at minimum throttle. The suggested value for this parameter for a sailplane is 0. If you want the altitude hold feature to maintain altitude without turning off the motor, select a slightly negative value for this parameter, such as -2. If you do not want to use this feature, set it to 0. Otherwise, set it the pitch angle that you would normally control the plane at minimum throttle. Positive values means the nose points upward, negative values means the nose pitches downward.
+  * ALT_HOLD_PITCH_MIN - This is the pitch angle, in degrees, that the control will attempt to hold the plane's pitch, at minimum throttle. The suggested value for this parameter for a sailplane is 0. If you want the altitude hold feature to maintain altitude without turning off the motor, select a slightly negative value for this parameter, such as -2. If you do not want to use this feature, set it to 0. Otherwise, set it to the pitch angle that you would normally control the plane at minimum throttle. Positive values means the nose points upward, negative values means the nose pitches downward.
   * ALT_HOLD_PITCH_MAX - This is the pitch angle, in degrees, that the control will attempt to hold the plane's pitch, at MAXIMUM throttle. The suggested value for this parameter is 10. Otherwise, set the pitch angle that you would normally control the plane at maximum throttle. Positive values means the nose points upward, negative values means the nose pitches downward.
   * ALT_HOLD_PITCH_HIGH - This is the pitch angle, in degrees, that the control will attempt to hold the plane's pitch, at ZERO throttle. In other words, this is the pitch angle that you want when your sailplane is gliding, or when your plane is flying "dead stick". The suggested value for this parameter is 0. If you do not want to use this feature, set it to 0. Otherwise, set it to the pitch angle that you would normally control the plane at zero throttle. Positive values means the nose points upward, negative values means the nose pitches downward.
 
