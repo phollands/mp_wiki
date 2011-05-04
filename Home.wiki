@@ -3,7 +3,7 @@ http://static.sparkfun.com/images/products/09980-01b_i_ma.jpg
 
 The UAV Dev Board, designed by Bill Premerlani, is an IMU-based development platform for building controllers for Unmanned Aerial Vehicles.  This site hosts the development of UAV code that runs on this board, allowing it to stabilize an airplane, maintain altitude, and navigate to specific locations, or back to the launch site.
 
-You can [http://www.sparkfun.com/commerce/product_info.php?products_id=9038 buy a UAV Dev Board from Spark Fun].
+You can [http://www.sparkfun.com/products/9980 buy a UAV Dev Board from Spark Fun].
 
 If you buy a UAV Dev Board, and are interested in hearing about upcoming changes, or want to participate in or influence future development, we strongly urge you to join the [http://groups.google.com/group/uavdevboard UAV Dev Board Discussion List].
 
@@ -45,7 +45,7 @@ This board comes with a dsPIC30F4011 CPU, an MMA7260 three axis accelerometer an
 
 == Related Projects and Sites ==
 
-  * [http://www.sparkfun.com/commerce/product_info.php?products_id=9038 Buy a UAV Dev Board from SparkFun]
+  * [http://www.sparkfun.com/products/9980 Buy a UAV Dev Board from SparkFun]
   * [http://www.sparkfun.com/commerce/product_info.php?products_id=465 EM406 GPS]
   * [http://diydrones.com/ DIY Drones Community]
   * [http://code.google.com/p/uavexpansionboard/ "Oil Pan" UDB Expansion Board]
