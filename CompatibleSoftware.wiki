@@ -8,7 +8,6 @@ Here is a list of the software tools that we use along with the UDB and MatrixPi
 
   * *[GroundControlStations Ground Control Stations]*:
     * HKGCS
-    * QGCS
     * Ardupilot GCS
 
   * *[HardwareInLoop XPlane Hardware-In-the-Loop Simulation]*: MatrixPilot can run using a virtual plane and virtual sensors, running inside the XPlane simulator.
