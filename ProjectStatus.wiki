@@ -1,5 +1,16 @@
 = Project Status =
 
+=== Coming Up in MatrixPilot 3.1... ===
+  * Major IMU improvements, including "dizzy-proofing", automatic inflight gyro calibration, and compensation for magnetometer latency.
+  * Live camera tracking of one UDB from another.
+  * User-configurable OSD layouts.
+  * Full support for the DIYDrones MediaTek GPS.
+  * Maintain minimum ground speed. The speed control loop is now based on the smaller of ground speed and air speed.
+  * Improvements to inverted stabilization.
+  * Improvements to the Flight Analyzer tool.
+  * More bug fixes.
+
+
 === What's New in MatrixPilot 3.0 ===
   * Support for up to 8-channel PPM RC Input on a single pin, freeing up other pins for other features, including up to 9 RC outputs.  Compatible with [http://store.diydrones.com/product_p/br-ppme.htm this board from the DIYDrones store].
   * Added a new mission description language based on LOGO.
