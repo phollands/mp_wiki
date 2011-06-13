@@ -16,6 +16,7 @@
   * Added a new mission description language based on LOGO.
   * Allow sending waypoints (or UDB Logo instructions) mid flight over the telemetry channel (but no ground-station support yet).
   * Much improved Navigation, due to improvements in Dead Reckoning and wind estimation.
+  * Altitude control now accounts for energy due to airspeed, and adjusts throttle and pitch to maintain the desired total energy.
   * Improved camera-targeting logic and precision.
   * Added an RTL Hold feature that keeps you in RTL mode once it's been triggered, until you flip your mode switch.  This helps avoid chaos if you're flying at the edge of your RC range.
   * Support for a still-experimental native On-Screen Display using [http://www.sparkfun.com/products/9168 this board from SparkFun].
