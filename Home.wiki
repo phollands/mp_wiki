@@ -14,7 +14,7 @@ There is also a lively community that discusses this platform on the [http://diy
 
 *MatrixPilot 3.1 - Tuesday, June 28, 2011*
 
-The big ticket items in MatrixPilot 3.1 include some major improvements to the IMU and the OSD, along with new support for the DIYDrones MediaTek GPS.  It also adds camera tracking of a moving target!  See the full change list on the [ProjectStatus status page].
+The big ticket items in MatrixPilot 3.1 include some major improvements to the IMU and the OSD, along with new support for the DIYDrones !MediaTek GPS.  It also adds camera tracking of a moving target!  See the full change list on the [ProjectStatus status page].
 
 
 *Team Lawn Dart places at the 2011 !SparkFun Autonomous Vehicle Competition - Saturday April 23, 2011*
