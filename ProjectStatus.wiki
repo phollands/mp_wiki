@@ -1,6 +1,6 @@
 = Project Status =
 
-=== Coming Up in MatrixPilot 3.1... ===
+=== What's New in MatrixPilot 3.1... ===
   * Major IMU improvements, including "dizzy-proofing", automatic inflight gyro calibration, and compensation for magnetometer latency.
   * Live camera tracking of one UDB from another.
   * User-configurable OSD layouts.
