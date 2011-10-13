@@ -11,10 +11,15 @@ The downside is that there is no simple plug-and-play hardware to add on.  You h
 
 === Ingredients ===
 *1* [http://www.sparkfun.com/products/9168 Breakout Board for MAX7456 On Screen Display from SparkFun]
+
 *2* 24" M-F thin/light servo-extensions
+
 *1* 12" M-F thin/light servo-extension
+
 *2* 0.5" toroids like [http://www.hobbywireless.com/cart/index.php?main_page=product_info&cPath=24&products_id=91&zenid=ljcul82s90ggcqo7sd4aft62f2 this one]
+
 *2* 2" lengths of [http://store.diydrones.com/HeatShrink_tube_p/pr-0004-01.htm 1-inch diameter heat-shrink tubing]
+
 *1* 2"x3" chunk of conductive shielding fabric, or enough copper tape to wrap the board.
 
 
@@ -24,42 +29,63 @@ Step 1 is to de-solder the RCA jacks from the breakout board.  Besides being fir
 http://dlnmh9ip6v2uc.cloudfront.net/images/products/09168-1.jpg
 
 
-After you've done that, the complete set of ingredients should look about like this: (except that I started with all 12" cables instead of using 2 24" cables like I should have…)
+After you've done that, the complete set of ingredients should look about like this: (except that I started with all 12" cables instead of using 2 24" cables like I should have...)
+
 http://gentlenav.googlecode.com/svn/wiki/images/osd_build/IMG_0535.jpg
 
+
 Take the 12" cable and separate the 3 wires from each other, but only right near the middle of the cable, then clip the black and orange wires, but leave the red one intact, like this:
+
 http://gentlenav.googlecode.com/svn/wiki/images/osd_build/IMG_0537.jpg
 
-Now we'll strip about 1/8" from the ends of each of these 4 open wires, and solder them to the board.  For the ends connected to the sheathed end of the cable, connect black to the hole right by the word "In" of "Video In", and orange to the other desoldered hole on that end of the board, near the word GND.  For the other end of the cable, connect orange to the hole near the "V" in "Video Out", and the black to the other desoldered hole near the +5V, like this:
+
+Now we'll strip about 1/8" from the ends of each of these 4 open wires, and solder them to the board.  For the ends connected to the sheathed end of the cable, connect black to the hole right by the word "In" of "Video In", and orange to the other desoldered hole on that end of the board, near the word GND.  (You can add wrap this end of the cable through a toroid about 5 times if you need to clean up interference from a noisy camera.  If you're doing this, you may want to leave more cable on this end than the other end, to have enough length to wrap through the toroid.)  For the other end of the cable, connect orange to the hole near the "V" in "Video Out", and the black to the other desoldered hole near the +5V, like this:
+
 http://gentlenav.googlecode.com/svn/wiki/images/osd_build/IMG_0538.jpg
 
+
 Cut the sheathed ends off of the 2 24" cables.  For each cable, pull the 3 wires apart so they're individual strands.  For one of the cables, remove the orange wire, leaving just red and black.
+
 http://gentlenav.googlecode.com/svn/wiki/images/osd_build/IMG_0546.jpg
 
+
 Then wrap both cables (all 5 wires) through the toroid. One cable at a time is easier.  Make sure to get at least about 5 wraps of each through the toroid.  This should stop the noise from your video TX from being conducted through these wires back to the UDB.  Leave about 2-3 inches of cable past the toroid, like this:
+
 http://gentlenav.googlecode.com/svn/wiki/images/osd_build/IMG_0539.jpg
 
+
 Now connect the red and black wires from the 2-wire cable to the +5V and GND pins, like this:
+
 http://gentlenav.googlecode.com/svn/wiki/images/osd_build/IMG_0540.jpg
 
+
 And the black, red, and orange wires from the 3-wire cable to CS, SCK, DIN as seen here: (note that the 3 holes are not in the same order as the 3 wires)
+
 http://gentlenav.googlecode.com/svn/wiki/images/osd_build/IMG_0541.jpg
 
+
 Then add a small wire jumper connecting RST directly to +5V as seen here:
+
 http://gentlenav.googlecode.com/svn/wiki/images/osd_build/IMG_0542.jpg
 
+
 And connect another small wire to any ground pin, and leave the other end hanging for now.  We'll connect this to the shielding later.  (This is a good time to test that the OSD works.  Testing info below.)  Now it's time to heat shrink one layer of tubing around the board.
+
 http://gentlenav.googlecode.com/svn/wiki/images/osd_build/IMG_0543.jpg
 
 
-
 Now wrap a layer of shielding around the board.  We're trying to stop the noise radiated by the MAX7456 from interfering with the video or UDB.  You can use some electrical tape to hold it together while you solder the other end of the ground wire to the shielding.  Using a drop of solder flux makes this step easy.
+
 http://gentlenav.googlecode.com/svn/wiki/images/osd_build/IMG_0544.jpg
 
+
 Now heat shrink the 2nd tube around the shielding.
+
 http://gentlenav.googlecode.com/svn/wiki/images/osd_build/IMG_0545.jpg
 
+
 This step is optional, but I think it can help with RFI problems: braid the 3-wire cable pretty tightly, and twist the 2-wire cable tightly, so you end up with cables looking like this:
+
 http://gentlenav.googlecode.com/svn/wiki/images/osd_build/IMG_0536.jpg
 
 
@@ -78,7 +104,6 @@ Running the FlashOSD program is a necessary step, since it updates the Font stor
 
 
 === Configuration ===
-
 To configure the OSD layout to your liking, first enable the OSD by setting USE_OSD to 1 in options.h.  Then edit the osd_layout.h file to decide which values you want to see, and where.  Note that to see battery stats, or RSSI values, you'll have to enable and set up Analog Inputs.
 
 {{{
