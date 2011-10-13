@@ -19,6 +19,7 @@ Here is a list of compatible and optional hardware that works with the UAVDevBoa
 *Info on Making Connections*
   * [ConnectingExtraChannels Extra Channels]
   * [SerialConnection Serial Connection]
+  * [OSD OSD (On Screen Display)]
   * [XBeeConnection XBee Connection]
   * [RemzibiConnection Remzibi Connection]
   * [OpenLogConnection OpenLog Connection]

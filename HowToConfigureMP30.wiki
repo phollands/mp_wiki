@@ -1,8 +1,8 @@
 = MatrixPilot: Configuration =
 
-To configure MatrixPilot to work for your plane, you'll need to edit your options.h file.  This page describes all the settings in that file, as of MatrixPilot 3.2.
+To configure MatrixPilot to work for your plane, you'll need to edit your options.h file.  This page describes all the settings in that file, as of MatrixPilot 3.0.
 
-Also available are older versions for [HowToConfigureMP20 MatrixPilot 2.0], [HowToConfigureMP25 MatrixPilot 2.5], and  [HowToConfigureMP30 MatrixPilot 3.0].
+Also available are older versions for [HowToConfigureMP20 MatrixPilot 2.0], and for [HowToConfigureMP25 MatrixPilot 2.5].
 
 To set up Waypoints, see the WayPoints wiki page.
 
@@ -22,26 +22,34 @@ First make sure to set which UAV Dev Board version you have.
 }}}
 
 
-You can mount the board into your plane in any of the below 8 orientations.  Then set this value to match.  This can be useful if you need to mount the board backwards or on the side of the plane for physical/space/layout reasons.
+The clock speed should not have any noticeable effect for most people.  But if you're hacking on the code and need faster baud rates, change this to FRC8X_CLOCK.
 
 {{{
-////////////////////////////////////////////////////////////////////////////////
+// Select Clock Configuration (Set to CRYSTAL_CLOCK or FRC8X_CLOCK)
+// CRYSTAL_CLOCK is the 16 MHz crystal.  This is the speed used in the past, and may be
+// more compatible with other add-ons. The CRYSTAL_CLOCK supports a maximum baud rate of 19200 bps.
+// FRC8X_CLOCK runs the fast RC clock (7.3728 MHz) with 8X PLL multiplier, and supports much
+// faster baud rates.
+#define CLOCK_CONFIG 						CRYSTAL_CLOCK
+}}}
+
+
+You can mount the board into your plane in any of the below 6 orientations.  Then set this value to match.  This can be useful if you need to mount the board backwards or on the side of the plane for physical/space/layout reasons.
+
+{{{
 // Use board orientation to change the mounting direction of the board.
-// The following 6 orientations have the board parallel with the ground.
+// The following 4 orientations have the board parallel with the ground.
 // ORIENTATION_FORWARDS:  Component-side up,   GPS connector front
 // ORIENTATION_BACKWARDS: Component-side up,   GPS connector back
 // ORIENTATION_INVERTED:  Component-side down, GPS connector front
 // ORIENTATION_FLIPPED:   Component-side down, GPS connector back
-// ORIENTATION_YAWCW:     Component-side up,   GPS connector to the right
-// ORIENTATION_YAWCCW:    Component-side up,   GPS connector to the left
-// 
 // The following 2 orientations are "knife edge" mountings
 // ORIENTATION_ROLLCW: Rick's picture #9, board rolled 90 degrees clockwise,
-//              from point of view of the pilot
+//		from point of view of the pilot
 // ORIENTATION_ROLLCW180: Rick's pitcure #11, board rolled 90 degrees clockwise,
-//              from point of view of the pilot, then rotate the board 180 around the Z axis of the plane,
-//              so that the GPS connector points toward the tail of the plane
-#define BOARD_ORIENTATION                                       ORIENTATION_FORWARDS
+//		from point of view of the pilot, then rotate the board 180 around the Z axis of the plane,
+//		so that the GPS connector points toward the tail of the plane
+#define BOARD_ORIENTATION					ORIENTATION_FORWARDS
 }}}
 
 
@@ -57,10 +65,10 @@ Then choose your airframe type: Standard, V-Tail, or Delta Wing.
 }}}
 
 
-And choose which GPS you're using.  Currently we support the [http://www.sparkfun.com/commerce/product_info.php?products_id=465 EM-406A], [http://store.diydrones.com/ProductDetails.asp?ProductCode=SPK-GPS-GS407 UBlox GS407], and [http://store.diydrones.com/MediaTek_MT3329_GPS_10Hz_Adapter_Basic_p/mt3329-02.htm MediaTek] GPS units.  (Some of us are finding we get worse accuracy when using the UBlox.)
+And choose which GPS you're using.  Currently we support the [http://www.sparkfun.com/commerce/product_info.php?products_id=465 EM-406A], and the [http://store.diydrones.com/ProductDetails.asp?ProductCode=SPK-GPS-GS407 UBlox GS407].  Many of us are having better luck with the EM-406A.  (When using the EM-406A, choose GPS_STD below.)
 
 {{{
-// Set this value to your GPS type.  (Set to GPS_STD, GPS_UBX_2HZ, GPS_UBX_4HZ, or GPS_MTEK)
+// Set this value to your GPS type.  (Set to GPS_STD, GPS_UBX_2HZ, or GPS_UBX_4HZ)
 #define GPS_TYPE						GPS_STD
 }}}
 
@@ -165,9 +173,7 @@ If you have a magnetometer attached to the UDB, set this to 1.
 {{{
 // Define MAG_YAW_DRIFT to be 1 to use magnetometer for yaw drift correction.
 // Otherwise, if set to 0 the GPS will be used.
-// If you select this option, you also need to set magnetometer options in
-// the magnetometerOptions.h file, including declination and magnetometer type.
-#define MAG_YAW_DRIFT						0
+#define MAG_YAW_DRIFT                                           0
 }}}
 
 Racing mode can be useful when trying to keep up your speed, or when fighting stronger winds.
@@ -356,13 +362,12 @@ Setting up the Failsafe Chanel allows your plane to know when it loses transmitt
 
 {{{
 // Serial Output Format (Can be SERIAL_NONE, SERIAL_DEBUG, SERIAL_ARDUSTATION, SERIAL_UDB,
-// SERIAL_UDB_EXTRA, SERIAL_CAM_TRACK, or SERIAL_OSD_REMZIBI)
+// SERIAL_UDB_EXTRA, or SERIAL_OSD_REMZIBI)
 // This determines the format of the output sent out the spare serial port.
-// Note that SERIAL_OSD_REMZIBI only works with a ublox GPS.
+// Note that SERIAL_OSD_REMZIBI only works with GPS_UBX.
 // SERIAL_UDB_EXTRA will add additional telemetry fields to those of SERIAL_UDB.
 // SERIAL_UDB_EXTRA can be used with the OpenLog without characters being dropped.
 // SERIAL_UDB_EXTRA may result in dropped characters if used with the XBEE wireless transmitter.
-// SERIAL_CAM_TRACK is used to output location data to a 2nd UDB, which will target its camera at this plane.
 #define SERIAL_OUTPUT_FORMAT					SERIAL_NONE
 }}}
 
@@ -373,51 +378,12 @@ The native OSD is still experimental, but you can enable it here.  More info on 
 
 {{{
 // On Screen Display
-// USE_OSD enables the OSD system.  Customize the OSD Layout in the osd_layout.h file.
+// OSD_VIDEO_FORMAT can be set to either OSD_NTSC, or OSD_PAL
+// To hide the callsign, set OSD_CALL_SIGN to just {0xFF}
 #define USE_OSD							0
-}}}
-
-
-== Analog Inputs ==
-
-You can connect up to 2 external sensors to the UDB's extra analog inputs.  The input pins are shared with servo output pins, so you'll have to balance your needs carefully.  (Consider using PPM input to free up extra servo output pins.)
-
-{{{
-// NUM_ANALOG_INPUTS: Set to 0, 1, or 2
-//   1 enables Radio In 1 as an analog Input
-//   2 also enables Radio In 2 as another analog Input
-//   NOTE: Can only be set this higher than 0 if USE_PPM_INPUT is enabled above.
-#define NUM_ANALOG_INPUTS					0
-
-// Channel numbers for each analog input
-//   - Only assign each channel number to one analog sensor
-//   - If you don't want to use an output channel, set it to CHANNEL_UNUSED
-//   - Only 2 analog inputs are available, so you can't use all the defined analog
-//     sensors at once
-// 
-// ANALOG_CURRENT_INPUT_CHANNEL and ANALOG_VOLTAGE_INPUT_CHANNEL let you plug in and
-// use this Voltage/Current sensor board from SparkFun:
-//    http://www.sparkfun.com/products/9028
-// Just plug the ground and signal lines of the chosen current input channel into the
-// ground and current outputs of the current sensor, and the signal line of the chosen
-// voltage input channel to the voltage output from the current sensor.  Values for
-// instantaneous current, voltage, and mAh used will become available for use with the
-// OSD layout.
-// 
-// ANALOG_RSSI_INPUT_CHANNEL lets you connect your RC Receiver's RSSI output to your
-// UDB, in order to see the RC signal strength on your OSD.  Just plug RSSI and ground
-// from your Receiver to Input2's signal and ground on your UDB.  If you use this feature,
-// you'll also need to set up the RSSI_MIN_SIGNAL_VOLTAGE and RSSI_MAX_SIGNAL_VOLTAGE
-// to match your Receiver's RSSI format.  Note that some receivers use a higher voltage to 
-// represent a lower signal strength, so you may need to set MIN higher than MAX.
-
-#define ANALOG_CURRENT_INPUT_CHANNEL				CHANNEL_UNUSED
-#define ANALOG_VOLTAGE_INPUT_CHANNEL				CHANNEL_UNUSED
-#define ANALOG_RSSI_INPUT_CHANNEL				CHANNEL_UNUSED
-
-// RSSI - RC Receiver signal strength
-#define RSSI_MIN_SIGNAL_VOLTAGE					0.5             // Voltage when RSSI should show 0%
-#define RSSI_MAX_SIGNAL_VOLTAGE					3.3             // Voltage when RSSI should show 100%
+#define OSD_VIDEO_FORMAT					OSD_NTSC
+#define OSD_SHOW_HORIZON					0
+#define OSD_CALL_SIGN						{0x95, 0x8B, 0x81, 0x8C, 0x8D, 0x8E, 0xFF} // KA1BCD
 }}}
 
 
@@ -613,16 +579,6 @@ One or two servo channels can be used to stabilize and target a camera mounted o
 #define CAM_TESTING_OVERIDE					0 // Set to 1 for camera to move to test angles in stabilized mode.
 #define CAM_TESTING_YAW_ANGLE			 		90 // e.g. 90 degrees. Will try to swing 90 degrees left, then 90 degrees right
 #define CAM_TESTING_PITCH_ANGLE					90 // In degrees.
-}}}
-
-
-Live Camera Tracking is beta code, but has huge potential!
-
-{{{
-// Set this to 1 to ignore camera target data from the flightplan, and instead use camera target data coming in on the serial port.
-// This data can be generated by another UDB running MatrixPilot, using SERIAL_CAM_TRACK.
-// NOTE: When using camera tracking, both UDBs must be set to use the same fixed origin location.
-#define CAM_USE_EXTERNAL_TARGET_DATA				0
 }}}
 
 

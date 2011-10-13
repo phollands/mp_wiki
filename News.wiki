@@ -1,5 +1,10 @@
 #summary News and Announcements
 
+*MatrixPilot 3.2 - Wednesday, October 12, 2011*
+
+This release includes lots of performance improvements, some new features aimed at FPV flyers, improvements to simulation and analysis tools, and automatic configuration sanity checking, which catches the most common configuration mistakes.  See the full change list on the [ProjectStatus status page].
+
+
 *MatrixPilot 3.1 - Tuesday, June 28, 2011*
 
 The big ticket items in MatrixPilot 3.1 include some major improvements to the IMU and the OSD, along with new support for the DIYDrones MediaTek GPS.  It also adds camera tracking of a moving target!  See the full change list on the [ProjectStatus status page].

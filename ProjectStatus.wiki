@@ -1,5 +1,20 @@
 = Project Status =
 
+=== What's New in MatrixPilot 3.2 ===
+  * Fixed support for new DIYDrones magnetometer.
+  * Allow using spare analog inputs for voltage, current, rssi for use with the OSD.
+  * New Ubuntu 10.04 HILSIM plugin; Updated the prebuilt HILSIM windows plugin.
+  * Variometer improvements and total-energy calculation.
+  * Improvements to flan, the Flight Analyzer.
+  * Disabled wind gain adjustment when flying into the wind.
+  * IMU velocity improvements (noticeably better in the OSD).
+  * OSD responsiveness improvements (USE IMU instead of GPS course info).
+  * Improved altitude hold's use of Min/Max alt.
+  * Added compile-time testing of options.h settings to reduce config mistakes.
+  * Cleaned up options.h a bit (removed CLOCK_CONFIG is the big one).
+  * New options for board mounting orientation: YAWCW, YAWCCW.
+
+
 === What's New in MatrixPilot 3.1 ===
   * Major IMU improvements, including "dizzy-proofing", automatic inflight gyro calibration, and compensation for magnetometer latency.
   * Live camera tracking of one UDB from another.
