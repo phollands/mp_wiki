@@ -6,7 +6,7 @@ The MatrixPilot OSD is meant to help FPV flyers by giving them some useful instr
 
 Many OSD options exist for FPV flyers.  But if you're already using MatrixPilot running on an onboard UDB, then this is the smallest, lightest, cheapest OSD solution you can add to your system.  It may also be the most accurate and responsive hobby OSD available, since it is driven by MatrixPilot's dead-reckoning IMU.
 
-The downside is that there is no simple plug-and-play hardware to add on.  You have to buy a breakout board from SparkFun, do a bit of desoldering and soldering, and then add some shielding around it when you're done.  But this is easier than it may sound, since the breakout board does its job, and lets you do only easy through-hole soldering.
+The downside is that there is no simple plug-and-play hardware to add on.  You have to buy a breakout board from !SparkFun, do a bit of desoldering and soldering, and then add some shielding around it when you're done.  But this is easier than it may sound, since the breakout board does its job, and lets you do only easy through-hole soldering.
 
 
 === Ingredients ===
@@ -90,7 +90,7 @@ http://gentlenav.googlecode.com/svn/wiki/images/osd_build/IMG_0536.jpg
 
 
 === Installation ===
-Installation of your beautiful new OSD board is easy.  The 2 long wires go to the UDB.  Plug the 2-wire cable into power and ground of a spare ServoOut or RadioIn channel.  (Or anywhere you can easily grab 5V and Ground.)  The 3-wire cable connects to RE0-RE2-RE4 with black on RE0.  
+Installation of your beautiful new OSD board is easy.  The 2 long wires go to the UDB.  Plug the 2-wire cable into power and ground of a spare !ServoOut or !RadioIn channel.  (Or anywhere you can easily grab 5V and Ground.)  The 3-wire cable connects to RE0-RE2-RE4 with black on RE0.  
 
 The other 2 cables are video in and out, which go to your camera and TX.
 
