@@ -2,7 +2,7 @@
 
 *UDB4 available from Sparkfun - Friday, October 21, 2011*
 
-The UAV DevBoard team are proud to announce availability of the next major revision of hardware from Sparkfun ([http://www.sparkfun.com/products/10582 See Sparkfun site for details]). Sparkfun also reviewed [http://www.sparkfun.com/news/698 some of the history] of the project.
+The UAV Dev Board team are proud to announce availability of the next major revision of hardware from Sparkfun ([http://www.sparkfun.com/products/10582 See Sparkfun site for details]). Sparkfun also reviewed [http://www.sparkfun.com/news/698 some of the history] of the project.
 
 *MatrixPilot 3.2 - Wednesday, October 12, 2011*
 
