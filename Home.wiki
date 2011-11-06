@@ -1,9 +1,9 @@
 = UAV Dev Board =
-http://static.sparkfun.com/images/products/09980-01b_i_ma.jpg
+http://dlnmh9ip6v2uc.cloudfront.net/images/products/10582-01.jpg
 
-The UAV Dev Board, designed by Bill Premerlani, is an IMU-based development platform for building controllers for Unmanned Aerial Vehicles.  This site hosts the development of UAV code that runs on this board, allowing it to stabilize an airplane, maintain altitude, and navigate to specific locations, or back to the launch site.
+The UAV Dev Board, originally designed by Bill Premerlani, is an IMU-based development platform for building controllers for Unmanned Aerial Vehicles.  This site hosts the development of UAV code that runs on this board, allowing it to stabilize an airplane, maintain altitude, and navigate to specific locations, or back to the launch site.
 
-You can [http://www.sparkfun.com/products/9980 buy a UAV Dev Board from Spark Fun].
+You can [http://www.sparkfun.com/products/10582 buy a UAV Dev Board from Spark Fun].
 
 If you buy a UAV Dev Board, and are interested in hearing about upcoming changes, or want to participate in or influence future development, we strongly urge you to join the [http://groups.google.com/group/uavdevboard UAV Dev Board Discussion List].
 
@@ -11,6 +11,10 @@ There is also a lively community that discusses this platform on the [http://diy
 
 
 == News! ==
+
+*UDB4 available from Sparkfun - Friday, October 21, 2011*
+
+The UAV Dev Board team are proud to announce availability of the next major revision of hardware from Sparkfun ([http://www.sparkfun.com/products/10582 See Sparkfun site for details]). Sparkfun also reviewed [http://www.sparkfun.com/news/698 some of the history] of the project.
 
 *MatrixPilot 3.2 - Wednesday, October 12, 2011*
 
@@ -21,10 +25,6 @@ This release includes lots of performance improvements, some new features aimed 
 
 Congratulations to Team Lawn Dart on their great entry and performance.  They used a modified UDB, running a modified version of MatrixPilot to win 3rd place in the air competition.
 
-
-*MatrixPilot wins DIY Drones T3 HILSim Contest - February 2011*
-
-Congratulations to Marcus Fahlen of Norway on winning 1st place in the DIY Drones contest to replicate a flight around Manhattan using an autopilot (in this case the UDB3) connected to a flight simulator. Thanks to all of the wider team that have made Marc's success possible. See [http://diydrones.com/profiles/blogs/t3-contest-season-2-round-1?id=705844%3ABlogPost%3A238107&page=5#comments here for the competition thread ], and the results were published [http://diydrones.com/profiles/blogs/winners-of-t3-contest here].
 
 
 *[News More News...]*
@@ -45,7 +45,7 @@ This board comes with a dsPIC30F4011 CPU, an MMA7260 three axis accelerometer an
 
 == Related Projects and Sites ==
 
-  * [http://www.sparkfun.com/products/9980 Buy a UAV Dev Board from SparkFun]
+  * [http://www.sparkfun.com/products/10582 Buy a UAV Dev Board from SparkFun]
   * [http://store.diydrones.com/MediaTek_MT3329_GPS_10Hz_Adapter_Basic_p/mt3329-02.htm MediaTek GPS]
   * [http://www.sparkfun.com/commerce/product_info.php?products_id=465 EM406 GPS]
   * [http://diydrones.com/ DIY Drones Community]
