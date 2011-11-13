@@ -2,7 +2,7 @@
 
 === UDB2/UDB3 Soldering ===
 
-If you're going to be using more than the built in 4 RC inputs and 3 RC outputs, or if you plan to use the MatrixPilot OSD, you'll want to solder male headers onto the 4 through-holes for RE4, RE2, RE0, RE8.  If you plan to connect an OpenLog, or view telemetry data, you should solder male headers onto the 4 pins next to those (VCC, TXO, RXI, GND).  In general, I suggest just soldering an 8-pin male header onto that whole row.
+If you're going to be using more than the built in 4 RC inputs and 3 RC outputs, or if you plan to use the !MatrixPilot OSD, you'll want to solder male headers onto the 4 through-holes for RE4, RE2, RE0, RE8.  If you plan to connect an !OpenLog, or view telemetry data, you should solder male headers onto the 4 pins next to those (VCC, TXO, RXI, GND).  In general, I suggest just soldering an 8-pin male header onto that whole row.
 
 
 === UDB4 Soldering ===
