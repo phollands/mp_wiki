@@ -48,7 +48,7 @@ For a UDB2/3: If you want to use the Extra Channels on the board, check out the 
 
 As of MatrixPilot 3.0, it is also possible to use a [http://store.diydrones.com/product_p/br-ppme.htm PPM Encoder board] to allow up to 8 RC inputs to come into the UDB through one servo cable attached to IN4 on a UDB2/3, or to IN1 on the UDB4. On a UDB2/3, this leaves you with up to 6 proper output servo connectors (by using In1-In3 as additional outputs) and the 3 [ConnectingExtraChannels extra servo outputs] on pins RE0, RE2, and RE4.
 
-If you are installing the board deep inside your plane in a head to reach spot, you'll probably want to attach a programming cable to the 6-pin programming header on the board, so you can adjust your control gains and upgrade the firmware without pulling the board out.
+If you are installing the board deep inside your plane in a hard to reach spot, you'll probably want to attach a programming cable to the 6-pin programming header on the board, so you can adjust your control gains and upgrade the firmware without pulling the board out.
 
 Once this is all set up, [HowToConfigure make sure MatrixPilot is configured well for your plane], and make sure to [GroundTest do an initial ground-test of everything]. It might be best to do it outside to get a faster GPS lock.
 
