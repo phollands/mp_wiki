@@ -13,7 +13,7 @@ For RC Inputs, there are a few good options.  If you plan to use a PPM connectio
 
 For RC Outputs, just add N 3-pin male headers to the first N output channels on the UDB4, where N is the number of servos (including throttle ESC) that you want to connect.
 
-You'll also need to connect a 6 pin male header to the ICSP port.  This is where you'll connect a PIC programmer like the PicKit3.  (Fun fact: only the first 5 are actually necessary for the UDB boards.  That's the 5 pins furthest from the Servo Outputs.)
+You'll also need to connect a 6 pin male header to the ICSP port.  This is where you'll connect a PIC programmer like the PicKit3.  (Fun fact: only the first 5 are actually necessary for the UDB boards.  That's the 5 pins furthest from the Servo Outputs.)  Note that pin 1 of the ICSP port is the pin closest to the center of the UDB4.
 
 And you'll probably also want to use logging or telemetry of some sort.  If so you should add a 4-pin header to the 4 adjacent pins labelled TX2, RX2, 3.3, GND.
 
@@ -51,6 +51,13 @@ As of MatrixPilot 3.0, it is also possible to use a [http://store.diydrones.com/
 If you are installing the board deep inside your plane in a head to reach spot, you'll probably want to attach a programming cable to the 6-pin programming header on the board, so you can adjust your control gains and upgrade the firmware without pulling the board out.
 
 Once this is all set up, [HowToConfigure make sure MatrixPilot is configured well for your plane], and make sure to [GroundTest do an initial ground-test of everything]. It might be best to do it outside to get a faster GPS lock.
+
+
+=== Powering the UDB ===
+
+The UDB is usually powered the same way you would normally power the RC Receiver -- just plug your ESC's throttle cable (standard 3-wire servo cable) into the UDB's Out3 channel.  If your ESC includes a BEC, then you're done powering the board.  If not, then you should power the board some other way.  The UDB4 includes an extra set of +/- pins for this purpose.
+
+The UDB4 also has a small solder jumper between Out8 and the ICSP port, that allows separating the servo power bus from the rest of the board.  This jumper defaults to being connected.  If you disconnect it, then you'll have to power the UDB from one of the RC Inputs, and can power your servos from the spare +/- pins.  The benefit to separating the servo power from the rest of the board is that otherwise, if you have many power-hungry servos, then despite our careful UDB4 power supply design, you can get voltage dips that could possibly cause the UDB to reboot during flight (which would leave you with only manual control).  Separating the servo power solves this problem.
 
 
 == Other Connections ==
