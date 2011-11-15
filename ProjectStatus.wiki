@@ -1,5 +1,10 @@
 = Project Status =
 
+=== What's New in MatrixPilot 3.2.1 ===
+  * Fixed a bug that could cause the rudder channel to pull to one side while in RTL mode when using an RC receiver without failsafe.
+  * Added magnetometer support for the UDB4.
+
+
 === What's New in MatrixPilot 3.2 ===
   * Fixed support for new DIYDrones magnetometer.
   * Allow using spare analog inputs for voltage, current, rssi for use with the OSD.
