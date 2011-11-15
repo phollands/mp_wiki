@@ -6,6 +6,7 @@ Also available are older versions for [HowToConfigureMP20 MatrixPilot 2.0], [How
 
 To set up Waypoints, see the WayPoints wiki page.
 
+Once you have the options and flight plan set up the way you want them, you can compile the code and install it onto the UDB.  Info on that process is available in [http://gentlenav.googlecode.com/files/PICProgrammingGettingStarted.pdf this PDF].
 
 == Hardware ==
 
