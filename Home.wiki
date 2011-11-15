@@ -12,12 +12,12 @@ There is also a lively community that discusses this platform on the [http://diy
 
 == News! ==
 
-*MatrixPilot 3.2.1 - Monday, November 14, 2011*
+*!MatrixPilot 3.2.1 - Monday, November 14, 2011*
 
 This release includes magnetometer support for the UDB4, and a bug fix in RTL when using RC receivers without built-in failsafe.  See the full change list for recent releases on the [ProjectStatus status page].
 
 
-*UDB4 available from SparkFun - Friday, October 21, 2011*
+*UDB4 available from !SparkFun - Friday, October 21, 2011*
 
 The UAV Dev Board team are proud to announce availability of the next major revision of hardware from Sparkfun ([http://www.sparkfun.com/products/10582 See Sparkfun site for details]). Sparkfun also reviewed [http://www.sparkfun.com/news/698 some of the history] of the project.
 
