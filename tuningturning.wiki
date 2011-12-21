@@ -1,0 +1,24 @@
+=Tuning Gains to make the Autopilot turn more easily=
+
+This note  was written for MatrixPilot version 3.2.1.
+To keep things simple in this note, I'm going to assume that the rudder is not being used at all to turn the plane. The plane is turning using ailerons to bank the plane.
+
+If you have a good understanding of tuning the gains in stabilization mode, it's then much easier to understand tuning gains in waypoint / autonomous mode.
+
+When in stabilized mode, the autopilot tries to fly straight and level. When the real pilot mixes in some aileron to bank, the autopilot still tries to fly straight and level, but does not completely correct the error introduced by the pillots manual adjustment of ailerons. The result is that  the plane ends up stabilized in a small bank angle.  If ROLLKP is high, then the pilot will find it difficult to turn a stabilized plane, because a high ROLLKP will cause the autopilot to be agressive in stabilizing for straight and level flight. if ROLLKP is low, the plane is less stabilized, but the pilot will find that the roll control from the  transmitter (aileron control) is much more sensitive.
+So to make the plane turn more in stabilized mode either a) you the pilot has to use more agressive controls, or b) the stabilization gains have to be turned down.
+
+It very common for new users of MatrixPilot to have their stabilisation gains set too high. The plane is often over stabilized, and so hard toturn. An experienced pilot will know immediately if the plane is over stabilized when flying in stabilized mode, because it's rather hard to get the plane to bank and turn.
+
+Now when the plane flies in Waypoint mode it flies in the same way, as when in stabilisation mode.
+
+In Waypoint mode, the stabilization software still runs. And the role of the real pilot, is replaced by software .... let's call it the "auto navigation pilot."  YAWKP and YAWKD control the gains for the "auto navigator". Turning those up, is just like the real pilot becoming more agressive in using the transmitter controls to turn the plane.
+
+ROLLKP and ROLLKD are still working in autonomous mode to stabilize theplane. So if you turn those down. you reduce stabilization, but make iteasier for the YAWKP and YAWKD terms to turn the plane.
+So in general you have two choices to make turns more agressive.
+
+1) Turn down ROLLKP and ROLLKD stabilization or
+
+2) Turn up YAWKP and YAWKD that control the "auto navigator".
+
+In general for a normal trainer type plane, the ROLLKD terms and the YAWKD  terms (rate terms) can be set to zero.
