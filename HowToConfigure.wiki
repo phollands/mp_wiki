@@ -542,6 +542,8 @@ There are several gains that you can adjust. They should all be set to positive 
 #define RUDDER_BOOST						1.00
 }}}
 
+It is common for pilots to set their stabilization gains too high, so that the plane is hard to turn in stabilization mode, and also the plane makes wide turns in autonomous / waypoint mode. This [tuningturning note] provides an explanation of how to make the plane turn more tightly.
+
 Set up the gains for vertical, nose-up hovering here.  These gains are only used if hovering is enabled above.
 
 {{{
