@@ -13,14 +13,14 @@ It very common for new users of MatrixPilot to have their stabilization gains se
 
 Now when the plane flies in Waypoint mode it flies in the same way, as when in stabilisation mode.
 
-In Waypoint mode, the stabilization software still runs. And the role of the real pilot, is replaced by software .... let's call it the "auto navigation pilot."  YAWKP and YAWKD control the gains for the "auto navigator". Turning those up, is just like the real pilot becoming more agressive in using the transmitter controls to turn the plane.
+In Waypoint mode, the stabilization software still runs. And the role of the real pilot, is replaced by software .... let's call it the "auto navigation pilot."  YAWKP and YAWKD control the gains for the "auto navigator". YAWKP causes the plane to turn in proportional to the difference between the desired and actual heading. YAWKD resists turning by generating negative feedback proportional to yaw rate. Turning up YAWKP is just like the real pilot becoming more agressive in using the transmitter controls to turn the plane.
 
 ROLLKP and ROLLKD are still working in autonomous mode to stabilize theplane. So if you turn those down. you reduce stabilization, but make it easier for the YAWKP and YAWKD terms to turn the plane.
 So in general you have two choices to make turns more agressive.
 
 1) Turn down ROLLKP and ROLLKD stabilization or
 
-2) Turn up YAWKP and YAWKD that control the "auto navigator".
+2) Turn up YAWKP and turn down YAWKD that control the "auto navigator".
 
 Note: In general for a normal trainer type plane, the ROLLKD terms and the YAWKD  terms (rate terms) can be set to zero. These derivative terms are designed to stop "overshoot" of the controls. But the design of a traditional aircraft (particularly trainers) will automatically provide additional stability, and stop the plane from overshooting. 
 
