@@ -90,7 +90,7 @@ http://gentlenav.googlecode.com/svn/wiki/images/osd_build/IMG_0536.jpg
 
 
 === Installation ===
-Installation of your beautiful new OSD board is easy.  The 2 long wires go to the UDB.  Plug the 2-wire cable into power and ground of a spare !ServoOut or !RadioIn channel.  (Or anywhere you can easily grab 5V and Ground.)  The 3-wire cable connects to RE0-RE2-RE4 with black on RE0.  
+Installation of your beautiful new OSD board is easy.  The 2 long wires go to the UDB.  Plug the 2-wire cable into power and ground of a spare !ServoOut or !RadioIn channel.  (Or anywhere you can easily grab 5V and Ground.)  On the UDB2/3, the 3-wire cable connects to RE0-RE2-RE4 with black on RE0.  On the UDB4, the 3-wire cable connects to the SPI1 port DI1-DO1-CK1 with black wire on DI1.
 
 The other 2 cables are video in and out, which go to your camera and TX.
 
