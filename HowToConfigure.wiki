@@ -2,6 +2,8 @@
 
 To configure MatrixPilot to work for your plane, you'll need to edit your options.h file.  This page describes all the settings in that file, as of MatrixPilot 3.2.
 
+Also, a block diagram of the controls is available [https://docs.google.com/viewer?a=v&pid=gmail&attid=0.1&thid=1349e307e1e8f203&mt=application/vnd.openxmlformats-officedocument.presentationml.presentation&url=https://mail.google.com/mail/?ui%3D2%26ik%3Dec779e6501%26view%3Datt%26th%3D1349e307e1e8f203%26attid%3D0.1%26disp%3Dsafe%26realattid%3D3bb7ef2b-f37a-4b95-9e55-0103a8a50668%26zw&sig=AHIEtbSGVPivIGp4Ty-BR6ysIrJqD9yAIg here], courtesy of Paul Bizard.
+
 Also available are older versions for [HowToConfigureMP20 MatrixPilot 2.0], [HowToConfigureMP25 MatrixPilot 2.5], and  [HowToConfigureMP30 MatrixPilot 3.0].
 
 To set up Waypoints, see the WayPoints wiki page.
