@@ -6,9 +6,7 @@ Hold the plane level and steady during the first 10 seconds of power up.
 
 At the end of 10 seconds, the gyro and accelerometer offsets are recorded, and the ailerons and rudder will waggle once.  At this point you are free to move the plane.  If you have an ESC that requires you to cycle the throttle to full and then back to off, now is the time to do that.
 
-Mode control works the same as for previous versions of MatrixNav and AileronAssist, so if you use the same setup on the mode control channel it should work the same way. Start out in manual mode. If you are using a stick and trim tab to select the control mode, leave the stick centered and move the trim tab all the way to the left. On a Futaba, the servo reversing switch for the channel should be in the normal position.
-
-When manual control comes on, check the directions of elevator and aileron under manual control. If either of them is in the wrong direction, fix it by changing the servo reversing switch on your transmitter, or by changing the REVERSING definitions in options.h.
+When manual control comes on, check the directions of elevator and aileron under manual control. If either of them is in the wrong make a note that they are wrong, but don't fix them yet. It is best to get the stabilisation response of servos correct first, and then fix the manual movement of the servos later.
 
 Now you need to wait for GPS lock, it may take a minute or two. After the GPS locks, the ailerons and rudder should "waggle" 4 times. When they stop waggling, the controls are ready for further setup.
 
@@ -28,7 +26,7 @@ The green LED shows whether or not the UDB is receiving a signal from the radio 
 
 == Stabilization checkout ==
 
-Test the stabilization functions, including altitude hold. If you are using a stick and trim tab, move the trim tab all the way to the right. Make sure the throttle is in the off position. Put the controls in "stabilize mode", but be prepared for the possibility that the motor will come on. Now is the time to check that the throttle reversing switch (SR3 by default), is in the right position. Make sure the controls are in the stabilize mode, and advance the throttle. If you have the throttle reversing switch in the correct position, the throttle will “snap” on to the minimum throttle setting. If you have the throttle reversing switch in the wrong position, the altitude hold will not engage, and the motor will stay off. So, if the motor does not come on, then this switch is in the wrong position, flip it the other way. Once you have it in the correct position, test out the altitude hold function by slowly increasing the throttle. What you are doing is changing the commanded altitude. At some point, the motor will turn on rather abruptly. Switch back and forth between manual and stabilized mode and notice the different throttle response in the two modes.
+Test the stabilization functions, including altitude hold. Make sure the throttle is in the off position. Put the flight mode switch on your transmitter in "stabilize mode", but be prepared for the possibility that the motor will come on. Now is the time to check that the throttle reversing switch (SR3 by default), is in the right position. Make sure the controls are in the stabilize mode, and advance the throttle. If you have the throttle reversing switch in the correct position, the throttle will “snap” on to the minimum throttle setting. If you have the throttle reversing switch in the wrong position, the altitude hold will not engage, and the motor will stay off. So, if the motor does not come on, then this switch is in the wrong position, flip it the other way. Once you have it in the correct position, test out the altitude hold function by slowly increasing the throttle. What you are doing is changing the commanded altitude. At some point, the motor will turn on rather abruptly. Switch back and forth between manual and stabilized mode and notice the different throttle response in the two modes.
 
 Next, set the throttle back to off, still in the stabilized mode, and then check pitch, roll, and yaw response. When you pitch, roll, and yaw the plane, the elevator, ailerons, and rudder should respond (for a standard airframe). The elevator should respond to pitch, the ailerons to roll and yaw, and the rudder to yaw.
 
@@ -41,6 +39,8 @@ When yawing the plane to the right, the ailerons should try to turn the plane le
 If either the elevator or the aileron control feedback is in the wrong direction, fix it by changing the position of the control servo reversing switches on the board. By default, SR1 controls reversing of ailerons, and SR2 is for the elevator.  By default, there is no reversing switch for rudder, so if you need to reverse the rudder channel, you'll have to edit the REVERSING section in options.h to set the rudder reversing setting to 1 or 0 (on or off), or set it to use the value of one of the 3 hardware switches. Once you get the correct feedback control directions for "stabilize mode", they will also be correct for return to launch.
 
 If when moving the dev board between planes, you change SR1, SR2, or SR3, remember to change them back when you go back to using a different plane!
+
+Once all the channels are correctly set for stabilize mode, then make sure that the manual inputs from our transmitter are correctly moving the ailerons, rudder, elevator etc. If the manual inputs have the wrong direction, then reverse them using the transmitter's reversing channel reversing function.
 
 
 == Waypoint checkout ==
