@@ -2,7 +2,7 @@
 
 To configure MatrixPilot to work for your plane, you'll need to edit your options.h file.  This page describes all the settings in that file, as of MatrixPilot 3.2.
 
-Also, a block diagram of the controls is available [http://gentlenav.googlecode.com/files/UDBBlockDiagram.pdf here], courtesy of Paul Bizard.
+Also, a block diagram of the controls is available [http://gentlenav.googlecode.com/files/MatrixPilot%20Block%20Diagrams.pdf here], courtesy of Paul Bizard.
 
 Also available are older versions for [HowToConfigureMP20 MatrixPilot 2.0], [HowToConfigureMP25 MatrixPilot 2.5], and  [HowToConfigureMP30 MatrixPilot 3.0].
 
