@@ -23,3 +23,4 @@ Here is a list of compatible and optional hardware that works with the UAVDevBoa
   * [XBeeConnection XBee Connection]
   * [RemzibiConnection Remzibi Connection]
   * [OpenLogConnection OpenLog Connection]
+  * [MagnetometerConnections Magnetometer Connection]
