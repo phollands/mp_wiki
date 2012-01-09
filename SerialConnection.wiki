@@ -1,6 +1,6 @@
 = MatrixPilot: Connect a Serial Cable from the UAV Dev Board to a Computer =
 
-This document attempts to describe in detail how to establish a wired serial link from the UAV Devboard to a PC.
+This document attempts to describe in detail how to establish a wired serial link from the UAV Devboard to a PC, for any of the "classic" UDBs. Wiring for a UDB4 is shown at the end.
 
 Many of us want to have bi-directional communications with our UAV Devboard in a plane / helicopter. That is best established in two steps. Establish a link through a serial link to a PC using wires. Then, once that is working, attempt a more complex link using a wireless connection with a device such as an Xbee.
 
@@ -28,3 +28,9 @@ i.e. one of
 SERIAL_DEBUG, SERIAL_ARDUSTATION, SERIAL_UDB, or SERIAL_OSD_REMZIBI
 
 re-compile, re-load your firmware, boot the plane. Serial Output begins once messages are being received from the GPS unit. So you will want to make sure that your plane is receiving a clear signal from the GPS satellites.
+
+The process for a serial connection to a UDB4 is identical, except for the pins that you will use on the UDB4. There are 4 pins in a row that you can use for the connection: GND, 3.3, RX2, and TX2. The main difference in labeling is that on the UDB4, the pin label is 3.3 instead of VCC.
+
+Here are the connections for an example in which the UDB4 is powered from the FTDI:
+
+http://gentlenav.googlecode.com/svn/wiki/images/UDB4FTDI.JPG
