@@ -6,4 +6,7 @@ For the UDB4, configure the magnetometer for 3.3 volts, and connect the ground, 
 
 In addition to the same mounting options supported by the classic UDBs, the UDB4 has an additional mounting option for connecting the magnetometer directly to the UDB4. Select the DIRECT option, and connect the magnetometer as shown below.
 
-http://gentlenav.googlecode.com/svn/wiki/images/wiring_serial_link_v3.jpg
+http://gentlenav.googlecode.com/svn/wiki/images/MagDirectView1.JPG
+http://gentlenav.googlecode.com/svn/wiki/images/MagDirectView2.JPG
+
+
