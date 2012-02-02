@@ -7,6 +7,8 @@ If you're going to be using more than the built in 4 RC inputs and 3 RC outputs,
 
 === UDB4 Soldering ===
 
+[http://gentlenav.googlecode.com/files/UDB4%20Quick%20START%20GUIDE.pdf Here] is a UDB4 guick start guide.
+
 The UDB4 comes without any through-hole pins pre-soldered.  This gives you more flexibility on what kinds, and how many headers you want to connect to the board.  
 
 For RC Inputs, there are a few good options.  If you plan to use a PPM connection from your RC receiver to the UDB4, you only need to connect one servo cable to In1, so just solder a single 3-pin header to In1.  You can even use a right-angle header here, to keep the connection low-profile.  If you plan to connect each channel directly from your RC receiver to the UDB4, there are 2 good options.  The simplest is to just add N 3-pin male headers to the first N Input channels on the UDB4, where N is the number of input channels you want to connect.  (Up to 8.)  A nice weight-saving (and cable-clutter-saving) shortcut is to connect just one VCC and GND pair from the RC Receiver to the UDB4, and then connect only the signal lines for the all of the channels, in groups of 3, using standard servo cables.  The pins are grouped and spaced so that you can connect channels 1-3, 4-6, and 7-8, each as groups of 3, 3, and 2, using standard 0.1" cables, like standard servo cables.  This will only work if your RC RX has standard 0.1" spaced pins.
