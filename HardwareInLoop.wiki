@@ -47,11 +47,6 @@ To configure the UDB, all you need do is download trunk of MatrixPilot from http
 #define HILSIM                            1
 }}}
 
-and
-
-{{{
-#define GPS_TYPE                        GPS_UBX_4_HZ
-}}}
 
 and then adjust any other options to your taste.  The most important are the servo reversing options.  I set them all to 0, except Elevator reversing which is set to 1.  Then on my transmitter, I have just aileron and rudder channels set to be reversed.
 
@@ -73,8 +68,22 @@ If you're building your own cable, note that the gray wire in the EM406 connecto
  * Pin 3 (UDB TX) on the EM406 connector to pin 5 (RXI) of the FTDI Connector
  * Pin 4 (UDB RX) on the EM406 connector to pin 4 (TXO) of the FTDI Connector
 
+== 4. HILSIM Setup ==
+The HILSIMSetup.txt file contains information about how the radio channels should be connected to the aircraft controls.  It also controls the COM port and baud rate.
 
-== 4. Run the Simulator ==
+There are two modes of control, basic and advanced.  Basic mode connects the UDB servo output to joystick controls (roll, pitch, yaw, throttle, flaps).  Advanced mode connects servo outputs to servo movements (left aileron, right aileron, left elevator, right elevator etc..).  Basic mode is good for simple aircraft.
+
+
+There is an example of both modes in the repository.  You will need to rename the one you wish to use to HILSIMSetup.txt
+
+
+The setup file also adjusts gains between servo movement and HILSIM.  This includes channel reversing.  By adjusting these, you can get your HILSIM aircraft movements to be closer to your real aircraft.
+
+
+For advanced mode it is useful to run x-plane plane-maker to understand which flight controls to attach channels to.
+
+
+== 5. Run the Simulator ==
 
 To get the simulator running, follow these steps:
 
