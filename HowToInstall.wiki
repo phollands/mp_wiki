@@ -21,7 +21,9 @@ And you'll probably also want to use logging or telemetry of some sort.  If so y
 
 == Testing out your UDB on the Bench ===
 
-It is a good idea to test out your UDB setup on the bench before installing it in a plane for the first time. [http://www.youtube.com/watch?v=jiyON1ESklk This video, by Phil Giacalone ] is an excellent introduction to the UDB4 connections, and operations, using his bench setup.
+It is a good idea to test out your UDB setup on the bench before installing it in a plane for the first time. The video below, by Phil Giacalone is an excellent introduction to the UDB4 connections, and operations, using his bench setup.
+
+<wiki:video url="http://www.youtube.com/watch?v=jiyON1ESklk"/>
 
 
 == Basic Connections ===
