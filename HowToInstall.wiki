@@ -19,6 +19,10 @@ You'll also need to connect a 6 pin male header to the ICSP port.  This is where
 
 And you'll probably also want to use logging or telemetry of some sort.  If so you should add a 4-pin header to the 4 adjacent pins labelled TX2, RX2, 3.3, GND.
 
+== Testing out your UDB on the Bench ===
+
+It is a good idea to test out your UDB setup on the bench before installing it in a plane for the first time. [http://www.youtube.com/watch?v=jiyON1ESklk This video, by Phil Giacalone ] is an excellent introduction to the UDB4 connections, and operations, using his bench setup.
+
 
 == Basic Connections ===
 
