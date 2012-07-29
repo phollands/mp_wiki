@@ -1,0 +1,97 @@
+#summary How to use and what you can do with MAVLink
+
+= Introduction =
+
+MAVLink is a standard UAV/MAV (micro air vehicle) communication protocol.  It is the way that the common GCS communicate.  It is bi-directional so communication to and from the mav is possible.
+
+MAVLink is invented and maintained by Lorenz Meyer, James Goppert and Tridge.  The main website is here:
+
+http://www.qgroundcontrol.org/mavlink/start
+
+
+MAVLink is only supported by UDB4+´.  UDB3- will not work.
+
+
+
+= How to use MAVLink with UDB4+ =
+
+In options.h set the following line:
+
+{{{#define SERIAL_OUTPUT_FORMAT 	SERIAL_MAVLINK}}}
+
+if you have several aircraft, you may wish to change the identifier for each one one this line:
+
+{{{#define MAVLINK_SYSID	55}}}
+
+There are acceptable ranges of system ID which are defined in the mavlink website
+
+Recompile with these options then connect to either a groundstation or a binary compatible datalogger.
+
+
+= MAVLink options =
+
+Some extra options for mavlink are setup in mavlink_options.h
+
+=== Serial baud rate ===
+
+Set the serial baud rate here:
+
+#define MAVLINK_BAUD		57600
+There is a range of choices as shown in mavlink_options.h
+
+=== Data streams ===
+MAVLink automatically transmits different data at different data rates.  The default data rates are set in mavlink_options.h.  These data rates can be overridden a mavlink message from the gcs.
+
+
+= MAVLink and SERIAL_UDB_EXTRA =
+The standard mavlink messages do not carry some of the data that the SERIAL_UDB_EXTRA format did.  
+
+
+= MAVLink parameters =
+Parameters are variables that you wish to change through the gcs.  These variables can be gains, calibrations, rc trims and more.
+
+
+= Groundstations =
+At this time, MatrixPilot supports MAVLink V1.0. Some older groudstations will not work.
+
+
+=== qgroundcontrol ===
+The most complex and feature rich GCS.  This is the best GCS to start and test your mavlink connection.
+
+Get it here:
+http://www.qgroundcontrol.org/downloads
+
+
+QGC will edit parameters and also let you store/recall parameters to/from non volatile memory (eeprom).  MatrixPilot has some specific QGC widget to do this.  You will find them in Tools->pyparam->QGC Widgets.
+
+
+=== mavproxy ===
+
+This is a command line based gcs. A feature of mavproxy is that it can connect your mav with many gcs over ip or udp connections.  Another feature is voice generation.
+
+
+An older windows compatible version of mavproxy is included in the Tools->mavproxy directory. 
+
+
+The latest version of mavproxy has some excellent add-on modules including graphical interfaces. At this time, it is linux compatible only.  You will find the latest mavproxy and mavlink here:
+
+https://github.com/tridge
+
+
+To use this latest version, you will need to build the mavlink library with extra matrixpilot messages.
+
+
+=== pyparameditor ===
+A simple parameter viewer and editor specific to UDB.  It gives simple access to store/recall/clear data files/areas.  The source code can be found here: http://code.google.com/p/pyparameditor/
+
+
+=== pyFEdit - FlexiFunction mixer editor ===
+
+pyFEdit can do a real time MAVLink connection to mixer settings.  It is available here:
+http://code.google.com/p/pyfedit/wiki/Home?tm=6
+
+
+
+
+= Acknowledgements =
+MAVlink implementation on UDB and the supporting flan toolset was the fine work of Pete Hollands.
