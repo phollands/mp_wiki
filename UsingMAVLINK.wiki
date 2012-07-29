@@ -2,7 +2,7 @@
 
 = Introduction =
 
-MAVLink is a standard UAV/MAV (micro air vehicle) communication protocol.  It is the way that the common GCS communicate.  It is bi-directional so communication to and from the mav is possible.
+MAVLink is a standard UAV/MAV (micro air vehicle) communication protocol.  It is the way that the common GCS communicate.  It is bi-directional so communication to and from the mav is possible.  It carries information about mav position, orientation and condition.  It also carried commands and command responses.
 
 MAVLink is invented and maintained by Lorenz Meyer, James Goppert and Tridge.  The main website is here:
 
