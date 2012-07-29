@@ -69,11 +69,14 @@ Please note that you will need a HILSIM plugin build to support this feature.
 
 == Flexifunction mixing ==
 This is an option for anything you want mixing.
+
 http://code.google.com/p/gentlenav/source/browse/trunk/libUDB/nv_memory_options.h?r=1616#39
 
+It has a library associated with it.  At this time, the library is located int the MatrixPilot_FlexiFunctions branch here:
+
+http://code.google.com/p/gentlenav/source/browse/#svn%2Fbranches%2FMatrixPilot_FlexiFunctions%2FlibFlexiFunctions
 
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+There is an editor that goes with this.  Read the wiki on the project page here: 
+
+http://code.google.com/p/pyfedit/wiki/Home?tm=6
