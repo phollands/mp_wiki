@@ -1,5 +1,38 @@
 = Project Status =
 
+=== What's New in MatrixPilot 3.3 ===
+  * New features:
+    * Added support for Nick Arsov's UDB3 clone
+    * Improve LOGO interpreter to allow using conditionals
+    * Improve LOGO interpreter by adding a simple interrupt facility
+    * New bi-directional telemetry protocol - SERIAL_MAVLINK.
+    * Added glide airspeed control with MavLink parameters.
+    * Added variable altitude and airspeed options with MavLink parameters and non-volatile memory storage.
+    * Improve UDB4 timing to allow faster baud rates.
+    * Allow stabilization mode of camera to be determined from a three position switch on the transmitter by defining CAMERA_MODE_INPUT_CHANNEL .
+    * Provide an option to initialize the aircraft in the vertical position. This is for VTOL.
+    * Added ROLLKD_RUDDER feedback parameter to dampen Dutch-Roll. Rudder deflection term proportional to roll rate
+    * Added a new orientation option for the magnetometer : direct connection to a UDB4
+    * Update the Waypoint Editor to more closely match the UDB Logo Editor, including cross-browser compatibility fixes.
+    * Added non volatile memory services, used by MavLink
+    * Flight Analyzer Improvements:
+      * Add Logo Waypoints processing and display to Flight Analyzer.
+      * Improve robustness against corrupted lines.
+      * Implemented a Graphical Elevation Profile for each flight in Google Earth.
+      * Will decode and write legacy ascii SERIAL_UDB_EXTRA files from MatrixPilot MavLink telemetry.
+      * Add XML time column to CSV file
+      * Update flan serial_udb_extra parser to understand new F2: format for in-line waypoint data.
+      * racing: re-base time automatically so all race flights pass the race start pylon at midday exactly on 11/11/2011
+  * Bug Fixes:
+    * Improved the failsafe code to make it less sensitive to an occasional invalid pulse.
+    * magnetometer : fixed a nasty bug in the UDB4 mag driver that would change the accelerometer range
+    * Fix a bug in REL_ANGLE_TO_HOME/REL_ANGLE_TO_GOAL that returned values in the range of -360-359 instead of -180-179
+    * Fix NORTH, SOUTH, EAST, WEST commands in Logo Editor
+    * Fix flight analyser to correctly work with older format of SERIAL_UDB
+    * Correct CPU_LOAD_PERCENT, for the UDB4, which was under-reading cpu load by 5 percent.
+    * Fix bugs in NORADIO option to allow GPS acquisition to occur and allow red LED to flash during gyro calibration 
+
+
 === What's New in MatrixPilot 3.2.1 ===
   * Fixed a bug that could cause the rudder channel to pull to one side while in RTL mode when using an RC receiver without failsafe.
   * Added magnetometer support for the UDB4.
