@@ -1,6 +1,6 @@
 = MatrixPilot: Configuration =
 
-To configure MatrixPilot to work for your plane, you'll need to edit your options.h file.  This page describes all the settings in that file, as of MatrixPilot 3.2.
+To configure MatrixPilot to work for your plane, you'll need to edit your options.h file.  This page describes all the settings in that file, as of MatrixPilot 3.3.
 
 Also, a block diagram of the controls is available [http://gentlenav.googlecode.com/files/MatrixPilot%20Block%20Diagrams.pdf here], courtesy of Paul Bizard.
 
@@ -20,7 +20,7 @@ First make sure to set which UAV Dev Board version you have.
 // RED_BOARD   - Board is red, and includes 2 vertical gyro daugter-boards.
 // UDB3_BOARD  - Board is red, and includes a single, flat, multi-gyro daugter-board.
 // UDB4_BOARD  - Board is red, has 8 inputs, 8 output and no gyro daughter-board.
-// AUAV1_BOARD - Nick Arsov's UDB3 clone, version one
+// AUAV1_BOARD - Nick Arsov's UDB3 clone, version one (support added in MatrixPilot 3.3)
 // See the MatrixPilot wiki for more details on different UDB boards.
 // If building for UDB4, use the MatrixPilot-udb4.mcp project file.
 #define BOARD_TYPE 						UDB3_BOARD
@@ -564,7 +564,7 @@ There are several gains that you can adjust. They should all be set to positive 
   * YAWKP_RUDDER - This is the navigation turning gain for using the rudder to make a turn. Typical value is 0.1. Larger values will produce tighter turns. Using a value that is too large will produce a "dutch roll". Maximum valid value is 1.999.
   * YAWKD_RUDDER - This is a yaw damping term used both by stabilization and navigation to reduce the impact of the wind, and to help stabilize the yaw control. Maximum valid value is 0.5.
   * ROLLKP_RUDDER - This is a stabilization gain that applies rudder in response to the plane's roll angle.  This is only helpful on planes that will roll in response to rudder.
-  * ROLLKD_RUDDER - This is a stabilization gain that applies rudder in response to the plane's roll rate.  
+  * ROLLKD_RUDDER - This is a stabilization gain that applies rudder in response to the plane's roll rate.  (Added in MatrixPilot 3.3)
   * MANUAL_AILERON_RUDDER_MIX - This can be used to improve the responsiveness of manually commanded aimeron-based turns while in stabilized mode.  It's there to inhibit the rudder's tendency to fight a turn while in stabilized mode.
   * RUDDER_BOOST - This is an amplification, or "boost" factor for manual control of the rudder, used during stabilized mode to restore control authority to the rudder in the face of the damping effect of stabilization. Typical value is 1.0. This factor is in addition to the manual control, so a value of RUDDER_BOOST of 0 turns the boost off, and provides unmodified response to manual control. A RUDDER_BOOST of 1 makes the rudder response to manual control approximately twice as great. Maximum valid value is 1.999.
 
