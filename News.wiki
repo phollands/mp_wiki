@@ -1,5 +1,9 @@
 #summary News and Announcements
 
+*MatrixPilot 3.3 - Saturday, October 27, 2012*
+
+This release includes flight planning improvements, support for new hardware, bi-directional MavLink support, [ProjectStatus  and lots more].
+
 *DIY Drones T3-2 Competition Success ! - Saturday, March 10th, 2012*
 
 Two entries using the UDB and MatrixPilot were in the winning 4 which were "tied" for the [http://diydrones.com/profiles/blogs/announcing-t3-2-round-two-the-autotakeoff-and-landing-round?id=705844%3ABlogPost%3A752867&page=2#comments the automatic takeoff and landing competition]. Congratulations to Phil Giacalone for a super automatic flight. In the previous competition for racing around a "figure of 8", Riccardo Kuebler came 2nd, and Phil Giacalone came 3rd. UDB MatrixPIlot took 5 of the top 12 places.
