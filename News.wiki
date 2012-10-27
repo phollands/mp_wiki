@@ -2,7 +2,7 @@
 
 *MatrixPilot 3.3 - Saturday, October 27, 2012*
 
-This release includes flight planning improvements, support for new hardware, bi-directional MavLink support, [ProjectStatus  and lots more].
+This release includes flight planning improvements, support for new hardware, bi-directional !MavLink support, [ProjectStatus  and lots more].
 
 *DIY Drones T3-2 Competition Success ! - Saturday, March 10th, 2012*
 
