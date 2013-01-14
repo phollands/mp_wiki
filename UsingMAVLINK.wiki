@@ -44,7 +44,7 @@ MAVLink automatically transmits different data at different data rates.  The def
 
 
 = MAVLink and SERIAL_UDB_EXTRA =
-The standard mavlink messages do not carry some of the data that the SERIAL_UDB_EXTRA format did.  
+The MatrixPilot implementation of mavlink incorporates all of the SERIAL_UDB_EXTRA messages within MAVLink. The idea is to allow an easy transition path for users of SERIAL_UDB_EXTRA to MAVLink. If MAVLink is stored on an OpenLog device, then when the LOG.txt file is presented to Flight Analyzer it will a) process the mavlink binary LOG.txt in the normal way to produce a CSV file and a KMZ file for Google Earth. It will then also write out a human readable ascii version of the SERIAL_UDB_EXTRA data for complete backwards compatibility. Users of an OpenLog with MAVLink need tobe sure the openlog firmware is upgraded to support binary files. OpenLog storage in the plane, and Xbee bi-directional communications with a mavlink GCS can be used simultaneously at the same time.
 
 
 = MAVLink parameters =
@@ -52,7 +52,7 @@ Parameters are variables that you wish to change through the gcs.  These variabl
 
 
 = Groundstations =
-At this time, MatrixPilot supports MAVLink V1.0. Some older groudstations will not work.
+At this time, MatrixPilot supports MAVLink V1.0. Some older groudstations will not work. QgroundControl and MAVproxy both work.
 
 
 === qgroundcontrol ===
@@ -69,17 +69,14 @@ QGC will edit parameters and also let you store/recall parameters to/from non vo
 
 This is a command line based gcs. A feature of mavproxy is that it can connect your mav with many gcs over ip or udp connections.  Another feature is voice generation.
 
-
-An older windows compatible version of mavproxy is included in the Tools->mavproxy directory. 
-
-
-The latest version of mavproxy has some excellent add-on modules including graphical interfaces. At this time, it is linux compatible only.  You will find the latest mavproxy and mavlink here:
+The latest version of mavproxy has some excellent add-on modules including graphical interfaces. MAVProxy works with both Linux and Windows (and shoule work with MacOS) You will find the latest mavproxy here:
 
 https://github.com/tridge
 
+and mavlink here:
+https://github.com/mavlink/mavlink
 
-To use this latest version, you will need to build the mavlink library with extra matrixpilot messages.
-
+A tested version of MAVProxy is included with MatrixPilot in the Tools/mavlink/MAVProxy directory.
 
 === pyparameditor ===
 A simple parameter viewer and editor specific to UDB.  It gives simple access to store/recall/clear data files/areas.  The source code can be found here: http://code.google.com/p/pyparameditor/
