@@ -2,8 +2,8 @@
 
 This section provides an overview of how MAVLink has been implemented in MatrixPilot. There are two primary parts:-
 
-  * [http://code.google.com/p/gentlenav/source/browse/trunk/MatrixPilot/MAVLink.c#22 MAVLink.c] which replaces telemetry.c when mavlink is selected in option.h 
-  * [http://code.google.com/p/gentlenav/source/browse/#svn%2Ftrunk%2FMAVLink%2Finclude%2Fcommon] MAVLInk header files which contain encoding and decoding subroutines.
+  * [http://code.google.com/p/gentlenav/source/browse/trunk/MatrixPilot/MAVLink.c#22 MAVLink.c] which replaces telemetry.c when mavlink is selected in options.h 
+  * [http://code.google.com/p/gentlenav/source/browse/#svn%2Ftrunk%2FMAVLink%2Finclude%2Fcommon MAVLInk header files] which contain encoding and decoding subroutines.
 
 = Sending MAVLink Messages =
 
