@@ -4,7 +4,7 @@ http://gentlenav.googlecode.com/svn/wiki/images/mavlink.png
 
 = Introduction =
 
-MAVLink is a standard UAV/MAV (micro air vehicle) communication protocol.  It is the way that the common GCS communicate.  It is bi-directional so communication to and from the mav is possible.  It carries information about mav position, orientation and condition.  It also carried commands and command responses.
+MAVLink is a standard UAV/MAV (micro air vehicle) communication protocol.  It is the way that the common GCS communicate.  It is bi-directional so communication to and from the mav is possible.  It carries information about mav position, orientation and condition.  It also carries commands and command responses.
 
 MAVLink is invented and maintained by Lorenz Meyer, James Goppert and Tridge.  The main website is here:
 
@@ -17,7 +17,7 @@ MAVLink is only supported by UDB4+´.  UDB3- will not work.
 
 = How to use MAVLink with UDB4+ =
 
-In options.h set the following line:
+In [http://code.google.com/p/gentlenav/source/browse/trunk/MatrixPilot/options.h#335 options.h] set the following line:
 
 {{{#define SERIAL_OUTPUT_FORMAT 	SERIAL_MAVLINK}}}
 
@@ -29,17 +29,17 @@ There are acceptable ranges of system ID which are defined in the mavlink websit
 
 Recompile with these options then connect to either a groundstation or a binary compatible datalogger.
 
-
 = MAVLink options =
 
-Some extra options for mavlink are setup in mavlink_options.h
+Some extra options for mavlink can be setup in mavlink_options.h
 
 === Serial baud rate ===
 
-Set the serial baud rate here:
+The serial baud rate can be changed here:
 
 #define MAVLINK_BAUD		57600
-There is a range of choices as shown in mavlink_options.h
+MAVLink is tested at 57600 baud and so this is the default.
+There is a range of choices as shown in [http://code.google.com/p/gentlenav/source/browse/trunk/MatrixPilot/mavlink_options.h#22 mavlink_options.h ]
 
 === Data streams ===
 MAVLink automatically transmits different data at different data rates.  The default data rates are set in mavlink_options.h.  These data rates can be overridden a mavlink message from the gcs.
@@ -54,7 +54,7 @@ Parameters are variables that you wish to change through the gcs.  These variabl
 
 
 = Groundstations =
-At this time, MatrixPilot supports MAVLink V1.0. Some older groudstations will not work. QgroundControl and MAVproxy both work.
+At this time, MatrixPilot supports MAVLink V1.0. QgroundControl and MAVproxy both work. HKGCS will not work as it only supports the earlier version of MAVLink V0.9.
 
 
 === qgroundcontrol ===
@@ -93,4 +93,4 @@ http://code.google.com/p/pyfedit/wiki/Home?tm=6
 
 
 = Acknowledgements =
-MAVlink implementation on UDB and the supporting flan toolset was the fine work of Pete Hollands.
+MAVlink implementation on UDB and the supporting flan toolset was the  work of Pete Hollands and Matt Coleman.
