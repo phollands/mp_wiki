@@ -1,3 +1,8 @@
 = Telemetry Formats =
 
-Please [https://docs.google.com/document/pub?id=1bPovneDV1UXBBEQE6yC3Ms9CCI_wmecLGtVzUkJeoIw see this document] for an overview of formats, and a detailed explanation of SERIAL_UDB_EXTRA. 
+MatrixPilot is supports two core formats of telemetry
+
+  * SERIAL_UDB_EXTRA - which is a home grown ascii human readable format which is supported on all current versions of MatrixPilot and all devices (UDB2, UDB3, UDB4). Please [https://docs.google.com/document/pub?id=1bPovneDV1UXBBEQE6yC3Ms9CCI_wmecLGtVzUkJeoIw see this document] for a detailed explanation of the format of SERIAL_UDB_EXTRA. 
+
+  * SERIAL_MAVLINK - which provides  support for the MAVLink standard for telemetry in small UAV's.
+     * [UsingMAVLINK Initial Introduction] to using MAVLink with MatrixPilot
