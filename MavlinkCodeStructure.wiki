@@ -1,0 +1,67 @@
+= Introduction =
+
+This section provides an overview of how MAVLink has been implemented in MatrixPilot. There are two primary parts:-
+
+  * [http://code.google.com/p/gentlenav/source/browse/trunk/MatrixPilot/MAVLink.c#22 MAVLink.c] which replaces telemetry.c when mavlink is selected in option.h 
+  * [http://code.google.com/p/gentlenav/source/browse/#svn%2Ftrunk%2FMAVLink%2Finclude%2Fcommon] MAVLInk header files which contain encoding and decoding subroutines.
+
+= Sending MAVLink Messages =
+
+The main routine for sending MAVLink messages is called [http://code.google.com/p/gentlenav/source/browse/trunk/MatrixPilot/MAVLink.c#1486 mavlink_output_40hz] . The routine is called 40 times per second [http://code.google.com/p/gentlenav/source/browse/trunk/MatrixPilot/servoPrepare.c#100 from within dcm_servo_callback_prepare_outputs()] from within servoPrepare.c .
+
+mavlink_output_40Hz simply prepares data for encoding into a number of different MAVLink messages. These messages have a variety of datastream rates (e.g. some are sent at 8hz, and some sent at 1Hz etc). And the messages are staggered where possible over 1 second, so that the communications path is not overloaded.
+
+Let's take the mavlink heartbeat message as an example. It [http://code.google.com/p/gentlenav/source/browse/trunk/MatrixPilot/MAVLink.c#1541 starts with] 
+{{{
+if ( mavlink_frequency_send( MAVLINK_RATE_HEARTBEAT, mavlink_counter_40hz + spread_transmission_load)) 
+}}}
+mavlink_frequency_send will check whether now is the right time within the 40hz frequency, to send the mavlink message, given the specification  [http://code.google.com/p/gentlenav/source/browse/trunk/MatrixPilot/mavlink_options.h#33 MAVLINK_RATE_HEARTBEAT], defined in mavlink_options.h).
+
+The code then calculates the mode of the plane, and prepares to send that in 
+{{{
+mavlink_msg_hedartbeat_send(MAVLINK_COMM_0,MAV_TYPE_FIXED_WING, MAV_AUTOPILOT_UDB, mavlink_base_mode, mavlink_custom_mode, MAV_STATE_ACTIVE ) ;
+}}}
+
+A similar exercise is then done for a variety of mavlink messages as in :-
+  * [http://code.google.com/p/gentlenav/source/browse/trunk/MatrixPilot/MAVLink.c#1580 mavlink_msg_gps_raw_int_send]
+  * [http://code.google.com/p/gentlenav/source/browse/trunk/MatrixPilot/MAVLink.c#1608 mavlink_msg_global_position_int_send]
+  * [http://code.google.com/p/gentlenav/source/browse/trunk/MatrixPilot/MAVLink.c#1651] mavlink_msg_attitude_send
+
+That is probably enough information, for now,  on the structure of MAVLink.c for sending messages.
+
+= Mavlink .h header files  =
+
+Mavlink provides a large number of potential messages that can be used in MAVLink.c. We currently only use a fraction of the set of messages. The messages are define in two main header directories. Note the code of these messages is only included in the firmware image, if the messages is actually called in MAVLink.c. 
+
+There are two directories of mavlink messages.
+  * [http://code.google.com/p/gentlenav/source/browse/trunk/MAVLink/include/common/ common] which is used for mavlink messages which are common to all autopilot implementations
+  * [http://code.google.com/p/gentlenav/source/browse/trunk/MAVLink/include/#include%2Fmatrixpilot matrixpilot] which are messages that have been created specifically for our own autopilot.
+
+For now, you should just become familiar with some of the mavlink subtroutine definitions. For example, the mavlink heartbeat, is in the common headers (common to all mavlink autopilots) and mavlink_msg_hedartbeat_send we were using just now is defined in [http://code.google.com/p/gentlenav/source/browse/trunk/MAVLink/include/common/mavlink_msg_heartbeat.h#143  this location].
+
+These header files contain subroutines not only for encoding mavlink messages, but also for parsing and decoding the messages. So how are mavlink messages received ?
+
+= Receiving MAVLink Messages =
+
+As each byte is received by the UART serial interrupt, a [http://code.google.com/p/gentlenav/source/browse/trunk/MatrixPilot/MAVLink.c#372 routine is called in MAVLink.c] called 
+{{{
+
+void udb_serial_callback_received_byte(char rxchar)
+{
+        if (mavlink_parse_char(0, rxchar, &msg[mavlink_message_index], &r_mavlink_status ))
+    {
+                // Check that handling of previous message has completed before calling again  
+                if ( handling_of_message_completed == true )
+                {
+                        // Switch between incoming message buffers
+                        if  ( mavlink_message_index == 0 ) mavlink_message_index = 1 ;
+                        else mavlink_message_index = 0 ;        
+                        handling_of_message_completed = false ;
+                        trigger_event(mavlink_process_message_handle);
+                }
+        }
+        return ;
+}
+}}}
+
+You will see that each received byte is sent to a parsing routine called mavlink_parse_char(). Whenever parsing is complete, a routine is going to be called indirectly via "trigger_event", which will initiate a call to [http://code.google.com/p/gentlenav/source/browse/trunk/MatrixPilot/MAVLink.c#770 handleMessage(void)] running at a different priority level and a different thread. The variable mavlink_message_index switches between 1 and 0 to ensure that a different buffer is used for incoming messages, while the other message is being processed by handleMessage(void).
