@@ -8,3 +8,4 @@ MatrixPilot is supports two core formats of telemetry
      * [UsingMAVLINK Initial introduction] to using mavlink with MatrixPilot
      *  [MavlinkCodeStructure Oveview of MatrixPilot mavlink Code structure]
      * [MavlinkGeneratingHeaders Auto-generation of C and python support functions from mavlink definition XML files]
+     * [MavlinkAddingParametersToReadOrWrite How to specify that a MatrixPilot variable can be changed by a MAVLink compatible GCS]
