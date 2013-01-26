@@ -1,0 +1,55 @@
+#summary One-sentence summary of this page.
+
+= Adding additional MatrixPilot variables to be read and written using MAVLink  =
+
+http://gentlenav.googlecode.com/svn/wiki/images/mavlink_changing_pids.jpg
+
+In the picture above, you can see that variables like ROLLKP can be changed in qgroundcontrol, sent via mavlink to the plane, and changed in MatrixPilot, while the plane is flying. This tutorial show you how you can add additional variables to the list that you see in the screenshot above.
+
+= Details =
+
+List of MatrixPilot variables that can be changed using MAVlink is specified in an XML file in [http://code.google.com/p/gentlenav/source/browse/trunk/Tools/pyparam/ParameterDatabase.xml Tools/pyparam/ParameterDatabase.xml ]. This file actually specifies:-
+  # MatrixPilot variables that can be changed using MAVLink
+  # How and when those variables should be stored in long term, non-volatile storage in the onboard EEPROM of the UDB4.
+
+The easiest way to explain the ease of adding a new variable, is to give an example. Lets suppose that we would like to add [http://code.google.com/p/gentlenav/source/browse/trunk/MatrixPilot/options.h#487 HOVER_ROLLKP] to the list of variables that we would like to be able to change from a Ground Control Station using MAVLink.
+
+HOVVER_ROLLKP is a constant defined for the pre-processor of C. So we will not be able to change it unless it is a variable. Fortunately for this example, a programmer has already paved the way by adding the variable [http://code.google.com/p/gentlenav/source/browse/trunk/MatrixPilot/rollCntrl.c#36 hoverrollkp] in rollCntrl.c .
+{{{
+#if (SERIAL_OUTPUT_FORMAT == SERIAL_MAVLINK) || (GAINS_VARIABLE == 1)
+        int hoverrollkp         = HOVER_ROLLKP*SCALEGYRO*RMAX ;
+        int hoverrollkd         = HOVER_ROLLKD*SCALEGYRO*RMAX ;
+#else
+}}}
+
+So our job now is simply to add hoverrollkp to parameterDatabase.xml, and then run the autogeneration script called [http://code.google.com/p/gentlenav/source/browse/trunk/Tools/pyparam/pyparam.py param.py] (Python must be installed). Here is the snippet of XMl that can be added:-
+{{{
+			<parameter>
+				<parameterName>PID_HOVERROLLKP</parameterName>
+				<udb_param_type>UDB_TYPE_Q14</udb_param_type>
+				<variable_name>hoverrollkp</variable_name>
+				<description>Hover Roll to rudder rate gain</description>
+				<min>0.0</min>
+				<max>0.5</max>
+				<readonly>false</readonly>
+			</parameter>
+}}}
+ The result of running the script is that at least two files will be changed in MatrixPilot.py. 
+  # parameter_table.c
+  # nv_memory_table.c
+
+Note that hoverrollkp is of a [http://en.wikipedia.org/wiki/Q_%28number_format%29 Q14 integer floating point representation]. The line above in xml which says:-
+{{{
+<udb_param_type>UDB_TYPE_Q14</udb_param_type>
+}}}
+tells the MatrixPilot mavlink code where to find a conversion routine, to convert from the MatrixPilot Q14 format to mavlink floating point.
+
+All the developer really has to do now, is re-compile and re-load MatrixPilot.
+That's it ! You don't even have to reconfigure QGroudnControl, as all the variables names are sent on the fly from Matrixilot to the mavlink GCS.
+
+Here is a screenshot of QGroundControl after compiling, and running the code in the UDB. (Note I did not even have to restart QGroundControl. I simply pressed the "Get" button to read the variables again).
+
+http://gentlenav.googlecode.com/svn/wiki/images/mavlink_changing_pids2.jpg
+
+The parameter change protocol of mavlink is standardised. This means that the same process should work for any mavlink compatible ground control station including MAVProxy.
+
