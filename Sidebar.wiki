@@ -15,7 +15,8 @@
     # *[Flying Flying]*
     # *[CompatibleHardware Optional Hardware]*
     # *[CompatibleSoftware Compatible Software]*
-    # *[HardwareInLoop Simulation]*
+    # *[HardwareInLoop Simulation in HW]*
+    # *[SoftwareInLoop Simulation in SW]*
     # *[Troubleshooting Troubleshooting / FAQ]*
   * *Development*
     # *[HowToContribute How To Help]*
