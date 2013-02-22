@@ -1,0 +1,91 @@
+#summary Software In the Loop Simulation
+
+= MatrixPilot-SIL =
+
+Software In the Loop Simulation, or SILSIM, allows running MatrixPilot on your computer instead of on a dsPic processor on a UAV Dev Board, and allows connecting to XPlane for simulated flights in the same way that [HardwareInLoop HILSIM] does.
+
+There is now a MatrixPilot-SIL project in the Tools directory.  This project references most of the MatrixPilot files in trunk/MatrixPilot, trunk/libDCM, and some headers from trunk/libUDB, and adds its own implementation of libUDB meant to run on a computer.  It runs a virtual UDB, complete with LEDs, a virtual file-based EEPROM, UDP sockets for the UARTs, C implementations of the DSP library and asm multiplication/division calls, etc.  Instead of the physical sensors, it uses the existing HILSIM code to receive virtual sensor data from XPlane.
+
+
+== Configuring MatrixPilot-SIL ==
+
+To build for SIL, you'll just need to edit trunk/MatrixPilot/options.h to set SILSIM to 1, and set up the rest of the options.h file to match your simulated plane.  (Or just copy trunk/MatrixPilot/example-options-files/options.HILSIM-Cessna-ben.h to trunk/MatrixPilot/options.h, set SILSIM to 1, and use the built-in Cessna in XPlane.)  Here are the SIMSIM settings from options.h:
+
+{{{
+////////////////////////////////////////////////////////////////////////////////
+// Software In the Loop Simulation
+// Only set this to 1 when building for simulation directly on your computer instead of
+// running on a UDB.
+// See the MatrixPilot wiki for more info on using SILSIM.
+// Below are settings to configure the simulated UDB UARTs.
+// The SERIAL_RC_INPUT settings allow optionally talking over a serial port to a UDB
+// passing RC inputs through to the simulated UDB.
+#define SILSIM					1
+#define SILSIM_GPS_RUN_AS_SERVER		0
+#define SILSIM_GPS_PORT				14551		// default port to connect to QGroundControl
+#define SILSIM_GPS_HOST				"127.0.0.1"
+#define SILSIM_TELEMETRY_RUN_AS_SERVER		0
+#define SILSIM_TELEMETRY_PORT			14550		// default port to connect to XPlane HILSIM plugin
+#define SILSIM_TELEMETRY_HOST			"127.0.0.1"
+#define SILSIM_SERIAL_RC_INPUT_DEVICE		""		// i.e. "COM4" or "/dev/cu.usbserial-A600dP4v", or "" to disable
+#define SILSIM_SERIAL_RC_INPUT_BAUD		38400
+}}}
+
+The SILSIM_GPS options control the simulated GPS UART, SILSIM_TELEMETRY configures the telemetry UART, and the SILSIM_SERIAL lines control an optional serial connection to a physical UDB running HILSIM, just to get the RC inputs sent in to SILSIM from a real RC controller.
+
+The RUN_AS_SERVER lines set whether matrixpilot should run a server on the given port, or connect to the given port as a client.  The HOST lines let you connect to a UDP port on any IPv4 host on the network.  No DNS is performed so you'll need to enter the host in the A.B.C.D format.
+
+The SILSIM_SERIAL_RC_INPUT_DEVICE option lets you set the serial port to use, and if left as the empty string, will disable serial input.
+
+
+== Building MatrixPilot-SIL ==
+
+After configuring options.h, open trunk/Tools/MatrixPilot-SIL.  There are Makefiles there for windows, and unix (mac, linux, etc).  The Windows build requires gcc, so VC++ is not supported.  On Windows, I suggest using MinGW, either plain, or installed as part of the very nice little IDE called DevC++.  Note though, that the improved HILSIM XPlane plugin will build in your choice of gcc, Xcode, or VC++.
+
+This will build 2 binaries: matrixpilot and silcat.
+
+*matrixpilot* is the application that runs the MatrixPilot code on a simulated UDB.  It uses UDP sockets to connect the GPS port to XPlane, and to connect the telemetry port to your choice of QGroundControl, a terminal using silcat, or anything else that can listen on a UDP port.
+
+*silcat* is a tiny command-line app that lets you read and write from/to matrixpilot's telemetry port.  Or to any other UDP port as a client or server, or to a serial port.  It can be used as a nice, simple, generic way to interact with a serial port or UDP port.
+
+
+== Using MatrixPilot-SIL ==
+
+See the [HardwareInLoop HILSIM] page for info on getting XPlane set up for MatrixPilot simulation.
+
+Then start up XPlane and run matrixpilot in a terminal window.  You should be greeted with something like this:
+
+{{{
+MatrixPilot SIL
+
+1/2/3 = mode manual/stabilized/waypoint
+w/s   = throttle up/down
+a/d   = rudder left/right
+i/k   = elevator forward/back
+j/l   = aileron left/right
+
+z     = zero the sticks
+L     = toggle LEDs
+0     = toggle RC Radio connection on/off
+xN    = execute LOGO subroutine N(0-9)
+r     = reset
+?     = show this help message
+}}}
+
+and then:
+
+{{{
+INIT: Calibrating...
+INIT: sensors calibrated and trims recorded.
+INIT: waiting for GPS...
+INIT: GPS link acquired.
+INIT: Ready.
+}}}
+
+At this point you're ready to fly!  You can use your RC controller if you set up SILSIM_SERIAL_RC_INPUT_DEVICE, or just use the indicated keys to control throttle, ailerons, elevator, rudder, and mode switch.  The mode will likely default to stabilized, since that's what you get with a centered-by-default 3 position switch.  Note that you'll be entering these keystrokes into the terminal window, not into the XPlane window.
+
+Once you have the plane in the air, try enabling WP mode.  If you're using Logo, and already in WP mode, you can also switch over to executing other LOGO subroutines, by number, directly from the terminal by typing x followed by a number 0-9, where 0 runs your logo program from the top, and 1-9 are subroutines 1-9.  Currently only the first 9 subroutines can be accessed this way.
+
+In another terminal window, you can run silcat to connect to the simulated UDB's telemetry port.  If you set the SERIAL_FORMAT to SERIAL_UDB_EXTRA, for example, you'd see the telemetry streaming to stdout.  Since it streams to stdout, you could also pipe it into a file to save a log of the flight for analysis in flan, as though it were being recorded to an OpenLog.
+
+Alternately, you could set SERIAL_FORMAT to SERIAL_MAVLINK, and run QGroundControl to see a live view of the plane, live-update gains, etc.
