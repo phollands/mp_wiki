@@ -48,7 +48,7 @@ To configure the UDB, all you need do is download trunk of MatrixPilot from http
 }}}
 
 
-and then adjust any other options to your taste.  The most important are the servo reversing options.  I set them all to 0, except Elevator reversing which is set to 1.  Then on my transmitter, I have just aileron and rudder channels set to be reversed.
+and then adjust any other options to your taste.  The most important are the servo reversing options.  I set them all to 0, except Elevator and Aileron reversing which are set to 1.  Then on my transmitter, I have just aileron and rudder channels set to be reversed.
 
 Compile MatrixPilot and upload to the UDB as per normal.
 
