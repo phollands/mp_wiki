@@ -48,6 +48,60 @@ This will build 2 binaries: matrixpilot and silcat.
 
 *silcat* is a tiny command-line app that lets you read and write from/to matrixpilot's telemetry port.  Or to any other UDP port as a client or server, or to a serial port.  It can be used as a nice, simple, generic way to interact with a serial port or UDP port.
 
+== Beginners Guide to Compiling MatrixPilot-SIL in Windows ==
+
+Download the correct Dev-C++ from http://sourceforge.net/projects/orwelldevcpp/files/Setup%20Releases/Dev-Cpp%205.4.0%20MinGW%204.7.2%20Setup.exe/download
+
+Run the setup file and accept the default settings. Note the destination directory that you are installing to.
+
+The default for x64 systems is C:\Program Files (x86)\Dev-Cpp
+
+You will need to add the bin folder to your systems path. Let me know if you need help with this step. My bin path is the destination folder with \MinGW32\bin added to the end. Mine is C:\Program Files (x86)\Dev-Cpp\MinGW32\bin
+
+Open DEV-C++ and open the options.h file located in the MatrixPilot folder. Change the following values:
+
+{{{
+#define GPS_TYPE			GPS_UBX_4HZ
+#define AILERON_CHANNEL_REVERSED	1
+#define ELEVATOR_CHANNEL_REVERSED	1
+#define RUDDER_CHANNEL_REVERSED		0
+#define SERIAL_OUTPUT_FORMAT 		SERIAL_UDB or SERIAL_UDB_EXTRA
+#define SILSIM				1
+}}}
+
+Set any other options as you desire
+
+Save and Close Options.h
+ 
+Using File Explorer, browse to the MatrixPilot-SIL folder in your MatrixPilot files. Delete or rename Makefile. Rename Makefile.WIN32 to Makefile
+
+Using DEV-C++ open then Makefile located in the MatrixPilot-SIL folder and change the following values:
+
+Line 1 - Change to CC = gcc
+Line 4 - Remove -Wl from the LFLAGS line
+
+Save and Close Makefile
+
+Open a command prompt (Usually a black screen with white text)
+
+Change directory to the MatrixPilot-SIL folder. The command will be similar to:
+
+cd C:\UDBCode\gentlenav\Tools\MatrixPilot-SIL
+
+Enter the following command: mingw32-make all clean
+
+Once that is complete, congratulations you have created the SILSim executables!
+
+Using File Explorer, browse to the MatrixPilot-SIL folder in your MatrixPilot files. You should now see MatrixPilot.exe and silcat.exe .
+
+Setup x-Plane as you would using the Hilsim Documentation, confirm the line Port,14551 is not commented out.
+
+Open X-Plane and silcat
+Wait for X-Plane to fully load and the aircraft is on the runway.
+
+Open MatrixPilot and wait for it to initialize. You should see logging data displayed on the silcat application.
+
+Once is shows INIT: Ready., time to fly.
 
 == Using MatrixPilot-SIL ==
 
