@@ -73,7 +73,7 @@ Set any other options as you desire
 
 Save and Close Options.h
  
-Using File Explorer, browse to the MatrixPilot-SIL folder in your MatrixPilot files. Delete or rename Makefile. Rename Makefile.WIN32 to Makefile
+Using File Explorer, browse to the MatrixPilot-SIL folder in your MatrixPilot files. Rename Makefile.win to Makefile
 
 Using DEV-C++ open then Makefile located in the MatrixPilot-SIL folder and change the following values:
 
