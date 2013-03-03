@@ -17,7 +17,6 @@
     # *[CompatibleSoftware Compatible Software]*
     # *[HardwareInLoop Simulation in HW]*
     # *[SoftwareInLoop Simulation in SW]*
-    # *[IP Network Interface]*
     # *[Troubleshooting Troubleshooting / FAQ]*
   * *Development*
     # *[HowToContribute How To Help]*
