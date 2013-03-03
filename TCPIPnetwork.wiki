@@ -15,18 +15,17 @@ There are three external SPI PHYs that are supported. They are:
 [http://www.mouser.com/ProductDetail/Olimex-Ltd/MOD-ENC624J600/?qs=%2fha2pyFaduiM2FizGGE3eb3KhtErVhtMkHmAi73al27GsGQxpDnbNI%252bg4oGPqWoM ENC624J600] - Ethernet 10/100 MBit
 [http://www.microchipdirect.com/ProductSearch.aspx?Keywords=AC164123 ENC28J60]   - Ethernet 10 MBit
 
-== MRF24WG0Mx WiFi 802.11b/g ==
 
 
 
-= Configuring MatrixPilot-IP
+= Configuring MatrixPilot-IP =
 To configure the IP library, and it's accompanining modules, use the following files:
+
 MatrixPilot/options.h - enable IP by selecting PHY and MatrixPIlot-IP modules
 MyIpNetwork/MyIpOptions.h - configure MatrixPilot-IP modules: assign IP type (TCP/UDP), ports and server IPs
 MyIpNetwork/HardwareProfile.h - hardware pin assignments for MCHP Stack
 MyIpNetwork/TCPIP.h - Microchip TCP/IP stack config for stock library options such as DHCP, static IP, MAC addess, ping, FTP
 MyIpNetwork/WF_Config.h - Microchip TCP/IP stack config for WiFi options such as SSID and security passphrase
-
 
 
 == Software configuration ==
@@ -38,7 +37,7 @@ The first step of installation is options.h. It is where you can enable/disable 
 }}}
 
 Next you'll want to enable which modules to use.
-// Select which Network modules you would like to Enable
+{{{
 #define NETWORK_USE_UART1                 (0) // Forward UART1 data
 #define NETWORK_USE_UART2                 (0) // Forward UART2 data
 #define NETWORK_USE_FLYBYWIRE             (0) // Joystick -> flght surfaces (over the internet!)
