@@ -6,6 +6,7 @@ There is lots of cool research and development going on besides what's already r
 
   * Adding support for the upcoming UDB5
   * Adding multirotor support
+  * Adding support for [SoftwareInLoop Software-In-the-Loop Simulation]
   * Work towards the NASA UAS Airspace Operations Challenge
   * [TCPIPnetwork Integrating an IP stack into MatrixPilot]
   * Adding support for more sensors
