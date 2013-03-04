@@ -16,7 +16,7 @@
     # *[CompatibleHardware Optional Hardware]*
     # *[CompatibleSoftware Compatible Software]*
     # *[HardwareInLoop Simulation in HW]*
-    # *[SoftwareInLoop Simulation in SW]*
+    # *[UnreleasedFeatures Unreleased Features]*
     # *[Troubleshooting Troubleshooting / FAQ]*
   * *Development*
     # *[HowToContribute How To Help]*
