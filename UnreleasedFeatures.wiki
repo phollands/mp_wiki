@@ -1,0 +1,14 @@
+#summary New features that are not released yet
+
+= In-Progress, Experimental, and Otherwise Unreleased Features =
+
+There is lots of cool research and development going on besides what's already released in MatrixPilot.  Here are links to a few of these projects.
+
+  * Adding support for the upcoming UDB5
+  * Adding multirotor support
+  * Work towards the NASA UAS Airspace Operations Challenge
+  * [TCPIPnetwork Integrating an IP stack into MatrixPilot]
+  * Adding support for more sensors
+  * Adding support for complex on-board mixing
+  * Adding a fly-by-wire mode
+  * Adding the ability to fly through temporary GPS-failures
