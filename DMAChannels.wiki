@@ -1,5 +1,5 @@
 #labels Phase-Implementation
-= DMA channel assignments for UDB4+ =
+= DMA channel assignments for UDB4, UDB5, and AUAV3 boards =
 
   * DMA0: ADC
   * DMA1: Flash memory driver (Rx)
