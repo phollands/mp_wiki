@@ -1,10 +1,9 @@
 #labels Phase-Implementation
-
 = DMA channel assignments for UDB4+ =
 
   * DMA0: ADC
-  * DMA1: 
-  * DMA2: Flash memory driver
+  * DMA1: Flash memory driver (Rx)
+  * DMA2: Flash memory driver (Tx)
   * DMA3: CAN Tx (proposed)
   * DMA4: CAN Rx (proposed)
   * DMA5: 
