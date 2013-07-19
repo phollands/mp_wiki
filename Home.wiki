@@ -14,9 +14,11 @@ There is also a lively community that discusses this platform on the [http://diy
 
 == News! ==
 
-*MatrixPilot 3.3 - Saturday, October 27, 2012*
+*MatrixPilot 4.0 - Thursday, July 18, 2013*
 
-This release includes flight planning improvements, support for new hardware, bi-directional !MavLink support, [ProjectStatus  and lots more].
+This release includes support for !SparkFun's UDB4 and UDB5 boards, and Nick Arsov's AUAV3.  Other improvements include cleaner navigation, better cross-tracking, and lower power consumption.
+
+Note that starting with MatrixPilot 4.0, we no longer includes support for older UDB boards.  But fear not, there will continue to be MatrixPilot 3.x updates to backport important improvements to the older boards. 
 
 
 *DIY Drones T3-2 Competition Success ! - Saturday, March 10th, 2012*
