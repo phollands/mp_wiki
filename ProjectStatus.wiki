@@ -1,5 +1,14 @@
 = Project Status =
 
+=== What's New in MatrixPilot 4.0 ===
+  * New features:
+    * Support for !SparkFun's UDB5 board
+    * Support for Nick Arsov's AUAV3 board
+    * Improved cross-tracking performance
+    * Improved navigation
+    * Lower power consumption by the dsPic, due to sleeping while idle
+    * More details to come...
+
 === What's New in MatrixPilot 3.3 ===
   * New features:
     * Added support for Nick Arsov's UDB3 clone
@@ -116,7 +125,6 @@ As with all long term plans, these could change at any time, but here's where we
 === Future Ideas ===
 
   * Fully rotational based controls, using the complete theory proposed by Robert Mahoney.
-  * Barometric pressure sensor for more precise altitude control.
-  * Finish adding support for an upcoming new revision of the hardware platform.
   * Real Helicopter and quadcopter support.
+  * Barometric pressure sensor for more precise altitude control.
   * ...
