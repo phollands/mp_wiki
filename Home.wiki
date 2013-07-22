@@ -35,10 +35,10 @@ The UAV Dev Board team are proud to announce availability of the next major revi
 *[News More News...]*
 
 
-
-
 == Hardware Specifications ==
-This board comes with a dsPIC30F4011 CPU, an MMA7260 three axis accelerometer and two dual-axis Inversense IXZ500 gyroscopes already soldered as shown in the picture. It is intended for the do-it-yourselfer. By itself, it can be used to develop a three axis IMU controller. With the addition of a GPS receiver, it can be used to develop a UAV controller for an RC car, plane, or boat.  All firmware versions are compatible with the [http://www.sparkfun.com/commerce/product_info.php?products_id=465 EM406 GPS].  The new MatrixPilot firmware can also use the [http://store.diydrones.com/ProductDetails.asp?ProductCode=SPK-GPS-GS407 uBlox 5H GPS], and the [http://store.diydrones.com/MediaTek_MT3329_GPS_10Hz_Adapter_Basic_p/mt3329-02.htm MediaTek GPS], but the developers currently recommend using either the [http://www.sparkfun.com/commerce/product_info.php?products_id=465 EM406] or the [http://store.diydrones.com/MediaTek_MT3329_GPS_10Hz_Adapter_Basic_p/mt3329-02.htm MediaTek].
+The UDB5 (UAV Development Board version 5) comes populated with a dsPIC33FJ256 CPU, and the MPU-6000, a MEMS 3-axis gyroscope and 3-axis accelerometer. The on-board Invensense gyro has enough vibration tolerance to be used in RC heli applications.
+
+It is intended for the do-it-yourselfer. By itself, it can be used to develop a three axis IMU controller. With the addition of a GPS receiver, it can be used to develop a UAV controller for an RC car, plane, or boat.  All firmware versions are compatible with the [http://www.sparkfun.com/commerce/product_info.php?products_id=465 EM406 GPS].  The new MatrixPilot firmware can also use the [http://store.diydrones.com/ProductDetails.asp?ProductCode=SPK-GPS-GS407 uBlox 5H GPS], and the [http://store.diydrones.com/MediaTek_MT3329_GPS_10Hz_Adapter_Basic_p/mt3329-02.htm MediaTek GPS], but the developers currently recommend using either the [http://www.sparkfun.com/commerce/product_info.php?products_id=465 EM406] or the [http://store.diydrones.com/MediaTek_MT3329_GPS_10Hz_Adapter_Basic_p/mt3329-02.htm MediaTek].
 
 
 == Already Have a UAV Dev Board? ==
@@ -52,8 +52,7 @@ This board comes with a dsPIC30F4011 CPU, an MMA7260 three axis accelerometer an
 
 == Related Projects and Sites ==
 
-  * [http://www.sparkfun.com/products/10582 Buy a UAV Dev Board from SparkFun]
+  * [https://www.sparkfun.com/ Buy a UAV Dev Board from SparkFun]
   * [http://store.diydrones.com/MediaTek_MT3329_GPS_10Hz_Adapter_Basic_p/mt3329-02.htm MediaTek GPS]
   * [http://www.sparkfun.com/commerce/product_info.php?products_id=465 EM406 GPS]
   * [http://diydrones.com/ DIY Drones Community]
-  * [http://code.google.com/p/uavexpansionboard/ "Oil Pan" UDB Expansion Board]
