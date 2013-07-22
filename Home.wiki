@@ -1,11 +1,11 @@
 = UAV Dev Board =
-http://dlnmh9ip6v2uc.cloudfront.net/images/products/10582-01.jpg
+https://dlnmh9ip6v2uc.cloudfront.net//images/products/1/1/7/0/3/11703-01a.jpg
 
 The UAV Dev Board, originally designed by Bill Premerlani, is an IMU-based development platform for building controllers for Unmanned Aerial Vehicles.  This site hosts the development of UAV code that runs on this board, allowing it to stabilize an airplane, maintain altitude, and navigate to specific locations, or back to the launch site.
 
-You can [http://www.sparkfun.com/products/10582 buy a UAV Dev Board from Spark Fun].
+You can [https://www.sparkfun.com/products/11703 buy a UAV Dev Board from Spark Fun].
 
-You can also [http://www.arsovtech.com buy a UDB3 Dev Board clone from Nick Arsov].
+You can also [http://www.arsovtech.com buy an AUAV3 Dev Board from Nick Arsov].
 
 If you buy a UAV Dev Board, and are interested in hearing about upcoming changes, or want to participate in or influence future development, we strongly urge you to join the [http://groups.google.com/group/uavdevboard UAV Dev Board Discussion List].
 
