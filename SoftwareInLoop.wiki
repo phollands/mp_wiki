@@ -66,6 +66,7 @@ Open DEV-C++ and open the options.h file located in the MatrixPilot folder. Chan
 #define ELEVATOR_CHANNEL_REVERSED	1
 #define RUDDER_CHANNEL_REVERSED		0
 #define SERIAL_OUTPUT_FORMAT 		SERIAL_UDB or SERIAL_UDB_EXTRA
+#define HILSIM				1
 #define SILSIM				1
 }}}
 
