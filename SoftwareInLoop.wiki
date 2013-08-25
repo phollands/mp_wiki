@@ -9,7 +9,7 @@ There is now a MatrixPilot-SIL project in the Tools directory.  This project ref
 
 == Configuring MatrixPilot-SIL ==
 
-To build for SIL, you'll just need to edit trunk/MatrixPilot/options.h to set HILSIM and SILSIM to 1, and set up the rest of the options.h file to match your simulated plane.  (Or just copy trunk/MatrixPilot/example-options-files/options.HILSIM-Cessna-ben.h to trunk/MatrixPilot/options.h, set SILSIM to 1, and use the built-in Cessna in XPlane.)  Here are the SIMSIM settings from options.h:
+To build for SIL, you'll just need to edit trunk/MatrixPilot/options.h to set SILSIM to 1, and set up the rest of the options.h file to match your simulated plane.  (Or just copy trunk/MatrixPilot/example-options-files/options.HILSIM-Cessna-ben.h to trunk/MatrixPilot/options.h, set SILSIM to 1, and use the built-in Cessna in XPlane.)  Here are the SIMSIM settings from options.h:
 
 {{{
 ////////////////////////////////////////////////////////////////////////////////
@@ -66,7 +66,6 @@ Open DEV-C++ and open the options.h file located in the MatrixPilot folder. Chan
 #define ELEVATOR_CHANNEL_REVERSED	1
 #define RUDDER_CHANNEL_REVERSED		0
 #define SERIAL_OUTPUT_FORMAT 		SERIAL_UDB or SERIAL_UDB_EXTRA
-#define HILSIM				1
 #define SILSIM				1
 }}}
 
