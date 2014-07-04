@@ -16,6 +16,7 @@
     # *[CompatibleHardware Optional Hardware]*
     # *[CompatibleSoftware Compatible Software]*
     # *[HardwareInLoop Simulation in HW]*
+    # *[SoftwareInLoop Software Simulation - SILSIM]*
     # *[UnreleasedFeatures Unreleased Features]*
     # *[Troubleshooting Troubleshooting / FAQ]*
   * *Development*
