@@ -1,6 +1,6 @@
 = MatrixPilot: Overview =
 
-MatrixPilot is the latest firmware for the UAV Dev Board. It is based on William Premerlani's MatrixNav and AileronAssist firmwares, adds many important and fun new features, and allows much more configurability.
+MatrixPilot is the latest firmware for the UAV Dev Board product line of autopilots. It is based on William Premerlani's MatrixNav and AileronAssist firmwares, adds many important and fun new features, and allows much more configurability.
 
 The code repository is located here: http://code.google.com/p/gentlenav/source/browse/#svn/trunk/MatrixPilot
 
@@ -17,7 +17,9 @@ MatrixPilot can be used to control a wide variety of airframes:
 
 == More Radio Inputs and Servo Outputs ==
 
-MatrixPilot currently supports a few different configurations of Radio Inputs, and Servo Outputs.  Out of the box, you can plug in 4 Input channels and 3 Servo Outputs.  You can extend that either by [ConnectingExtraChannels wiring up  cables to the spare pins] for a total of 5 Inputs and 6 Outputs, or by using a single [PPMInput PPM input], which allows you up to 8 Inputs and 9 Outputs.
+MatrixPilot currently supports a few different configurations of Radio Inputs, and Servo Outputs.  Out of the box, you can plug in 8 Input channels and 8 Servo Outputs channels.  Both direct connect PWM radio inputs or multiplexed PPM inputs can be configured.
+
+If using an earlier UDB3 board (now deprecated) you can extend its channel support either by [ConnectingExtraChannels wiring up  cables to the spare pins] for a total of 5 Inputs and 6 Outputs, or by using a single [PPMInput PPM input], which allows you up to 8 Inputs and 9 Outputs.
 
 Each Input channel can be configured as one of the following:
   * *Throttle*
@@ -40,10 +42,10 @@ Each Output channel can be configured as one of the following:
   * *Trigger* to control things like turning on LEDs, releasing a tow-line, taking a photo, etc.
   * *Passthrough*
 
-Each of the 3 hardware switches on the board can also be configured to reverse any of the output channels.
+Each of the 3 hardware switches on the UDB3 board can also be configured to reverse any of the output channels. UDB4/5 and AUAV3 boards support channel reversing via build time software configuration.
 
 
-== Connecting the Extra Input and Output Channels ==
+== Connecting the Extra Input and Output Channels on UDB3 boards ==
 
 The board includes built-in connections for 4 Radio Input and 3 Servo Output channels.  To use the 5th Input channel, and the 4th, 5th, and 6th Output channels, see the ConnectingExtraChannels page.  Or to use PPM Input for a total of 8 Inputs and 9 Outputs, see the PPMInput page.
 
@@ -52,9 +54,10 @@ The board includes built-in connections for 4 Radio Input and 3 Servo Output cha
 
 MatrixPilot has support for outputting telemetry data in one of a few different formats.  If you add an XBee radio, or something similar, you can monitor your plane's status from the ground while flying.
 
-  * *UDB* and *UDB_Extra:* These formats are compatible with a tool we've developed called Flan (FLight ANalyzer), which helps you visualize flights in Google Earth, and explore flight details in a spreadsheet.
-  * *ArduStation:* This format is compatible with the ArduPilot ground station, and the ArduStation hardware ground station.
-  * *OSD_Remzibi:* This format can be wired directly into the Remzibi On-Screen-Display to show important data on an overlay on top of your live, first-person video feed coming from the plane, if you're rigged up for that.
+  * *SERIAL_UDB* and *SERIAL_UDB_EXTRA:* These formats are compatible with a tool we've developed called Flan (FLight ANalyzer), which helps you visualize flights in Google Earth, and explore flight details in a spreadsheet.
+  * *ArduStation:* (deprecated) This format is compatible with the ArduPilot ground station, and the ArduStation hardware ground station.
+  * *SERIAL_OSD_REMZIBI:* This format can be wired directly into the Remzibi On-Screen-Display to show important data on an overlay on top of your live, first-person video feed coming from the plane, if you're rigged up for that.
+  * *SERIAL_MAVLINK:* provides telemetry support for a number of available groundstation projects which support the open-source MAVLink protocol. 
 
 
 == Camera Stabilization ==
