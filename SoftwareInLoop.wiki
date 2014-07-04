@@ -42,25 +42,23 @@ The SILSIM_SERIAL_RC_INPUT_DEVICE option lets you set the serial port to use, an
 
 == Building MatrixPilot-SIL ==
 
-After configuring options.h, open trunk/Tools/MatrixPilot-SIL.  There are Makefiles there for windows, and unix (mac, linux, etc).  The Windows build requires gcc, so VC++ is not supported.  On Windows, I suggest using MinGW, either plain, or installed as part of the very nice little IDE called DevC++.  Note though, that the improved HILSIM XPlane plugin will build in your choice of gcc, Xcode, or VC++.
+After configuring options.h, open trunk/Tools/MatrixPilot-SIL.  If using windows download a free copy of Visual C++ Express Edition and open the MatrixPilot-SIL.vcxproj project. If using gcc on windows or unix (mac, linux, etc) you can just invoke 'make' from the command line while in the MatrixPilot-SIL directory.  
 
-This will build 2 binaries: matrixpilot and silcat.
+Using gcc and make will build 2 binaries: matrixpilot and silcat.
 
 *matrixpilot* is the application that runs the MatrixPilot code on a simulated UDB.  It uses UDP sockets to connect the GPS port to XPlane, and to connect the telemetry port to your choice of QGroundControl, a terminal using silcat, or anything else that can listen on a UDP port.
 
 *silcat* is a tiny command-line app that lets you read and write from/to matrixpilot's telemetry port.  Or to any other UDP port as a client or server, or to a serial port.  It can be used as a nice, simple, generic way to interact with a serial port or UDP port.
 
+**NOTE a Visual C++ silcat project has notas yet been created. Please post to the MatrixPilot mailing list if interested in this being supported.
+ 
 == Beginners Guide to Compiling MatrixPilot-SIL in Windows ==
 
-Download the correct Dev-C++ from http://sourceforge.net/projects/orwelldevcpp/files/Setup%20Releases/Dev-Cpp%205.4.0%20MinGW%204.7.2%20Setup.exe/download
+Download Visual C++ Express or a current installer from the http://www.mingw.org/ MinGW] project.
 
-Run the setup file and accept the default settings. Note the destination directory that you are installing to.
+Run the respective setup program and accept the default settings.  After installing MinGW you may need to add the 'bin' folder to your system path.  You may also need to install [http://www.gnu.org/software/make/ GNU make], and possibly also include it in your system path.
 
-The default for x64 systems is C:\Program Files (x86)\Dev-Cpp
-
-You will need to add the bin folder to your systems path. Let me know if you need help with this step. My bin path is the destination folder with \MinGW32\bin added to the end. Mine is C:\Program Files (x86)\Dev-Cpp\MinGW32\bin
-
-Open DEV-C++ and open the options.h file located in the MatrixPilot folder. Change the following values:
+Open your MatrixPilot options.h file and change the following values:
 
 {{{
 #define GPS_TYPE			GPS_UBX_4HZ
@@ -68,35 +66,29 @@ Open DEV-C++ and open the options.h file located in the MatrixPilot folder. Chan
 #define ELEVATOR_CHANNEL_REVERSED	1
 #define RUDDER_CHANNEL_REVERSED		0
 #define SERIAL_OUTPUT_FORMAT 		SERIAL_UDB or SERIAL_UDB_EXTRA
-#define SILSIM				1
 }}}
 
 Set any other options as you desire
 
-Save and Close Options.h
+Save and Close options.h
  
-Using File Explorer, browse to the MatrixPilot-SIL folder in your MatrixPilot files. Rename Makefile.win to Makefile
-
-Using DEV-C++ open then Makefile located in the MatrixPilot-SIL folder and change the following values:
-
-Line 1 - Change to CC = gcc
-Line 4 - Remove -Wl from the LFLAGS line
-
-Save and Close Makefile
-
 Open a command prompt (Usually a black screen with white text)
 
 Change directory to the MatrixPilot-SIL folder. The command will be similar to:
+
+cd C:\ <path to my MatrixPilot source code> \Tools\MatrixPilot-SIL
+
+for example:
 
 cd C:\UDBCode\gentlenav\Tools\MatrixPilot-SIL
 
 Enter the following command: mingw32-make all clean
 
-Once that is complete, congratulations you have created the SILSim executables!
+Once that is complete, congratulations you have created the SILSIM executables!
 
 Using File Explorer, browse to the MatrixPilot-SIL folder in your MatrixPilot files. You should now see MatrixPilot.exe and silcat.exe .
 
-Setup x-Plane as you would using the Hilsim Documentation, confirm the line Port,14551 is not commented out.
+Setup X-Plane as you would using the [HardwareInLoop HILSIM] documentation, confirm the line Port,14551 is not commented out.
 
 Open X-Plane and silcat
 Wait for X-Plane to fully load and the aircraft is on the runway.
@@ -109,7 +101,7 @@ Once is shows INIT: Ready., time to fly.
 
 See the [HardwareInLoop HILSIM] page for info on getting XPlane set up for MatrixPilot simulation.
 
-Then start up XPlane and run matrixpilot in a terminal window.  You should be greeted with something like this:
+Then start up X-Plane and run matrixpilot in a terminal window.  You should be greeted with something like this:
 
 {{{
 MatrixPilot SIL
@@ -138,10 +130,10 @@ INIT: GPS link acquired.
 INIT: Ready.
 }}}
 
-At this point you're ready to fly!  You can use your RC controller if you set up SILSIM_SERIAL_RC_INPUT_DEVICE, or just use the indicated keys to control throttle, ailerons, elevator, rudder, and mode switch.  The mode will likely default to stabilized, since that's what you get with a centered-by-default 3 position switch.  Note that you'll be entering these keystrokes into the terminal window, not into the XPlane window.
+At this point you're ready to fly!  You can use your RC controller if you set up SILSIM_SERIAL_RC_INPUT_DEVICE, or just use the indicated keys to control throttle, ailerons, elevator, rudder, and mode switch.  The mode will likely default to stabilized, since that's what you get with a centered-by-default 3 position switch.  Note that you'll be entering these keystrokes into the terminal window, not into the X-Plane window.
 
-Once you have the plane in the air, try enabling WP mode.  If you're using Logo, and already in WP mode, you can also switch over to executing other LOGO subroutines, by number, directly from the terminal by typing x followed by a number 0-9, where 0 runs your logo program from the top, and 1-9 are subroutines 1-9.  Currently only the first 9 subroutines can be accessed this way.
+Once you have the plane in the air, try enabling WP mode.  If you're using LLGO, and already in WP mode, you can also switch over to executing other LOGO subroutines, by number, directly from the terminal by typing x followed by a number 0-9, where 0 runs your logo program from the top, and 1-9 are subroutines 1-9.  Currently only the first 9 subroutines can be accessed this way.
 
 In another terminal window, you can run silcat to connect to the simulated UDB's telemetry port.  If you set the SERIAL_FORMAT to SERIAL_UDB_EXTRA, for example, you'd see the telemetry streaming to stdout.  Since it streams to stdout, you could also pipe it into a file to save a log of the flight for analysis in flan, as though it were being recorded to an OpenLog.
 
-Alternately, you could set SERIAL_FORMAT to SERIAL_MAVLINK, and run QGroundControl to see a live view of the plane, live-update gains, etc.
+Alternately, you could set SERIAL_FORMAT to SERIAL_MAVLINK, and run [http://www.qgroundcontrol.org/ QGroundControl] to see a live view of the plane, live-update gains, etc.
