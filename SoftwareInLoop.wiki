@@ -4,23 +4,25 @@
 
 Software In the Loop Simulation, or SILSIM, allows running MatrixPilot on your computer instead of on a dsPic processor on a UAV Dev Board, and allows connecting to XPlane for simulated flights in the same way that [HardwareInLoop HILSIM] does.
 
-There is now a MatrixPilot-SIL project in the Tools directory.  This project references most of the MatrixPilot files in trunk/MatrixPilot, trunk/libDCM, and some headers from trunk/libUDB, and adds its own implementation of libUDB meant to run on a computer.  It runs a virtual UDB, complete with LEDs, a virtual file-based EEPROM, UDP sockets for the UARTs, C implementations of the DSP library and asm multiplication/division calls, etc.  Instead of the physical sensors, it uses the existing HILSIM code to receive virtual sensor data from XPlane.
+There is now a MatrixPilot-SIL project in the Tools directory.  This project references most of the MatrixPilot files in trunk/MatrixPilot, trunk/libDCM, and some headers from trunk/libUDB, and adds its own implementation of libUDB meant to run on a computer.  It runs a virtual UDB, complete with LEDs, a virtual file-based EEPROM, UDP sockets for the UARTs, C implementations of the DSP library and __builtin() multiplication/division calls, etc.  Instead of the physical sensors, it uses the existing HILSIM code to receive virtual sensor data from XPlane.
 
 
 == Configuring MatrixPilot-SIL ==
 
-To build for SIL, you'll just need to edit trunk/MatrixPilot/options.h to set SILSIM to 1, and set up the rest of the options.h file to match your simulated plane.  (Or just copy trunk/MatrixPilot/example-options-files/options.HILSIM-Cessna-ben.h to trunk/MatrixPilot/options.h, set SILSIM to 1, and use the built-in Cessna in XPlane.)  Here are the SIMSIM settings from options.h:
+SILSIM support can be found in the trunk/Tools/MatrixPilot directory and includes makefile scripts for building with gcc on Windows or Linux/MAC platforms. Additionally Windows users can benefit from the user friendly debugging enviroment offered by Microsoft(r)Visual Studio with the included Visual C++ 2010 project.
+
+To build for SILSIM, you'll just need to edit trunk/MatrixPilot/options.h to match your simulated plane.  (Or just copy trunk/MatrixPilot/example-options-files/options.HILSIM-Cessna-ben.h to trunk/MatrixPilot/options.h, and use the built-in Cessna in XPlane.)
+
+Advanced SILSIM settings can be found in trunk/Tools/MatrixPilot-SIL/SIL-config.h  The default settings are depicted below:
 
 {{{
 ////////////////////////////////////////////////////////////////////////////////
 // Software In the Loop Simulation
-// Only set this to 1 when building for simulation directly on your computer instead of
-// running on a UDB.
+//
 // See the MatrixPilot wiki for more info on using SILSIM.
 // Below are settings to configure the simulated UDB UARTs.
 // The SERIAL_RC_INPUT settings allow optionally talking over a serial port to a UDB
 // passing RC inputs through to the simulated UDB.
-#define SILSIM					1
 #define SILSIM_GPS_RUN_AS_SERVER		0
 #define SILSIM_GPS_PORT				14551		// default port to connect to QGroundControl
 #define SILSIM_GPS_HOST				"127.0.0.1"
