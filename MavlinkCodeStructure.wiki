@@ -9,9 +9,9 @@ This section provides an overview of how MAVLink has been implemented in MatrixP
 
 = Sending MAVLink Messages =
 
-The main routine for sending MAVLink messages is called [http://code.google.com/p/gentlenav/source/browse/trunk/MatrixPilot/MAVLink.c#728 mavlink_output_40hz] . The routine is called 40 times per second [http://code.google.com/p/gentlenav/source/browse/trunk/MatrixPilot/servoPrepare.c#110 from function dcm_heartbeat_callback()] from within source file servoPrepare.c .
+The main routine for sending MAVLink messages is called [http://code.google.com/p/gentlenav/source/browse/trunk/MatrixPilot/MAVLink.c#728 mavlink_output_40hz()] . The routine is called 40 times per second from function [http://code.google.com/p/gentlenav/source/browse/trunk/MatrixPilot/servoPrepare.c#110 dcm_heartbeat_callback()] found within source file servoPrepare.c .
 
-mavlink_output_40Hz() simply prepares data for encoding into a number of different MAVLink messages. These messages have a variety of datastream rates (e.g. some are sent at 8hz, and some sent at 1Hz etc). And the messages are staggered where possible over 1 second, so that the communications channel is not overloaded.
+mavlink_output_40Hz() simply prepares data for encoding into a number of different MAVLink message packets. These messages have a variety of datastream rates (e.g. some are sent at 8hz, and some sent at 1Hz etc). And the messages are staggered where possible over 1 second, so that the communications channel is not overloaded.
 
 Let's take the mavlink heartbeat message as an example. It [http://code.google.com/p/gentlenav/source/browse/trunk/MatrixPilot/MAVLink.c#783 starts with] 
 {{{
@@ -24,7 +24,7 @@ The code then calculates the mode of the plane, and prepares to send that in
 mavlink_msg_heartbeat_send(MAVLINK_COMM_0, MAV_TYPE_FIXED_WING, MAV_AUTOPILOT_UDB, mavlink_base_mode, mavlink_custom_mode, MAV_STATE_ACTIVE);
 }}}
 
-A similar exercise is then done for a variety of mavlink messages as in :-
+A similar exercise is then done for a variety of MAVLink messages as in :-
   * [http://code.google.com/p/gentlenav/source/browse/trunk/MatrixPilot/MAVLink.c#822 mavlink_msg_gps_raw_int_send]
   * [http://code.google.com/p/gentlenav/source/browse/trunk/MatrixPilot/MAVLink.c#849 mavlink_msg_global_position_int_send]
   * [http://code.google.com/p/gentlenav/source/browse/trunk/MatrixPilot/MAVLink.c#899 mavlink_msg_attitude_send ]
@@ -39,7 +39,7 @@ There are two directories of MAVLink messages.
   * [http://code.google.com/p/gentlenav/source/browse/trunk/MAVLink/include/common/ common] which is used for MAVLink messages which are common to all autopilot implementations
   * [http://code.google.com/p/gentlenav/source/browse/trunk/MAVLink/include/#include%2Fmatrixpilot matrixpilot] which are messages that have been created specifically for our own autopilot.
 
-For now, you should just become familiar with some of the MAVLink subtroutine definitions. For example, the MAVLink heartbeat is in the common headers (common to all mavlink autopilots). mavlink_msg_heartbeat_send, which we were using just now above, is defined in [http://code.google.com/p/gentlenav/source/browse/trunk/MAVLink/include/common/mavlink_msg_heartbeat.h#143 this location].
+For now, you should just become familiar with some of the MAVLink subtroutine definitions. For example, the MAVLink heartbeat is in the common headers (common to all MAVLink enabled autopilots). mavlink_msg_heartbeat_send, which we were using just now above, is defined in [http://code.google.com/p/gentlenav/source/browse/trunk/MAVLink/include/common/mavlink_msg_heartbeat.h#143 this location].
 
 These header files contain subroutines not only for encoding mavlink messages, but also for parsing and decoding the messages. So how are MAVLink messages received and parsed ?
 
