@@ -1,11 +1,11 @@
 = Telemetry Formats =
 
-MatrixPilot is supports two core formats of telemetry
+MatrixPilot supports two core formats of telemetry
 
-  * SERIAL_UDB_EXTRA - which is a home grown ascii human readable format which is supported on all current versions of MatrixPilot and all devices (UDB2, UDB3, UDB4). Please [https://docs.google.com/document/pub?id=1bPovneDV1UXBBEQE6yC3Ms9CCI_wmecLGtVzUkJeoIw see this document] for a detailed explanation of the format of SERIAL_UDB_EXTRA. 
+  * SERIAL_UDB_EXTRA - which is a home grown ASCII human readable format which is supported on all current versions of MatrixPilot and all devices (UDB2, UDB3, UDB4, UDB5, AUAV3). Please see [https://docs.google.com/document/pub?id=1bPovneDV1UXBBEQE6yC3Ms9CCI_wmecLGtVzUkJeoIw this document] for a detailed explanation of the SERIAL_UDB_EXTRA format. 
 
-  * SERIAL_MAVLINK - which provides  support for the mavlink standard for telemetry in small UAV's.
-     * [UsingMAVLINK Initial introduction] to using mavlink with MatrixPilot
-     *  [MavlinkCodeStructure Oveview of MatrixPilot mavlink Code structure]
-     * [MavlinkGeneratingHeaders Auto-generation of C and python support functions from mavlink definition XML files]
-     * [MavlinkAddingParametersToReadOrWrite How to specify that a MatrixPilot variable can be changed by a MAVLink compatible GCS]
+  * SERIAL_MAVLINK - provides support for the [http://www.qgroundcontrol.org/mavlink/start MAVLink] protocol for telemetry in small UAV's.
+     * [UsingMAVLINK Initial introduction] to using MAVLink with MatrixPilot
+     *  [MavlinkCodeStructure Oveview of MatrixPilot MAVLink Code structure]
+     * [MavlinkGeneratingHeaders Auto-generation of C and python support functions from MAVLink definition XML files]
+     * [MavlinkAddingParametersToReadOrWrite How to specify that a MatrixPilot variable can be changed by a MAVLink compatible Ground Control Station (GCS)]
