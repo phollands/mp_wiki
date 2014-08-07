@@ -4,7 +4,7 @@ Here is a list of compatible and optional hardware that works with the UAVDevBoa
 
 
 *GPS Units*
-  * [http://www.sparkfun.com/products/465 EM406A GPS] (Recommended)
+  * [http://www.sparkfun.com/products/465 EM506A GPS] (Recommended)
   * [http://store.diydrones.com/MediaTek_MT3329_GPS_10Hz_Adapter_Basic_p/mt3329-02.htm MediaTek GPS] (Recommended, and very cheap!)
   * [http://store.diydrones.com/GS407_U_Blox5_GPS_4Hz_p/spk-gps-gs407.htm uBlox GS407 GPS]
 
