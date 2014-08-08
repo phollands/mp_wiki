@@ -15,7 +15,7 @@ Here is a list of compatible and optional hardware that works with the UAVDevBoa
   * [http://www.sparkfun.com/search/results?term=xbee&what=products XBees]
   * [http://store.diydrones.com/HMC5843_Triple_Axis_Magnetometer_p/br-hmc5843-01.htm Magnetometer]
   * [http://www.happykillmore.com/Software/Faq.asp Remzibi OSD]
-  * [https://www.sparkfun.com/products/544 microSD memory for filesystem support]
+  * [https://www.sparkfun.com/products/544 microSD Memory Card Socket (for large filesystem support)]
 
 *Info on Making Connections*
   * [ConnectingExtraChannels Extra Channels]
@@ -25,3 +25,4 @@ Here is a list of compatible and optional hardware that works with the UAVDevBoa
   * [RemzibiConnection Remzibi Connection]
   * [OpenLogConnection OpenLog Connection]
   * [MagnetometerConnections Magnetometer Connection]
+  * [microSDConnections microSD Memory Card Socket Connection]
