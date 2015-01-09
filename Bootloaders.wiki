@@ -2,13 +2,9 @@
 
 UDB4/5 boards are supported by the “ds30 loader” [http://www.ds30loader.com/] serial bootloader. There is a copy of the program and manuals included in the source repository at “./Tools/ds30 Loader”
 
-AUAV3 boards can self reprogram with a USB connection.
+AUAV3 boards can self reprogram with just a USB connection.
 
-MatrixPilot_AUAV3: 
-
-USB bootloader for AUAV3. 
-
-Only a USB cable is required. With the AUAV3 disconnected, enable bootload mode with a bind plug on the ICSP connector shorting PGC to GROUND. Using a USB mini-B cable connect the AUAV3 to your computer. Once in bootload mode copy the newly generated *.hex file to filename "image.hex" on the AUAV3 dataflash filesystem. Once the copy operation has completed the bootloader will automatically load the image file and program the internal dsPIC memory. After programming is complete the bootloader erases the “image.hex” file and finally attempts to jump to new code.
+With the AUAV3 disconnected, enable bootload mode with a bind plug on the ICSP connector shorting PGC to GROUND. Using a USB mini-B cable connect the AUAV3 to your computer. Once in bootload mode copy the newly generated *.hex file to filename "image.hex" on the AUAV3 dataflash filesystem. Once the copy operation has completed the bootloader will automatically load the image file and program the internal dsPIC memory. After programming is complete the bootloader erases the “image.hex” file and finally attempts to jump to new code.
 
 Installing the bootloader:
 
