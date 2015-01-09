@@ -13,21 +13,28 @@ Only a USB cable is required. With the AUAV3 disconnected, enable bootload mode 
 Installing the bootloader:
 
 There are AUAV3 bootloader MPLAB-8 and MPLAB-X projects in the source tree at ./Tools/Bootloaders/AUAV3.
+
 Build the bootloader using the environment of choice and load onto the AUAV3 board using a PICKit3 or equivalent.
-There may be a pre-built bootloader image available at <link>
+There may be a pre-built bootloader image available at [http://arsovtech.com/wp-content/uploads/2011/12/AUAV3-Bootloader.zip link]
 
 Working with the bootloader is easy:
 
 1. Rename your build output hex file (ie. ’MatrixPilot-AUAV3.hex’) to ‘image.hex’;
+
 2. Power down the AUAV3;
+
 3. Using a bind plug shorten PGC to GND (pins 3 and 5 of the ICSP header).
+
 4. Connect a miniUSB cable between your PC and AUAV3, the BLUE and GREEN LEDs will start flashing, indicating bootload mode;
+
 5. Once in bootload mode your PC should detect a USB Mass Storage Device being connected, and create a suitable drive mapping. 
+
 6. Copy the “image.hex” file into the root directory of the AUAV3 filesystem;
+
 7. The bootloader will automatically detect completion of the image file copy process, program the internal dsPIC memory, erase the image file and finally attempt to jump to the new code;
+
 8. Remove the short (bind plug) between PGC and GND and cycle power to test a full restart.
 
-The bootloader hardware select enabling pin can be configured in source code header file HardwareProfile.h to be any one of pins PGC, PGD, or DIG2. Modifying the bootloader requires reprogamming your target board with a PICKit3 or compatible device.
+The bootloader hardware select enabling pin can be configured in source code header file HardwareProfile.h to be any one of pins PGC, PGD, or DIG2. Modifying the bootloader requires reprogramming your target board with a PICKit3 or compatible device.
 
 NOTE: Since January 2014, all genuine AUAV3 boards have shipped with the bootloader pre-installed.
-
