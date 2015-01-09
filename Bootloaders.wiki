@@ -1,0 +1,33 @@
+= Bootloaders =
+
+UDB4/5 boards are supported by the “ds30 loader” [http://www.ds30loader.com/] serial bootloader. There is a copy of the program and manuals included in the source repository at “./Tools/ds30 Loader”
+
+AUAV3 boards can self reprogram with a USB connection.
+
+MatrixPilot_AUAV3: 
+
+USB bootloader for AUAV3. 
+
+Only a USB cable is required. With the AUAV3 disconnected, enable bootload mode with a bind plug on the ICSP connector shorting PGC to GROUND. Using a USB mini-B cable connect the AUAV3 to your computer. Once in bootload mode copy the newly generated *.hex file to filename "image.hex" on the AUAV3 dataflash filesystem. Once the copy operation has completed the bootloader will automatically load the image file and program the internal dsPIC memory. After programming is complete the bootloader erases the “image.hex” file and finally attempts to jump to new code.
+
+Installing the bootloader:
+
+There are AUAV3 bootloader MPLAB-8 and MPLAB-X projects in the source tree at ./Tools/Bootloaders/AUAV3.
+Build the bootloader using the environment of choice and load onto the AUAV3 board using a PICKit3 or equivalent.
+There may be a pre-built bootloader image available at <link>
+
+Working with the bootloader is easy:
+
+1. Rename your build output hex file (ie. ’MatrixPilot-AUAV3.hex’) to ‘image.hex’;
+2. Power down the AUAV3;
+3. Using a bind plug shorten PGC to GND (pins 3 and 5 of the ICSP header).
+4. Connect a miniUSB cable between your PC and AUAV3, the BLUE and GREEN LEDs will start flashing, indicating bootload mode;
+5. Once in bootload mode your PC should detect a USB Mass Storage Device being connected, and create a suitable drive mapping. 
+6. Copy the “image.hex” file into the root directory of the AUAV3 filesystem;
+7. The bootloader will automatically detect completion of the image file copy process, program the internal dsPIC memory, erase the image file and finally attempt to jump to the new code;
+8. Remove the short (bind plug) between PGC and GND and cycle power to test a full restart.
+
+The bootloader hardware select enabling pin can be configured in source code header file HardwareProfile.h to be any one of pins PGC, PGD, or DIG2. Modifying the bootloader requires reprogamming your target board with a PICKit3 or compatible device.
+
+NOTE: Since January 2014, all genuine AUAV3 boards have shipped with the bootloader pre-installed.
+

@@ -1,6 +1,6 @@
 = MatrixPilot: Overview =
 
-MatrixPilot is the latest firmware for the UAV Dev Board product line of autopilots. It is based on William Premerlani's MatrixNav and AileronAssist firmwares, adds many significant new features, and allows much more configurability, now optionally including file system based initialisation scripts.
+MatrixPilot is the latest firmware for the UAV Dev Board product line of autopilots. It is based on William Premerlani's MatrixNav and AileronAssist firmwares, adds many important and fun new features, and allows much more configurability.
 
 The code repository is located here: http://code.google.com/p/gentlenav/source/browse/#svn/trunk/MatrixPilot
 
@@ -62,4 +62,4 @@ MatrixPilot has support for outputting telemetry data in one of a few different 
 
 == Camera Stabilization ==
 
-MatrixPilot includes the ability to stabilize a camera, and even to automatically target the camera at specific locations in 3D space as you fly around.
+MatrixPilot includes the ability to stabilize a camera, and even to have the UDB automatically target the camera at a specific locations in 3D space as you fly around.

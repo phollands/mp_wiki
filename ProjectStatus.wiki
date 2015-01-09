@@ -1,23 +1,32 @@
 = Project Status =
 
+=== What's changed in MatrixPilot 4.1 ===
+  * New makefile build system
+  * New project generator python script
+  * New X-Plane plugin keyboard capture for flight controls
+  * Support for external flash memory devices
+  * Improved internal logfile support
+  * Updated MAVLink release
+  * Numerous bugfixes...
+
 === What's New in MatrixPilot 4.0 ===
   * New features:
-    * Support for !SparkFun's UDB5 board
-    * Support for Nick Arsov's AUAV3 board
+    * Added support for !SparkFun's UDB5 board
+    * Added support for Nick Arsov's AUAV3 board
     * Improved cross-tracking performance
     * Improved navigation
-    * Lower power consumption by the dsPic, due to sleeping while idle
+    * Lower power consumption by the dsPIC, due to sleeping while idle
     * More details to come...
 
 === What's New in MatrixPilot 3.3 ===
   * New features:
     * Added support for Nick Arsov's UDB3 clone
-    * Improve LOGO interpreter to allow using conditionals
-    * Improve LOGO interpreter by adding a simple interrupt facility
-    * New bi-directional telemetry protocol - SERIAL_MAVLINK.
+    * Improved LOGO interpreter to allow using conditionals
+    * Improvedd LOGO interpreter by adding a simple interrupt facility
+    * Added bi-directional telemetry protocol - SERIAL_MAVLINK.
     * Added glide airspeed control with MavLink parameters.
     * Added variable altitude and airspeed options with MavLink parameters and non-volatile memory storage.
-    * Improve UDB4 timing to allow faster baud rates.
+    * Improved UDB4 timing to allow faster baud rates.
     * Allow stabilization mode of camera to be determined from a three position switch on the transmitter by defining CAMERA_MODE_INPUT_CHANNEL .
     * Provide an option to initialize the aircraft in the vertical position. This is for VTOL.
     * Added ROLLKD_RUDDER feedback parameter to dampen Dutch-Roll. Rudder deflection term proportional to roll rate
@@ -25,16 +34,16 @@
     * Update the Waypoint Editor to more closely match the UDB Logo Editor, including cross-browser compatibility fixes.
     * Added non volatile memory services, used by MavLink
     * Flight Analyzer Improvements:
-      * Add Logo Waypoints processing and display to Flight Analyzer.
+      * Added Logo Waypoints processing and display to Flight Analyzer.
       * Improve robustness against corrupted lines.
       * Implemented a Graphical Elevation Profile for each flight in Google Earth.
       * Will decode and write legacy ascii SERIAL_UDB_EXTRA files from MatrixPilot MavLink telemetry.
-      * Add XML time column to CSV file
+      * Added XML time column to CSV file
       * Update flan serial_udb_extra parser to understand new F2: format for in-line waypoint data.
-      * racing: re-base time automatically so all race flights pass the race start pylon at midday exactly on 11/11/2011
+      * Racing: re-base time automatically so all race flights pass the race start pylon at midday exactly on 11/11/2011
   * Bug Fixes:
     * Improved the failsafe code to make it less sensitive to an occasional invalid pulse.
-    * magnetometer : fixed a nasty bug in the UDB4 mag driver that would change the accelerometer range
+    * Magnetometer : fixed a nasty bug in the UDB4 mag driver that would change the accelerometer range
     * Fix a bug in REL_ANGLE_TO_HOME/REL_ANGLE_TO_GOAL that returned values in the range of -360-359 instead of -180-179
     * Fix NORTH, SOUTH, EAST, WEST commands in Logo Editor
     * Fix flight analyser to correctly work with older format of SERIAL_UDB
@@ -125,6 +134,6 @@ As with all long term plans, these could change at any time, but here's where we
 === Future Ideas ===
 
   * Fully rotational based controls, using the complete theory proposed by Robert Mahoney.
-  * Real Helicopter and quadcopter support.
+  * Real Helicopter and Quadcopter support.
   * Barometric pressure sensor for more precise altitude control.
   * ...

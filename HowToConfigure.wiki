@@ -49,10 +49,10 @@ Then choose your airframe type: Standard, V-Tail, or Delta Wing.
 }}}
 
 
-And choose which GPS you're using.  Currently we support the [http://www.sparkfun.com/commerce/product_info.php?products_id=465 EM-406A], [http://store.diydrones.com/ProductDetails.asp?ProductCode=SPK-GPS-GS407 UBlox GS407], and [http://store.diydrones.com/MediaTek_MT3329_GPS_10Hz_Adapter_Basic_p/mt3329-02.htm MediaTek] GPS units.  (Some of us are finding we get worse accuracy when using the UBlox.)
+And choose which GPS you're using.  Currently we support the [http://www.sparkfun.com/commerce/product_info.php?products_id=465 EM-406A], [http://store.diydrones.com/ProductDetails.asp?ProductCode=SPK-GPS-GS407 UBlox GS407], [http://store.diydrones.com/MediaTek_MT3329_GPS_10Hz_Adapter_Basic_p/mt3329-02.htm MediaTek], and many generic NMEA capable GPS units.  (Some of us are finding we get worse accuracy when using the UBlox.)
 
 {{{
-// Set this value to your GPS type.  (Set to GPS_STD, GPS_UBX_2HZ, GPS_UBX_4HZ, or GPS_MTEK)
+// Set this value to your GPS type.  (Set to GPS_STD, GPS_UBX_2HZ, GPS_UBX_4HZ, GPS_MTEK, or GPS_NMEA)
 #define GPS_TYPE						GPS_STD
 }}}
 
@@ -195,13 +195,13 @@ Enable PPM input here.  This allows you to send all input RC channels into the U
 ////////////////////////////////////////////////////////////////////////////////
 // Configure Input and Output Channels
 //
-// For classic UDB boards:
-// Use a single PPM input connection from the RC receiver to the UDB on RC input channel 4.
-// This frees up RC inputs 3, 2, and 1 to act as RC outputs 4, 5, and 6.
-// If PPM_ALT_OUTPUT_PINS is set to 0, the 9 available RC outputs will be sent to the
-// following pins, in this order: Out1, Out2, Out3, In3, In2, In1, RE0, RE2, RE4.
-// With it set to 1, the RC outputs will be in this alternate configuration:
-// Out1, Out2, Out3, RE0, RE2, RE4, In3, In2, In1.
+// For setups with an external Rx device: 
+//   Use a single PPM input connection from the RC receiver to the UDB on RC input channel PPM_IC. 
+//   The 8 standard output channels remain unaffected. 
+//   For UDB4 and UDB5 boards: 
+//     2 additional output channels are available on pins RA4 and RA1. 
+//   For AUAV3 boards: 
+//     support for additional output channels may be developed upon request 
 // 
 // For UDB4 boards:
 // Use a single PPM input connection from the RC receiver to the UDB on RC input channel 1.
@@ -223,10 +223,9 @@ If not using PPM input, then to enable a 5th input channel, and the 4th-6th outp
 
 {{{
 // NUM_INPUTS: 
-// For classic boards: Set to 1-5 (or 1-8 when using PPM input)
-//   1-4 enables only the first 1-4 of the 4 standard input channels
-//   5 also enables E8 as the 5th input channel
-// For UDB4 boards: Set to 1-8
+// If using PWM inputs (parallel Rx connections), set to the number of cables connected, 1-8 
+// If using PPM inputs (serial Rx connection), set to the number of Rx channels, up to PPM_NUMBER_OF_CHANNELS 
+// If using LRS library (integrated SPI tranceiver), set to the number of Rx channels, up to 16 
 #define NUM_INPUTS						5
 
 // Channel numbers for each input.
@@ -249,14 +248,10 @@ If not using PPM input, then to enable a 5th input channel, and the 4th-6th outp
 
 
 // NUM_OUTPUTS:
-// For classic boards: Set to 3, 4, 5, or 6
-//   3 enables only the standard 3 output channels
-//   4 also enables E0 as the 4th output channel
-//   5 also enables E2 as the 5th output channel
-//   6 also enables E4 as the 6th output channel
 //   NOTE: If USE_PPM_INPUT is enabled above, up to 9 outputs are available.)
 // For UDB4 boards: Set to 3-8 (or up to 10 using pins RA4 and RA1.)
-#define NUM_OUTPUTS						4
+// For AUAV3 boards:  Set to 3-8 (or up to 11 using pins RE1, RA6 and RA7.)
+//                               (this needs developing, so contact the list) #define NUM_OUTPUTS						4
 
 // Channel numbers for each output
 // Use as is, or edit to match your setup.
@@ -287,22 +282,19 @@ Here you can choose which of your radio/servo channels are reversed.  If a servo
 
 {{{
 // Servo Reversing Configuration
-// Here you can choose which reversing switches use hardware switches (only available on classic boards),
-// and hard code the rest.
+// For any of these that evaluate to 1, that servo will be sent reversed controls.
 // Note that your servo reversing settings here should match what you set on your transmitter.
-// For any of these that evaluate to 1 (either hardcoded or by flipping a switch on the board,
-// as you define below), that servo will be sent reversed controls.
-#define AILERON_CHANNEL_REVERSED				HW_SWITCH_1
-#define ELEVATOR_CHANNEL_REVERSED				HW_SWITCH_2
-#define RUDDER_CHANNEL_REVERSED					HW_SWITCH_3
-#define AILERON_SECONDARY_CHANNEL_REVERSED			0 // Hardcoded to be unreversed, since we have only 3 switches.
+#define AILERON_CHANNEL_REVERSED				0
+#define ELEVATOR_CHANNEL_REVERSED				0
+#define RUDDER_CHANNEL_REVERSED					0
+#define AILERON_SECONDARY_CHANNEL_REVERSED		0 // Hardcoded to be unreversed, since we have only 3 switches.
 #define THROTTLE_CHANNEL_REVERSED				0 // Set to 1 to hardcode a channel to be reversed
-#define CAMERA_ROLL_CHANNEL_REVERSED				0
-#define CAMERA_PITCH_CHANNEL_REVERSED				0
+#define CAMERA_ROLL_CHANNEL_REVERSED			0
+#define CAMERA_PITCH_CHANNEL_REVERSED			0
 #define CAMERA_YAW_CHANNEL_REVERSED				0
 
 // Set this to 1 if you need to switch the left and right elevon or vtail surfaces
-#define ELEVON_VTAIL_SURFACES_REVERSED				0
+#define ELEVON_VTAIL_SURFACES_REVERSED			 0
 }}}
 
 Here you can set up the thresholds for your mode switching channel.  A 3-way switch works best for this channel, but a knob can also work, as could a 2-way switch combined with a trim for this channel.  These values are the positions where we switch between the low and middle, and then the middle and high positions of the 3-way mode switch.
@@ -740,15 +732,15 @@ Set this when using the UDB to control the X-Plane simulator instead of controll
 {{{
 // Flight Plan handling
 //
-// You can define your flightplan either using the UDB Waypoints format, or using UDB Logo
+// You can define your flightplan either using the Waypoints format, or using LOGO
 // Set this to either FP_WAYPOINTS or FP_LOGO
 // The Waypoint definitions and options are located in the waypoints.h file.
-// The Logo flight plan definitions and options are located in the flightplan-logo.h file.
+// The LOGO flight plan definitions and options are located in the flightplan-logo.h file.
 #define FLIGHT_PLAN_TYPE						FP_WAYPOINTS
 }}}
 
 
-When using MavLink, these options allow you to identify each plane.
+When using MAVLink, these options allow you to identify each plane.
 {{{
 // Vehicle and Pilot Identification
 
