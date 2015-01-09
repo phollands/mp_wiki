@@ -1,7 +1,7 @@
-#summary A description of the capabilities of flan.pyw, a flight analyzer for Matrixpilot
+#summary A description of the capabilities of flan.pyw, a flight analyzer for MatrixPilot
 = Introduction =
 
-Flight analyzer is tool for analyzing your Matrixpilot flight telemetry. The main features are:- 
+Flight analyzer is tool for analyzing your MatrixPilot flight telemetry. The main features are:- 
 
  * Creates a time animated, colour coded sequence of your flight path in Google Earth
  * Draws a model of your plane at least once per second showing it's orientation (Pitch, Yaw and Roll)

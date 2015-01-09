@@ -1,16 +1,31 @@
 = MatrixPilot: Configuration =
 
-To configure MatrixPilot to work for your plane, you'll need to edit your options.h file.  This page describes all the settings in that file, as of MatrixPilot 4.0.
+To configure MatrixPilot to work for your plane, you'll need to edit your options.h file.  This page describes all the settings in that file, as of MatrixPilot 3.3.
 
 Also, a block diagram of the controls is available [http://gentlenav.googlecode.com/files/MatrixPilot%20Block%20Diagrams.pdf here], courtesy of Paul Bizard.
 
-Also available are older versions for [HowToConfigureMP20 MatrixPilot 2.0], [HowToConfigureMP25 MatrixPilot 2.5], [HowToConfigureMP30 MatrixPilot 3.0], and [HowToConfigureMP33 MatrixPilot 3.3].
+Also available are older versions for [HowToConfigureMP20 MatrixPilot 2.0], [HowToConfigureMP25 MatrixPilot 2.5], and  [HowToConfigureMP30 MatrixPilot 3.0].
 
 To set up Waypoints, see the WayPoints wiki page.
 
 Once you have the options and flight plan set up the way you want them, you can compile the code and install it onto the UDB.  Info on that process is available in [http://gentlenav.googlecode.com/files/PICProgrammingGettingStarted.pdf this PDF].
 
 == Hardware ==
+
+First make sure to set which UAV Dev Board version you have.
+
+{{{
+// Set Up Board Type
+// GREEN_BOARD - Board is green and includes 2 vertical gyro daugter-boards.
+// RED_BOARD   - Board is red, and includes 2 vertical gyro daugter-boards.
+// UDB3_BOARD  - Board is red, and includes a single, flat, multi-gyro daugter-board.
+// UDB4_BOARD  - Board is red, has 8 inputs, 8 output and no gyro daughter-board.
+// AUAV1_BOARD - Nick Arsov's UDB3 clone, version one (support added in MatrixPilot 3.3)
+// See the MatrixPilot wiki for more details on different UDB boards.
+// If building for UDB4, use the MatrixPilot-udb4.mcp project file.
+#define BOARD_TYPE 						UDB3_BOARD
+}}}
+
 
 You can mount the board into your plane in any of the below 8 orientations.  Then set this value to match.  This can be useful if you need to mount the board backwards or on the side of the plane for physical/space/layout reasons.
 

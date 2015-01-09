@@ -4,7 +4,7 @@ Before reading this section, you should browse the [http://qgroundcontrol.org/ma
 
 This section provides an overview of how MAVLink has been implemented in MatrixPilot. There are two primary parts:-
 
-  * [http://code.google.com/p/gentlenav/source/browse/trunk/MatrixPilot/MAVLink.c#22 MAVLink.c] which replaces telemetry.c when mavlink is selected in options.h 
+  * [http://code.google.com/p/gentlenav/source/browse/trunk/MatrixPilot/MAVLink.c#22 MAVLink.c] which replaces telemetry.c when MAVLink is selected in options.h 
   * [http://code.google.com/p/gentlenav/source/browse/#svn%2Ftrunk%2FMAVLink%2Finclude%2Fcommon MAVLink header files] which contain encoding and decoding subroutines.
 
 = Sending MAVLink Messages =
@@ -67,7 +67,7 @@ void udb_serial_callback_received_byte(uint8_t rxchar)
 
 You will see that each received byte is sent to a parsing routine called mavlink_parse_char(). Whenever parsing is complete, a routine is going to be called indirectly via "trigger_event", which will initiate a call to [http://code.google.com/p/gentlenav/source/browse/trunk/MatrixPilot/MAVLink.c#602 handleMessage(void)] running at a different priority level and a different thread. The variable mavlink_message_index switches between 1 and 0 to ensure that a different buffer is used for incoming messages, while the other message is being processed by handleMessage().
 
-I should probably explain trigger_event(mavlink_process_message_handle) in some more detail. During intialisation, the MAVLink code [http://code.google.com/p/gentlenav/source/browse/trunk/MatrixPilot/MAVLink.c#128 registers] the routine handleMessage() with the event manager like this:-
+I should probably explain trigger_event(mavlink_process_message_handle) in some more detail. During initialisation, the MAVLink code [http://code.google.com/p/gentlenav/source/browse/trunk/MatrixPilot/MAVLink.c#128 registers] the routine handleMessage() with the event manager like this:-
 {{{
 mavlink_process_message_handle = register_event_p(&handleMessage, EVENT_PRIORITY_MEDIUM);
 }}}

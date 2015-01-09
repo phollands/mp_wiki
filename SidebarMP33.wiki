@@ -15,8 +15,8 @@
     # *[Flying Flying]*
     # *[CompatibleHardware Optional Hardware]*
     # *[CompatibleSoftware Compatible Software]*
-    # *[HardwareInLoop Hardware In-the Loop SIMulation (HILSIM)]*
-    # *[SoftwareInLoop Software In-the Loop SIMulation (SILSIM)]*
+    # *[HardwareInLoop Simulation in HW]*
+    # *[SoftwareInLoop Software Simulation - SILSIM]*
     # *[UnreleasedFeatures Unreleased Features]*
     # *[Troubleshooting Troubleshooting / FAQ]*
   * *Development*
