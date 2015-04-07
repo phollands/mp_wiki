@@ -29,7 +29,7 @@
     # *[UDBCoordinateSystems UDB Coordinate Systems]*
     # *[TelemetryFormats Telemetry Formats]*
     # *[GroundControlStation Ground Controls Station Software GCS]*
-    # *[STM32Support] STM32F4 Support*
+    # *[STM32Support STM32F4 Support]*
       # *[STM32Toolchain Toolchain for STM32F4]*
 
 *[http://diydrones.com/page/uav-devboard On DIY Drones]*

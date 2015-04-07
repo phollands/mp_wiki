@@ -1,4 +1,4 @@
-#Support for STM32F4 uC
+#summary Support for STM32F4 uC
 
 = Introduction =
 
