@@ -9,8 +9,8 @@
     # *[HowToInstall Installation]*
     # *[HowToConfigure Configuration]*
     # *[FlightPlans Flight Plans]*
-      * *[WayPoints Waypoints]*
-      * *[UDBLogo UDB Logo]*
+      # * *[WayPoints Waypoints]*
+      # * *[UDBLogo UDB Logo]*
     # *[GroundTest Ground Testing]*
     # *[Flying Flying]*
     # *[CompatibleHardware Optional Hardware]*
@@ -21,7 +21,7 @@
     # *[Troubleshooting Troubleshooting / FAQ]*
   * *Development*
     # *[HowToContribute How To Help]*
-      * *[UsingSubversion Using SVN]*
+      # * *[UsingSubversion Using SVN]*
     # *[Makefile Build System]*
     # *[Filesystem Filesystem]*
     # *[Bootloaders Bootloaders]*
