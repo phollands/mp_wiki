@@ -1,0 +1,75 @@
+**MatrixPilot 4.0 - Thursday, July 18, 2013**
+
+This release includes support for SparkFun's UDB4 and UDB5 boards, and Nick Arsov's AUAV3.  Other improvements include cleaner navigation, better cross-tracking, and lower power consumption.
+
+Note that starting with MatrixPilot 4.0, we no longer includes support for older UDB boards.  But fear not, there will continue to be MatrixPilot 3.x updates to backport important improvements to the older boards.
+
+**MatrixPilot 3.3 - Saturday, October 27, 2012**
+
+This release includes flight planning improvements, support for new hardware, bi-directional MavLink support, [and lots more](ProjectStatus.md).
+
+**DIY Drones T3-2 Competition Success ! - Saturday, March 10th, 2012**
+
+Two entries using the UDB and MatrixPilot were in the winning 4 which were "tied" for the [the automatic takeoff and landing competition](http://diydrones.com/profiles/blogs/announcing-t3-2-round-two-the-autotakeoff-and-landing-round?id=705844%3ABlogPost%3A752867&page=2#comments). Congratulations to Phil Giacalone for a super automatic flight. In the previous competition for racing around a "figure of 8", Riccardo Kuebler came 2nd, and Phil Giacalone came 3rd. UDB MatrixPIlot took 5 of the top 12 places.
+
+**MatrixPilot 3.2.1 - Monday, November 14, 2011**
+
+This release includes magnetometer support for the UDB4, and a bug fix in RTL when using RC receivers without built-in failsafe.  See the full change list for recent releases on the [status page](ProjectStatus.md).
+
+**UDB4 available from SparkFun - Friday, October 21, 2011**
+
+The UAV Dev Board team are proud to announce availability of the next major revision of hardware from Sparkfun ([See Sparkfun site for details](http://www.sparkfun.com/products/10582)). Sparkfun also reviewed [some of the history](http://www.sparkfun.com/news/698) of the project.
+
+**MatrixPilot 3.2 - Wednesday, October 12, 2011**
+
+This release includes lots of performance improvements, some new features aimed at FPV flyers, improvements to simulation and analysis tools, and automatic configuration sanity checking, which catches the most common configuration mistakes.  See the full change list on the [status page](ProjectStatus.md).
+
+
+**MatrixPilot 3.1 - Tuesday, June 28, 2011**
+
+The big ticket items in MatrixPilot 3.1 include some major improvements to the IMU and the OSD, along with new support for the DIYDrones MediaTek GPS.  It also adds camera tracking of a moving target!  See the full change list on the [status page](ProjectStatus.md).
+
+
+**MatrixPilot 3.0 - Wednesday, April 27, 2011**
+
+MatrixPilot 3.0 is a major upgrade.  We started with an overhaul of the code base to be more modular, and added new features like PPM Input, more RC Inputs and Outputs, an experimental native OSD, and a new mission planning language based on LOGO.  We also made performance improvements to Dead Reckoning and Wind Estimation that help flights go more smoothly and accurately.  See the full list on the [status page](ProjectStatus.md).
+
+
+**Team Lawn Dart places at the 2011 SparkFun Autonomous Vehicle Competition - Saturday April 23, 2011**
+
+Congratulations to Team Lawn Dart on their great entry and performance.  They used a modified UDB, running a modified version of MatrixPilot to win 3rd place in the air competition.
+
+
+**MatrixPilot wins DIY Drones T3 HILSim Contest - February 2011**
+
+Congratulations to Marcus Fahlen of Norway on winning 1st place in the DIY Drones contest to replicate a flight around Manhattan using an autopilot (in this case the UDB3) connected to a flight simulator. Thanks to all of the wider team that have made Marc's success possible. See [here for the competition thread ](http://diydrones.com/profiles/blogs/t3-contest-season-2-round-1?id=705844%3ABlogPost%3A238107&page=5#comments), and the results were published [here](http://diydrones.com/profiles/blogs/winners-of-t3-contest).
+
+
+**MatrixPilot 2.5 - Thursday, August 19, 2010**
+
+After many months of work, the UDB development team is excited to release version 2.5 of MatrixPilot!  This version adds tons of new features, including inverted stabilization, camera targeting, more configurable waypoints, wind speed estimation, dead reckoning, and hardware-in-the-loop simulation.  See the full list on the [status page](ProjectStatus.md).
+
+
+**UAV Dev Board Wins a UAV Contest in Taiwan! - Thursday, March 25, 2010**
+
+It sounds like the UAV Dev Board won First Place in an event in the "2010 Taiwan Robot Aircraft Design and Photography Competition".  We think it was running MatrixPilot, but can't confirm that.  [Full Story Here.](http://www.diydrones.com/profiles/blogs/easystar-and-uav-devboard-got)
+
+
+**MatrixPilot 2.0.3 - Thursday, March 11, 2010**
+
+Version 2.0.3 fixes two bugs associated with certain types of receivers that do not have a fail-safe. These receivers typically produce random pulses when your transmitter is off.  Users of MatrixPilot with such receivers should upgrade to 2.0.3, which eliminates a glitch in the control surfaces when you shut off your transmitter, and prevents a rare, but serious "lockup" of a PWM input channel if it receives a string of closely spaced, extremely narrow pulses. Also, if you have transmitters in your plane, such as for video or telemetry, that might interfere with your receiver, you should use version 2.0.3.
+
+
+**MatrixPilot 2.0.2 - Tuesday, January 19, 2010**
+
+Version 2.0.2 is another important bug fix release.  All users of MatrixPilot should upgrade to 2.0.2.  It fixes a new bug introduced with the last release that under certain circumstances and configurations, could cause your UDB to reboot unexpectedly.  It also fixes a couple more small formatting bugs in the ArduStation-compatible telemetry output, all fields of which should now work as expected.
+
+
+**MatrixPilot 2.0.1 - Sunday, January 9, 2010**
+
+Happy New Year from the UAV Dev Board team!  Version 2.0.1 is an important bug fix release.  All users of MatrixPilot should upgrade to 2.0.1.  It fixes a nasty bug that showed itself first as infrequent glitches in serial telemetry output, but could also cause worse problems.  It also fixes two small formatting bugs in the ArduStation-compatible telemetry output.
+
+
+**MatrixPilot 2.0 - Thursday, December 10, 2009**
+
+The team has just released the initial version of **MatrixPilot**.  It now offers up to 5 input channels and 6 output channels, control of Delta Wing and V-Tail airframes, allows much more configuration, supports multiple telemetry formats, and includes a bunch of other cool new features too.  It is a recommended upgrade from both MatrixNav and AileronAssist.

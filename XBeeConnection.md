@@ -1,0 +1,21 @@
+# MatrixPilot: Connect a pair of XBee Radios to the UAV Dev Board and to your Computer
+
+There are two types of XBee radios that we've tested.  The 2.4GHz line and the 900MHz line.
+
+The 2.4GHz XBees seem to be easier to use, and cause less interference with the UAV Dev Board.  Many people use one of each of these:
+  * http://www.sparkfun.com/commerce/product_info.php?products_id=8876
+  * http://www.sparkfun.com/commerce/product_info.php?products_id=8768
+  * plus [a 2.4GHz antenna](http://www.sparkfun.com/commerce/product_info.php?products_id=145).
+
+But if you use a 2.4GHz RC radio system like the Spekrum radios, these will conflict.  Those of us using 2.4GHz RC radios have been using the 900MHz XBees.
+  * http://www.sparkfun.com/commerce/product_info.php?products_id=9097
+  * http://www.sparkfun.com/commerce/product_info.php?products_id=9099
+  * plus [a 900MHz antenna](http://www.sparkfun.com/commerce/product_info.php?products_id=9143)
+
+To connect an XBee to a laptop, often using a bigger duck antenna, we're using the [XBee Explorer USB](http://www.sparkfun.com/commerce/product_info.php?products_id=8687)  .  Connection is easy.  Just plug it in using a usb cable.
+
+To connect an XBee, often using a wire antenna, to the UAV Dev Board, we're using the  [XBee Explorer Regulated](http://www.sparkfun.com/commerce/product_info.php?products_id=9132).
+
+This connection can be more tricky, since you'll need to avoid creating too much interference, or drawing too much power from the board.  For more information about how to work around these problems, read through [this email thread](http://groups.google.com/group/uavdevboard/browse_thread/thread/7ad7a2e590d34d58/4dbeafbc92ff89df?lnk=gst&q=xbee+transmissions+ben#4dbeafbc92ff89df) on the email list.
+
+Riccardo Kuebler has also written a good ["HOW TO" document](https://docs.google.com/leaf?id=0Bwha0ykWgAXDZDZhY2Y1M2MtNjYzNC00ODQwLWE4NzctM2Y1ODFiMThmZDA2&hl=en&pli=1) for connecting up the Xbee.

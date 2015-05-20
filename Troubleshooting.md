@@ -1,0 +1,29 @@
+# Troubleshooting your UAV Dev Board
+
+If you don't see a solution to your problem here, please come on over to [the uavdevboard google group](http://groups.google.com/group/uavdevboard) and ask us.
+
+
+### I'm getting build errors, something about -legacy-libc
+
+When using the 3.25 compiler, we need to add the -legacy-libc flag or else we get compiler errors.  But when using a compiler older than 3.25, this flag itself causes compiler errors.  As of MatrixPilot 3.0, this flag is included in all the project files.
+
+So if you're seeing errors related to the -legacy-libc flag, you'll either need to run the latest versions of MPLab and the C30 compiler, or remove -legacy-libc from the linker flags.
+
+
+### I can't get MPLab to program the board
+
+See Bill's PIC Programming document here: http://gentlenav.googlecode.com/files/PICProgrammingGettingStarted.pdf
+
+
+### Sometimes the board starts ignoring manual controls, or switches back to RTL mode unexpectedly
+
+This is a problem with some receivers that output servo signals at slightly low voltages.  This causes the UAV Dev Board to not be able to see them.  One solution is to change to a receiver that sends out stronger signals.  Another option is to lower the voltage at which the UAV Dev Board runs from 5.0V to 4.5V.  This makes the low receiver voltages look stronger relative to the UAV Dev Board's voltage.  The UDB3 boards have this modification built-in.
+
+
+### Can I use MatrixPilot without a GPS?
+
+MatrixPilot waits for the GPS to obtain valid navigation information before it will complete the initialization process, on the theory that if the GPS cannot do that, there is something wrong, and you should be made aware of it. In other words, MatrixPilot discourages you from taking off without a working GPS with a valid navigation solution.
+
+If the GPS loses "lock" after takeoff, you still can operate in either manual or stabilized mode, provided the GPS is still communicating with the UDB. The centrifugal compensation calculations will use the last reported speed over ground. Along those lines, several pilots have asked for a "GPS-less", stabilization-only, version of MatrixPilot.
+
+If the GPS fails all together after takeoff, such as if the cable between it and the UDB becomes disconnected, then stabilized mode will not work correctly any longer.

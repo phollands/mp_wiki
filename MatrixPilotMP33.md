@@ -1,0 +1,65 @@
+# MatrixPilot: Overview
+
+MatrixPilot is the latest firmware for the UAV Dev Board product line of autopilots. It is based on William Premerlani's MatrixNav and AileronAssist firmwares, adds many important and fun new features, and allows much more configurability.
+
+The code repository is located here: http://code.google.com/p/gentlenav/source/browse/#svn/trunk/MatrixPilot
+
+You can also check out the [project status](ProjectStatus.md) to see what we've been up to.
+
+
+## Supported Air Frames
+
+MatrixPilot can be used to control a wide variety of airframes:
+  * **Standard Airplane**: Stabilize and navigate using elevator, and either ailerons, rudder, or both.  This is the Airframe type to use if you're upgrading from AileronAssist or MatrixNav.
+  * **Delta Wing**: Similar to the **Standard Airplane**, but all control is performed through the 2 "elevon" control surfaces.
+  * **V-Tail**: Similar to the **Standard Airplane**, but rudder and elevator channels are mixed for a V-Tail configuration.
+
+
+## More Radio Inputs and Servo Outputs
+
+MatrixPilot currently supports a few different configurations of Radio Inputs, and Servo Outputs.  Out of the box, you can plug in 8 Input channels and 8 Servo Outputs channels.  Both direct connect PWM radio inputs or multiplexed PPM inputs can be configured.
+
+If using an earlier UDB3 board (now deprecated) you can extend its channel support either by [wiring up  cables to the spare pins](ConnectingExtraChannels.md) for a total of 5 Inputs and 6 Outputs, or by using a single [PPM input](PPMInput.md), which allows you up to 8 Inputs and 9 Outputs.
+
+Each Input channel can be configured as one of the following:
+  * **Throttle**
+  * **Aileron**
+  * **Elevator**
+  * **Rudder**
+  * **Mode Switch**: Control the state of the firmware between manual, auto (you can still add your control on top of the stabilization), and return-to-launch (you can still add your control on top of the stabilization and navigation)
+  * **Camera Pitch**, and **Camera Yaw** controls for manually aiming an on-board camera
+  * **OSD Switch**: Turn the OSD on and off
+  * **Passthrough**: Allows passing up to 4 RC channels directly through to corresponding output channels.  This can be helpful when you're using PPM RC input, and you need to control something like flaps which are not controlled natively yet by MatrixPilot.
+
+
+Each Output channel can be configured as one of the following:
+  * **Throttle**
+  * **Aileron**
+  * **Elevator**
+  * **Rudder**
+  * **2nd Aileron** (separately reversible from the main aileron output)
+  * **Camera Roll**, **Camera Pitch**, and **Camera Yaw** controls for stabilizing and targeting an on-board camera
+  * **Trigger** to control things like turning on LEDs, releasing a tow-line, taking a photo, etc.
+  * **Passthrough**
+
+Each of the 3 hardware switches on the UDB3 board can also be configured to reverse any of the output channels. UDB4/5 and AUAV3 boards support channel reversing via build time software configuration.
+
+
+## Connecting the Extra Input and Output Channels on UDB3 boards
+
+The board includes built-in connections for 4 Radio Input and 3 Servo Output channels.  To use the 5th Input channel, and the 4th, 5th, and 6th Output channels, see the ConnectingExtraChannels page.  Or to use PPM Input for a total of 8 Inputs and 9 Outputs, see the PPMInput page.
+
+
+## Telemetry
+
+MatrixPilot has support for outputting telemetry data in one of a few different formats.  If you add an XBee radio, or something similar, you can monitor your plane's status from the ground while flying.
+
+  * **SERIAL\_UDB** and **SERIAL\_UDB\_EXTRA:** These formats are compatible with a tool we've developed called Flan (FLight ANalyzer), which helps you visualize flights in Google Earth, and explore flight details in a spreadsheet.
+  * **ArduStation:** (deprecated) This format is compatible with the ArduPilot ground station, and the ArduStation hardware ground station.
+  * **SERIAL\_OSD\_REMZIBI:** This format can be wired directly into the Remzibi On-Screen-Display to show important data on an overlay on top of your live, first-person video feed coming from the plane, if you're rigged up for that.
+  * **SERIAL\_MAVLINK:** provides telemetry support for a number of available groundstation projects which support the open-source MAVLink protocol.
+
+
+## Camera Stabilization
+
+MatrixPilot includes the ability to stabilize a camera, and even to have the UDB automatically target the camera at a specific locations in 3D space as you fly around.

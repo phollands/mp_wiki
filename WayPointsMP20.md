@@ -1,0 +1,79 @@
+# MatrixPilot: Waypoints 1.0 Installation, Setup and Operation
+
+MatrixPilot has the following waypoint related features:
+  * Waypoints are 3D. You specify location of the points relative to the initialization location of the board.
+  * You have the option of using either cross-track error navigation, or using navigation toward the target waypoint.
+  * Arrival at a waypoint is based on the change in sign of the projection of the vector from the location to the target onto the vector between the waypoints. This produces a reliable assessment of arrival, without any chance of loitering.
+  * The primary source of steering is the direction cosine matrix, so steering continues reliably and smoothly even if the GPS were to loose lock during banked turns.
+
+The waypoint function replaces the commanded return-to-launch function in previous versions of MatrixNav and AileronAssist. The loss-of-signal return- to-launch function remains, but since most pilots use a radio with a fail-safe function, for all intents and purposes, waypoints completely replaces return- to-launch. However, since the autonomous command causes the waypoint function to immediately steer toward the first waypoint, you can use the waypoint function as RTL by careful selection of the first waypoint. In fact, if you select a single point waypoint with X and Y relative coordinates of 0, engaging the waypoint function will be exactly equivalent to the return to launch function.
+
+The waypoint function will work in a 3D mode with altitude hold controlling height, if it is enabled. If you do not enable altitude hold, the waypoint function will work in a 2D mode, steering and stabilizing the plane, but leaving throttle and altitude control to the pilot.
+
+
+## Specifying waypoints
+
+The waypoints are defined in the file waypoints.h that is a header file in the project source code for the firmware. There are three items you can specify in the file:
+  * whether or not you want to use cross-tracking
+  * how close the plane has to get to each waypoint (if not using cross-tracking)
+  * the coordinates of the points.
+
+If you select cross tracking in waypoints.h, navigation will be based on the perpendicular distance from the aircraft to the line between the waypoints that define the course leg. The steering angle toward the course leg is proportional to the cross track distance, up to 45 degrees at a distance of 32 meters. Beyond 32 meters, the steering angle is 45 degrees. If you select cross tracking, arrival at waypoint will be declared when the plane crosses an imaginary finish line through the target waypoint, perpendicular to the course leg.
+
+If you do not enable cross tracking, then steering will be toward the target waypoint of the course leg. Arrival at the waypoint will be declared if either the cross track arrival condition is satisfied, or if the aircraft approaches closer than the desired radius to the target waypoint (defaults to 25 meters).
+
+The waypoints themselves are specified in the file waypoints.h using a C declaration of a constant array. Here is a simple example that I use for testing and debugging, with two points:
+
+```
+const struct relative3D waypoints[] = {
+	{   0,   0, 100},
+	{ 100, 173, 100},
+};
+```
+
+Each waypoint is specified as the three coordinates, measured in meters, relative to the initialization location of the board. The C syntax allows an optional comma after the last waypoint in the list. The valid range for each of the coordinates is plus or minus 32767 meters, though in the US you are supposed to maintain visual contact at all times.
+The first coordinate (X) is measured toward the east from the initialization point. The second coordinate (Y) is measured toward the north. The third coordinate (Z) is the height above the initialization point.
+
+There is no need for you to indicate how many waypoints you have specified, the compiler will count them for you.
+
+In case you are interested, the waypoints are defined as an array named waypoints, of structures of type relative3D, defined elsewhere in the firmware. It is a constant array, so the compiler will store it in program memory. There is plenty of unused program space, so you can define on the order of 1000 waypoints.
+
+You do not have to worry about the first and last line of the definition, it will never change. All you have to do is fill in the points. In this simple example,
+
+there are only two points. The first point is located 100 meters above the initialization point. The second point is located 200 meters from the first point, on a bearing 30 degrees clockwise from the north.
+
+Here is another example in which the waypoint function is used simply for an RTL function, with a target height of 50 meters:
+
+```
+const struct relative3D waypoints[] = {{ 0 , 0 , 50 }} ;
+```
+
+Activation of the waypoint function is achieved the same way as the return to launch function that it replaces. There are three control modes, manual, stabilized, and waypoint navigation, that are selected by a joystick or a three position switch.
+
+The aircraft flies to each waypoint in the list in sequence. It uses whichever strategy you have selected to navigate between points, and uses the height of the waypoint as input to the altitude hold function. If you are not using altitude hold, you still need to specify all three coordinates of the waypoints anyway, but the height coordinates will be ignored. When waypoint processing finishes the list, it starts over.
+
+When the throttle stick is placed in the full off position, the motor will turn off, no matter what control mode is selected. This useful when you want to pitch down to lose altitude quickly and you do not want altitude hold to turn the motor on. It is also useful if you want to use stabilization or return to launch in a sailplane while it is sailing.
+
+When the waypoint function is activated, the aircraft flies to the first waypoint along a line between its position at the time that the waypoints function is activated, and the first waypoint. If you disengage the waypoint function at any time and then reengage it, it will start over with the first waypoint on the list. So, if you decide you want to return the plane to the first point at any time, simply disengage the waypoint function, wait a couple of seconds, and reengage it.
+
+The coordinates of the waypoints must be constant C expressions. That means that you can specify them simply as numbers, or you can use expressions to simplify the specification of the waypoints. For example, the following is a valid specification of the “butterfly” course used in one of the diydrones T3 contests. CLEARANCE is used to raise the entire pattern a fixed amount, such as might be done to clear obstacles such as trees:
+
+```
+#define CORNER 100
+#define CLEARANCE 25
+
+const struct relative3D waypoints[] = {
+	{    CORNER  ,    CORNER  , CLEARANCE + 100 } ,
+	{    CORNER  ,  - CORNER  , CLEARANCE +  75 } ,
+	{  - CORNER  ,    CORNER  , CLEARANCE +  50 } ,
+	{  - CORNER  ,  - CORNER  , CLEARANCE +  25 } ,
+	{    CORNER  ,    CORNER  , CLEARANCE +  50 } ,
+	{    CORNER  ,  - CORNER  , CLEARANCE +  75 } ,
+	{  - CORNER  ,    CORNER  , CLEARANCE + 100 } ,
+	{  - CORNER  ,  - CORNER  , CLEARANCE +  75 } ,
+	{    CORNER  ,    CORNER  , CLEARANCE +  50 } ,
+	{    CORNER  ,  - CORNER  , CLEARANCE +  25 } ,
+	{  - CORNER  ,    CORNER  , CLEARANCE +  50 } ,
+	{  - CORNER  ,  - CORNER  , CLEARANCE +  75 } ,
+} ;	
+```

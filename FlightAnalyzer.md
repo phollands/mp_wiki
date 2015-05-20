@@ -1,0 +1,80 @@
+# Introduction
+
+Flight analyzer is tool for analyzing your MatrixPilot flight telemetry. The main features are:-
+
+  * Creates a time animated, colour coded sequence of your flight path in Google Earth
+  * Draws a model of your plane at least once per second showing it's orientation (Pitch, Yaw and Roll)
+  * Automatically reads your waypoints.h file to overlay waypoints into Google Earth
+  * Draws estimated wind vectors in Google Earth
+  * Displays the magnetometers understanding of North during the flight
+  * Creates a CSV spreadsheet file containing the flight telemetry for further analysis.
+
+
+# Details
+
+Flan.pyw reads output from a telemetry file - and turns it into KML that
+allows a flight to be analyzed using Google Earth (GE).
+
+Here is a picture of how flan.pyw shows your telemetry in Google Earth:-
+http://picasaweb.google.co.uk/lh/photo/nfPkZ0y0-jWEBFdBulif_w?feat=directlink
+
+Or watch this video for a short tutorial:
+http://www.vimeo.com/12028630
+
+# Getting Started
+Using Matrixpilot  you must first configure
+options.h to send the correct format of telemetry out of the serial port.
+
+In the options.h file, find the line that says :-
+#define SERIAL\_OUTPUT\_FORMAT	SERIAL\_NONE
+
+and if you are using an Xbee to send telemetry to your laptop, set the line to :-
+#define SERIAL\_OUTPUT\_FORMAT	SERIAL\_UDB
+
+If you are using an Openlog (recommended), use this line:-
+#define SERIAL\_OUTPUT\_FORMAT	SERIAL\_UDB\_EXTRA
+This will send more firmware variables per second than SERIAL\_UDB.
+
+Start up your plane and capture the telemetry into a file. (setting up
+wireless serial communications, or wired serial communications is beyond the scope
+of this document).
+
+For this example we will capture telemetry to flight15.txt
+(In In Windows I use Accessories / Communications / Hyperterminal,
+In hyper terminal I do "Transfer / Capture Text" to a file called Flight15.txt.
+At the airfield, on my laptop,  I can see the telemetry coming into the terminal
+and know that it is all being recorded. Your telemetry file must
+have a name ending in .txt or .TXT.
+
+Alternatively, if you use the Openlog, it can automatically create a new telemetry file every time you power up the plane. (e.g. LOG0002.TXT). This is much easier to use when at the airfield as you can just start up the plane, and know that the telemetry will be recorded.
+
+To use flan.pyw you will need to Install Python. The code is
+currently tested on Windows (but should work on Mac and Linux). On Windows,you can use this download (although later versions of Python should also work):-
+
+http://www.python.org/ftp/python/2.6.2/python-2.6.2.msi
+
+If you don't have python yet - I recommend using that version.
+If you already have another fairly recent version (2.5x,2.6.x ) stay with that.
+
+Then you must download flan.pyw using  a subversion client like Tortoise.
+Make sure you have the directories called "models" and "images" below
+the directory that contains flan.pyw. Those directories are vital for flan.pyw to work correctly.
+
+Double click on flan.pyw . You will be presented with a window where you
+can choose your input telemetry file, and wayoints.h file. Add them in,
+and when you have provided enough information, you will be able to press
+the Start button.
+
+The program will execute in about 2 seconds, and create one file.
+For the example above, that would be flight15.kmz.
+
+If that is all set, then simply click on the kmz file (Flight15.kmz) in Windows to launch Google Earth.
+
+Open the kmz file (in this example, flight15.kmz).
+When GE shows the file (Flight15.kmz) it will zoom into close to your flight area.
+
+To see your whole flight, you must move the sliders in the "Time Animation Slider Controls" of Google Earth towards the top of the screen.
+
+That is really it. Flan.pyw is a wonderful way to see your flights in 3D. Have fun !
+
+

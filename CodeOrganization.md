@@ -1,0 +1,20 @@
+# Code Organization
+
+Here's some brief info on how to get started digging into the MatrixPilot code base.
+
+First of all, as of MatrixPilot 3.0, the code is divided into a few sections:
+  * **libUDB** is the library that interfaces with the UAVDevBoard hardware, and gives you easy access to things like RC inputs, servo outputs, serial ports, LEDs, and gyro and accelerometer data.
+  * **libDCM** is a library that uses libUDB, and implements a Direction Cosine Matrix, which keeps track of the attitude/orientation and location of the plane.  It is used by MatrixPilot, as well as by the RollPitchYaw demo app, and the LED-Test app used for testing the board and sensors.
+  * **MatrixPilot** is an application that uses the above 2 libraries to control an RC plane.
+
+One of the best ways to learn about the architecture of MatrixPilot is to study the interrupt service routines in libUDB. MatrixPilot is run almost completely from interrupts and their timers. The interrupts are described in [an online document here](https://docs.google.com/document/pub?id=133ByuhulBTqxOuNHdbLf0cYfeiKzBoP4jNg_rGOAYpM)  ( [PDF version here](http://code.google.com/p/gentlenav/downloads/detail?name=AnIntroductiontoMatrixPilotInterrupts.pdf&can=2&q=)).
+
+
+## Portability
+
+As of MatrixPilot 3.4 we're targeting not just the dsPIC based controller boards, but also other platforms when building the code for Software-In-the-Loop [(SILSIM)](SoftwareInLoop.md) Simulation.  This means that we need to keep the code portable.  Things to keep in mind:
+  * All code that accesses hardware-specific data (timers, interrupts, RCON, etc.) needs to live in libUDB, which keeps the other sections of the code as portable as possible.
+  * And we also need to keep as much non-hardware-specific code as we can out of libUDB, to avoid needing to reimplement those parts when porting to a new platform.
+  * We now use the more specific types int8\_t, int16\_t, int32\_t, etc from stdint.h instead of char, short, int, long, etc., to make sure we end up with the same-sized variables on all platforms.
+  * We also can't assume the size of pointers.
+  * We've created a C implementation of some dsPIC assembly instructions, and parts of the microchip DSP library, and as we use more of these functions in the code, we'll need to add C-implementations of these functions as well.

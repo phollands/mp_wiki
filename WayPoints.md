@@ -1,0 +1,137 @@
+# MatrixPilot: Waypoints Installation, Setup and Operation
+
+Also available are older versions for [MatrixPilot 2.0](WayPointsMP20.md), and for [MatrixPilot 2.5](WayPointsMP25.md).
+
+MatrixPilot has the following waypoint related features:
+  * Waypoints are 3D. You can specify location of the points either relative to the initialization location of the board, or as absolute coordinates.
+  * Each waypoint can have a set of behavior flags set, which can allow commanding things like inverted flight, climbing vertically (with a 3D-capable plane), triggering a photo, turning on LEDs, targeting a camera, etc.
+  * You have the option of using either cross-track error navigation, or using navigation toward the target waypoint.
+  * When using cross-tracking, arrival at a waypoint is based on the change in sign of the projection of the vector from the location to the target onto the vector between the waypoints.  (Basically, when you pass the "finish-line" for that waypoint.)  This produces a reliable assessment of arrival, without any chance of loitering.
+  * The primary source of steering is the direction cosine matrix, so steering continues reliably and smoothly even if the GPS were to loose lock during banked turns.
+
+The waypoint function replaces the commanded return-to-launch function in MatrixNav and AileronAssist. The loss-of-signal return-to-launch function remains, but since most pilots use a radio with a fail-safe function, for all intents and purposes, waypoints completely replaces return-to-launch. However, since the autonomous command causes the waypoint function to immediately steer toward the first waypoint, you can use the waypoint function as RTL by careful selection of the first waypoint. In fact, if you select a single point waypoint with X and Y relative coordinates of 0, engaging the waypoint function will be exactly equivalent to the return to launch function.
+
+The waypoint function will work in a 3D mode with altitude hold controlling height, if it is enabled. If you do not enable altitude hold, the waypoint function will work in a 2D mode, steering and stabilizing the plane, but leaving throttle and altitude control to the pilot.
+
+
+## Specifying Waypoints
+
+The waypoints are defined in the file waypoints.h that is a header file in the project source code for the firmware. This file allows configuring the following settings:
+  * how close the plane has to get to each waypoint
+  * an optional static origin point to fix the relative waypoints into absolute locations.
+  * a list of waypoints to use when entering waypoint mode
+  * a list of waypoints to use when a loss of signal commands RTL mode  (usually these are set up to bring the plane home.)
+
+If you select cross tracking for a given waypoint, navigation towards that waypoint will be based on the perpendicular distance from the aircraft to the line between the waypoints that define the course leg. The steering angle toward the course leg is proportional to the cross track distance, up to 45 degrees at a distance of 16 meters. Beyond 16 meters, the steering angle is 45 degrees. If you select cross tracking, arrival at waypoint will be declared when the plane crosses an imaginary finish line through the target waypoint, perpendicular to the course leg.
+
+If you do not enable cross tracking, then steering will be toward the target waypoint of the course leg. Arrival at the waypoint will be declared if either the cross track arrival condition is satisfied, or if the aircraft approaches closer than the desired radius to the target waypoint (defaults to 25 meters).
+
+The waypoints themselves are specified in the file waypoints.h using a C declaration of a constant array.  For each waypoint, you can set the following information
+  * the coordinates of the point.
+  * a set of behavior-modifying flags to apply during this waypoint leg
+  * the coordinates of a camera target for this waypoint leg
+
+
+Here's a list of the available flags, from the waypoints.h file:
+```
+// F_ABSOLUTE		- Waypoints are Relative by default, unless F_ABSOLUTE is specified.
+// 
+// F_TAKEOFF		- More quickly gain altitude at takeoff.
+// F_INVERTED		- Navigate to this waypoint with the plane upside down. (only if STABILIZE_INVERTED_FLIGHT is set to 1 in options.h)
+// F_HOVER		- Hover the plane until reaching this waypoint. (only if STABILIZE_HOVER is set to 1 in options.h)
+//			  NOTE: while hovering, no navigation is performed, and throttle is under manual control.
+// F_LOITER		- After reaching this waypoint, continue navigating towards this same waypoint.  Repeat until leaving waypoint mode.
+// F_TRIGGER		- Trigger an action to happen when this waypoint leg starts.  (See the Trigger Action section of the options.h file.) 
+// F_ALTITUDE_GOAL	- Climb or descend to the given altitude, then continue to the next waypoint.
+// F_CROSS_TRACK	- Navigate using cross-tracking.  Best used for longer waypoint legs.
+// F_LAND		- Navigate towards this waypoint with the throttle off.
+// 
+// 
+// NOTE: Please be very careful when including inverted or hovering legs in a waypoints list.  Even if your plane does not fly well
+//       in these orientations, or if you fly these legs without power, the UDB will keep on trying to maintain these orientations
+//       which could lead to a crash.  If you try to manually recover from this behavior, remember to switch out of waypoiont mode
+//       first, to avoid fighting the stabilization code.
+// 
+```
+
+
+And info on camera targeting:
+```
+// Camera View Points are now part of a waypoint definition file. The waypoint definition structure requires
+// a camera viewpoint even if you do not have a camera on your plane. (until we move to having a flight
+// planning language).  As a default, you can use the predefined CAM_VIEW_LAUNCH which points at { 0, 0, 0 }.
+// 
+// Camera Viewpoints are exactly like waypoint definitions. They define a point at which
+// the camera will look in 3 dimensions. If you are using a waypoint relative to the initialisation of your 
+// plane, then the camera viewpoint should also be relative e.g. "{ 32 , -22, 0 )".
+// Camera waypoints can be absolute LAT and LONG, and camera target height is height above initalisation.
+// This is the same as a fixed or absolute waypoint.
+// Finally, do not mix relative waypoints and absolute camera viewpoint in the same line. A line should
+// either use both a fixed waypoint and fixed camera viewpoint, or both relative.
+```
+
+
+Each waypoint is specified as the three coordinates, measured in meters, relative to the initialization location of the board, followed by a set of flags that are added together, followed by a camera target. The C syntax allows an optional comma after the last waypoint in the list. The valid range for each of the coordinates is plus or minus 32767 meters, though in the US you are supposed to maintain visual contact at all times.
+The first coordinate (X) is measured toward the east from the initialization point. The second coordinate (Y) is measured toward the north. The third coordinate (Z) is the height above the initialization point.
+
+There is no need for you to indicate how many waypoints you have specified, the compiler will count them for you.
+
+Here is a simple example that I use for testing and debugging, with two points:
+
+```
+const struct waypointDef waypoints[] = {
+	{ {   0,   0, 100}, F_NORMAL, CAM_VIEW_LAUNCH }, // 100 meters above the power-up location
+	{ {  80, 173, 100}, F_NORMAL, CAM_VIEW_LAUNCH }, // 100 meters above a point 80 meters east and 173 meters north of the power-up location
+};
+```
+
+Both points are set up to have no flags set (F\_NORMAL), and are using the built-in default camera target, which points at the startup location.  CAM\_VIEW\_LAUNCH is equivalent to using {0, 0, 0}.
+
+You do not have to worry about the first and last line of the definition, it will never change. All you have to do is fill in the points, flags, and camera target.
+
+Here is another example in which the waypoint function is set up to return to launch.  In this example, we're telling the plane to fly back to a point 100 meters above the power-up location, and then turn off power and loiter there, which will eventually bring the plane to the ground.  But note that this may not be the smoothest landing ever, since the plane might be turning fairly steeply when it touches down.
+
+```
+const struct waypointDef waypoints[] = {
+	{ { 0, 0, 100 }, F_NORMAL, CAM_VIEW_LAUNCH }
+	{ { 0, 0,   0 }, F_LAND + F_LOITER, CAM_VIEW_LAUNCH }
+} ;
+```
+
+
+The coordinates of the waypoints must be constant C expressions. That means that you can specify them simply as numbers, or you can use expressions to simplify the specification of the waypoints. For example, the following is a valid specification of the "butterfly" course used in one of the diydrones T3 contests. CLEARANCE is used to raise the entire pattern a fixed amount, such as might be done to clear obstacles such as trees:
+
+```
+#define CORNER 100
+#define CLEARANCE 25
+
+const struct waypointDef waypoints[] = {
+	{ {    CORNER  ,    CORNER  , CLEARANCE + 100 }, F_NORMAL, CAM_VIEW_LAUNCH } ,
+	{ {    CORNER  ,  - CORNER  , CLEARANCE +  75 }, F_NORMAL, CAM_VIEW_LAUNCH } ,
+	{ {  - CORNER  ,    CORNER  , CLEARANCE +  50 }, F_NORMAL, CAM_VIEW_LAUNCH } ,
+	{ {  - CORNER  ,  - CORNER  , CLEARANCE +  25 }, F_NORMAL, CAM_VIEW_LAUNCH } ,
+	{ {    CORNER  ,    CORNER  , CLEARANCE +  50 }, F_NORMAL, CAM_VIEW_LAUNCH } ,
+	{ {    CORNER  ,  - CORNER  , CLEARANCE +  75 }, F_NORMAL, CAM_VIEW_LAUNCH } ,
+	{ {  - CORNER  ,    CORNER  , CLEARANCE + 100 }, F_NORMAL, CAM_VIEW_LAUNCH } ,
+	{ {  - CORNER  ,  - CORNER  , CLEARANCE +  75 }, F_NORMAL, CAM_VIEW_LAUNCH } ,
+	{ {    CORNER  ,    CORNER  , CLEARANCE +  50 }, F_NORMAL, CAM_VIEW_LAUNCH } ,
+	{ {    CORNER  ,  - CORNER  , CLEARANCE +  25 }, F_NORMAL, CAM_VIEW_LAUNCH } ,
+	{ {  - CORNER  ,    CORNER  , CLEARANCE +  50 }, F_NORMAL, CAM_VIEW_LAUNCH } ,
+	{ {  - CORNER  ,  - CORNER  , CLEARANCE +  75 }, F_NORMAL, CAM_VIEW_LAUNCH } ,
+} ;
+```
+
+In case you are interested, the waypoints are defined as an array named waypoints, of structures of type waypointDef, defined elsewhere in the firmware. It is a constant array, so the compiler will store it in program memory. There is plenty of unused program space, so you can define on the order of 400 waypoints.
+
+
+## Using Waypoints
+
+Activation of the waypoint function is achieved the same way as the return to launch function that it replaces. There are three control modes: manual, stabilized, and waypoint navigation, that are selected by an RC channel on your transmitter (ideally a three position switch).
+
+Each time you switch into waypoint mode, the aircraft begins flying to each waypoint in the list in sequence, starting with the first one. It uses whichever strategy you have selected to navigate between points, and uses the height of the waypoint as input to the altitude hold function. If you are not using altitude hold, you still need to specify all three coordinates of the waypoints anyway, but the height coordinates will be ignored.
+
+When waypoint processing finishes the list, it starts over.  The exception to this rule is that when you have F\_LOITER set for a waypoint, that waypoint will remain your goal until you switch out of waypoint mode.  Upon switching back into waypoint mode, the first waypoint will become your you will remain
+
+When the throttle stick is placed in the full off position, the motor will turn off, no matter what control mode is selected. This useful when you want to pitch down to lose altitude quickly and you do not want altitude hold to turn the motor on. It is also useful if you want to use stabilization or return to launch in a sailplane while it is sailing.
+
+When the waypoint function is activated, the aircraft flies to the first waypoint along a line between its position at the time that the waypoints function is activated, and the first waypoint. If you disengage the waypoint function at any time and then reengage it, it will start over with the first waypoint on the list. So, if you decide you want to return the plane to the first point at any time, simply disengage the waypoint function, wait a couple of seconds, and reengage it.

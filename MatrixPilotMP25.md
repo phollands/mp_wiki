@@ -1,0 +1,62 @@
+# MatrixPilot: Overview
+
+MatrixPilot is the latest version of the firmware for the UAV Dev Board. It combines the features of MatrixNav and AileronAssist into one code base, adds some important new features, and allows much more configuration than previous firmwares.
+
+The code is located here: http://code.google.com/p/gentlenav/source/browse/#svn/trunk/MatrixPilot
+
+You can also check out the [project status](ProjectStatus.md).
+
+
+## Supported Air Frames
+
+The new firmware will be able to be used to control a wide variety of airframes:
+  * **Standard Airplane**: Stabilize and navigate using elevator, and either ailerons, rudder, or both.  This is the Airframe type to use if you're upgrading from AileronAssist or MatrixNav.
+  * **Delta Wing**: Similar to the **Standard Airplane**, but all control is performed through the 2 "elevon" control surfaces.
+  * **V-Tail**: Similar to the **Standard Airplane**, but rudder and elevator channels are mixed for a V-Tail configuration.
+
+
+## More Radio Inputs and Servo Outputs
+
+MatrixPilot currently supports up to 5 Radio Inputs, and up to 6 Servo Outputs.  For each of the input and output channels, you can easily configure what function it serves.
+
+Each Input channel can be configured as one of the following:
+  * **Throttle**
+  * **Aileron**
+  * **Elevator**
+  * **Rudder**
+  * **Mode Switch**: Control the state of the firmware between manual, auto (you can still add your control on top of the stabilization), and return-to-launch (you can still add your control on top of the stabilization and navigation)
+  * **Camera Roll**, **Camera Pitch**, and **Camera Yaw** controls for manually aiming an on-board camera
+
+Each Output channel can be configured as one of the following:
+  * **Throttle**
+  * **Aileron**
+  * **Elevator**
+  * **Rudder**
+  * **2nd Aileron** (separately reversible from the main aileron output)
+  * **Camera Roll**, **Camera Pitch**, and **Camera Yaw** controls for stabilizing and targeting an on-board camera
+
+Each of the 3 hardware switches on the board can also be configured to reverse any of the output channels.
+
+
+## Connecting the Extra Input and Output Channels
+
+The board includes built-in conections for 4 Radio Input and 3 Servo Output channels.  To use the 5th Input channel, and the 4th, 5th, and 6th Output channels, see the ConnectingExtraChannels page.
+
+
+## Compatible with newer, better GPS
+
+MatrixPilot is now also campatible with the [uBlox 5H GPS](http://store.diydrones.com/ProductDetails.asp?ProductCode=SPK-GPS-GS407) which provides very accurate data at 4Hz.  This allows us to make faster, more accurate turns towards waypoints.
+
+
+## Telemetry
+
+MatrixPilot has support for outputting telemetry data in one of a few different formats.  If you add an XBee radio, or something similar, you can monitor your plane's status from the ground while flying.
+
+  * **UDB:** This format is compatible with Pete's script to visualize flights in Google Earth.
+  * **ArduStation:** This format is compatible with the ArduPilot ground station, and the ArduStation hardware ground station.
+  * **OSD\_Remzibi:** This format can be wired directly into the Remzibi On-Screen-Display to show important data on an overlay on top of your live, first-person video feed coming from the plane, if you're rigged up for that.
+
+
+## Camera Stabilization
+
+MatrixPilot 2.5 includes the ability to stabilize a camera, and even to have the UDB automatically keep a camera targeted at a specific location in 3D space.
